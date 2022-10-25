@@ -5,14 +5,14 @@
  * @format
  */
 const path = require('path')
+
 const extraNodeModules = {
-  '@/config.json': path.resolve(__dirname + '/../../../config.json'),
+  '@/config.json': path.resolve(__dirname + '/../../../src/config.json'),
   '@/packages': path.resolve(__dirname + '/../../../src/packages'),
   '@/utils': path.resolve(__dirname + '/../../../src/utils'),
   '@': path.resolve(__dirname + '/../../../src'),
 }
 const watchFolders = [
-  path.resolve(__dirname + '/../../../config.json'),
   path.resolve(__dirname + '/../../../src/packages'),
   path.resolve(__dirname + '/../../../src/utils'),
   path.resolve(__dirname + '/../../../src'),
@@ -28,7 +28,12 @@ module.exports = {
     }),
   },
   resolver: {
-    extraNodeModules,
+    extraNodeModules: new Proxy(extraNodeModules, {
+      get: (target, name) =>
+        name in target
+          ? target[name]
+          : path.join(process.cwd(), `node_modules/${name}`),
+    }),
   },
   watchFolders,
 }
