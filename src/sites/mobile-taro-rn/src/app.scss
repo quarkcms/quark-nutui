@@ -1,0 +1,27 @@
+.demo {
+  height: 100%;
+  background: #f7f8fa;
+  padding: 0px 17px 10px 17px;
+
+  &.bg-w {
+    background: #fff;
+  }
+}
+
+.demo-h2 {
+  margin-top: 30px;
+  // margin-bottom: 10px;
+  font-size: 14px;
+  color: rgba(144, 156, 164, 1);
+  padding: 0 10px;
+  font-weight: normal;
+}
+
+.demo-p {
+  font-size: 12px;
+}
+
+.demo-card {
+  padding: 25px 18px;
+  background: rgba(255, 255, 255, 1);
+}

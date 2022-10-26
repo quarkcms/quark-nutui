@@ -53,6 +53,7 @@
     "react-dom": "^18.0.0",
     "react-native": "^0.69.3",
     "react-refresh": "^0.14.0",
+    "react-router-dom": "^6.4.2",
     "webpack": "^5.74.0"
   },
   "devDependencies": {
