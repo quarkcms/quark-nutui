@@ -23,6 +23,8 @@ export interface CellProps extends IComponent {
   className: string
   iconSlot: ReactNode
   linkSlot: ReactNode
+  cellGroup: boolean
+  isLast: boolean
   click: (event: any) => void
   onClick: (event: any) => void
 }
@@ -44,13 +46,13 @@ const defaultProps = {
   className: '',
   iconSlot: null,
   linkSlot: null,
+  cellGroup: false,
+  isLast: false,
   click: (event: any) => {},
   onClick: (event: any) => {},
 } as CellProps
 
-export const Cell: FunctionComponent<
-  Partial<CellProps> & Omit<React.HTMLAttributes<HTMLDivElement>, 'title'>
-> = (props) => {
+export const Cell: FunctionComponent<Partial<CellProps>> = (props) => {
   const {
     children,
     click,
@@ -70,6 +72,8 @@ export const Cell: FunctionComponent<
     className,
     iconSlot,
     linkSlot,
+    cellGroup,
+    isLast,
     iconClassPrefix,
     iconFontClassName,
     ...rest
@@ -112,12 +116,18 @@ export const Cell: FunctionComponent<
   return (
     <View
       className={`${b(
-        { clickable: !!(isLink || to), center, large: size === 'large' },
+        {
+          clickable: !!(isLink || to),
+          center,
+          large: size === 'large',
+          cellGroup: cellGroup,
+          isLast: isLast,
+        },
         [className]
       )} `}
       onClick={(event) => handleClick(event)}
       style={baseStyle}
-      // {...rest}
+      {...rest}
     >
       {children || (
         <>
@@ -136,7 +146,11 @@ export const Cell: FunctionComponent<
           ) : null}
           {title || subTitle ? (
             <View className={`${b('title')}`}>
-              {title ? <View className={b('maintitle')}>{title}</View> : null}
+              {title ? (
+                <View className={b('maintitle', { large: size === 'large' })}>
+                  {title}
+                </View>
+              ) : null}
               {subTitle ? (
                 <View className={b('subtitle', { large: size === 'large' })}>
                   {subTitle}
@@ -148,6 +162,7 @@ export const Cell: FunctionComponent<
             <View
               className={b('value', {
                 alone: !title && !subTitle,
+                large: size === 'large',
               })}
               style={styles as React.CSSProperties}
             >

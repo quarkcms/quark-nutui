@@ -1,5 +1,6 @@
 import React, { FunctionComponent, ReactNode } from 'react'
 import { View } from '@tarojs/components'
+import '@/packages/cellgroup/cellgroup.rn.scss'
 
 import bem from '@/utils/bem'
 
@@ -26,6 +27,7 @@ export const CellGroup: FunctionComponent<Partial<CellGroupProps>> = (
     ...props,
   }
   const b = bem('cell-group')
+
   return (
     <View className={b(null, [classPrefix])}>
       {titleSlot || (
@@ -35,7 +37,17 @@ export const CellGroup: FunctionComponent<Partial<CellGroupProps>> = (
         <>{title ? <View className={b('desc')}>{desc}</View> : null}</>
       )}
 
-      <View className={b('wrap')}>{children}</View>
+      <View className={b('wrap')}>
+        {Array.isArray(children)
+          ? children.map((o: any, i: any) => {
+              return React.cloneElement(o, {
+                key: i,
+                cellGroup: true,
+                isLast: i + 1 == children.length,
+              })
+            })
+          : children}
+      </View>
     </View>
   )
 }
