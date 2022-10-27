@@ -3,6 +3,7 @@ import Taro from '@tarojs/taro'
 import { View } from '@tarojs/components'
 import bem from '@/utils/bem'
 import Icon from '@/packages/icon/index.taro.rn'
+import '@/packages/cell/cell.rn.scss'
 
 import { IComponent, ComponentDefaults } from '@/utils/typings'
 

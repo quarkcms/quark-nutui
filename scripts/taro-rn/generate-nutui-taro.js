@@ -55,8 +55,19 @@ fs.outputFile(
   }
 )
 
+// let fileStr = `${importStr}
+// ${importScssStr}
+// export { ${packages.join(',')} };`
+// fs.outputFile(
+//   path.resolve(__dirname, '../../src/packages/nutui.react.taro.rn.ts'),
+//   fileStr,
+//   'utf8',
+//   (error) => {
+//     if (error) throw error
+//   }
+// )
+
 let fileStr = `${importStr}
-${importScssStr}
 export { ${packages.join(',')} };`
 fs.outputFile(
   path.resolve(__dirname, '../../src/packages/nutui.react.taro.rn.ts'),
@@ -67,14 +78,14 @@ fs.outputFile(
   }
 )
 
-fs.outputFile(
-  path.resolve(__dirname, '../../src/packages/nutui.react.rn.scss.ts'),
-  importScssStr,
-  'utf8',
-  (error) => {
-    if (error) throw error
-  }
-)
+// fs.outputFile(
+//   path.resolve(__dirname, '../../src/packages/nutui.react.rn.scss.ts'),
+//   importScssStr,
+//   'utf8',
+//   (error) => {
+//     if (error) throw error
+//   }
+// )
 
 let mdFileStr = `${importMarkdownStr}
 export const routers = [${mds.map((m) => `'${m}'`)}]
