@@ -1,0 +1,36 @@
+.nut-countup {
+  &__list {
+    display: inline-flex;
+    height: $countup-height;
+    overflow: hidden;
+  }
+  &__listitem {
+    height: $countup-height;
+    overflow: hidden;
+    font-size: $countup-base-size;
+    color: #000;
+    font-weight: bold;
+  }
+  &__number,
+  &__separator {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    span {
+      height: $countup-height;
+      line-height: $countup-height;
+    }
+  }
+}
+// 自定义样式
+.custom-coutup {
+  .nut-countup__listitem--number {
+    margin: 0 $countup-lr-margin;
+    border-radius: $countup-border-raduis;
+    color: $countup-color;
+    background-color: $countup-bgcolor;
+  }
+  .nut-countup__number {
+    width: $countup-width;
+  }
+}

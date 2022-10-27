@@ -1,0 +1,17 @@
+@import '../button/button';
+.nut-signature {
+  &__inner {
+    height: $signature-height;
+    margin-bottom: $signature-margin-bottom;
+    border: $signature-border-width solid $signature-border-color;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+  &__unsopport {
+    font-size: $font-size-base;
+  }
+  &__btn {
+    margin-right: $signature-btn-margin-right !important;
+  }
+}

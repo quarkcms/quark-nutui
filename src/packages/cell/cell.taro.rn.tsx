@@ -1,121 +1,173 @@
-import React from 'react'
-import { View, Text } from '@tarojs/components'
+import React, { FunctionComponent, ReactNode } from 'react'
+import Taro from '@tarojs/taro'
+import { View } from '@tarojs/components'
+import bem from '@/utils/bem'
+import Icon from '@/packages/icon/index.taro.rn'
 
-import { useTranslate } from '@/sites/assets/locale/taro'
-import { Cell, CellGroup } from '@/packages/nutui.react.taro.rn'
+import { IComponent, ComponentDefaults } from '@/utils/typings'
 
-interface T {
-  basic: string
+export interface CellProps extends IComponent {
+  title: ReactNode
+  subTitle: ReactNode
   desc: string
-  desc1: string
-  title: string
-  title1: string
-  title2: string
-  title3: string
-  title4: string
-  title5: string
-  title6: string
-  title7: string
-  title8: string
-  title9: string
-  link: string
-  urlJump: string
-  routerJump: string
-  name: string
-  image: string
-  content: string
-  customRight: string
-  customLeftIcon: string
-  displayIcon: string
+  descTextAlign: string
+  isLink: boolean
+  icon: string
+  roundRadius: string | number
+  url: string
+  to: string
+  replace: boolean
+  center: boolean
+  size: string
+  className: string
+  iconSlot: ReactNode
+  linkSlot: ReactNode
+  click: (event: any) => void
+  onClick: (event: any) => void
 }
 
-const CellDemo = () => {
-  const [translated] = useTranslate<T>({
-    'zh-CN': {
-      basic: '基本用法',
-      desc: '描述文字',
-      desc1: '使用 nut-cell-group 支持 title desc slots',
-      title: '我是标题',
-      title1: '副标题描述',
-      title2: '直接使用插槽(slot)',
-      title3: '点击测试',
-      title4: '圆角设置 0',
-      title5: '链接 | 分组用法',
-      title6: '只展示 desc ，可通过 desc-text-align 调整内容位置',
-      title7: '垂直居中',
-      title8: '直接使用插槽(slot title)',
-      title9: '尺寸设置 large',
-      link: '链接',
-      urlJump: 'URL 跳转',
-      routerJump: '路由跳转 ’/‘ ',
-      name: '姓名',
-      image: '图片',
-      content: '自定义内容',
-      customRight: '自定义右侧箭头区域',
-      customLeftIcon: '自定义左侧 Icon 区域',
-      displayIcon: '展示图标',
-    },
-    'zh-TW': {
-      basic: '基本用法',
-      desc: '描述文字',
-      desc1: '使用 nut-cell-group 支持 title desc slots',
-      title: '我是標題',
-      title1: '副標題描述',
-      title2: '直接使用插槽(slot)',
-      title3: '點擊測試',
-      title4: '圓角設置 0',
-      title5: '鏈接 | 分組用法',
-      title6: '只展示 desc ，可通過 desc-text-align 調整內容位置',
-      title7: '垂直居中',
-      title8: '直接使用插槽(slot title)',
-      title9: '尺寸設置 large',
-      link: '鏈接',
-      urlJump: 'URL 跳轉',
-      routerJump: '路由跳轉 』/『 ',
-      name: '姓名',
-      image: '圖片',
-      content: '自定義內容',
-      customRight: '自定義右側箭頭區域',
-      customLeftIcon: '自定義左側 Icon 區域',
-      displayIcon: '展示圖標',
-    },
-    'en-US': {
-      basic: 'Basic Usage',
-      desc: 'Description',
-      desc1: 'Usage nut-cell-group support title desc slots',
-      title: 'Title',
-      title1: 'Subtitle Description',
-      title2: 'Use Slots',
-      title3: 'Click Test',
-      title4: 'Round Radius 0',
-      title5: 'Link | CellGroup Usage',
-      title6:
-        'Only display desc , you can adjust the content position through desc-text-align',
-      title7: 'Vertical Center',
-      title8: 'Use Slots title',
-      title9: 'Size setting large',
-      link: 'Link',
-      urlJump: 'URL Jump',
-      routerJump: 'Router Jump ’/‘ ',
-      name: 'Name',
-      image: 'Image',
-      content: 'Content',
-      customRight: 'Customize the right arrow area',
-      customLeftIcon: 'Customize the left Icon area',
-      displayIcon: 'Display Icon',
-    },
-  })
-  const testClick = (event: React.MouseEvent<any, any>) => {
-    console.log('点击事件')
+const defaultProps = {
+  ...ComponentDefaults,
+  title: null,
+  subTitle: null,
+  desc: '',
+  descTextAlign: 'right',
+  isLink: false,
+  icon: '',
+  roundRadius: '6px',
+  url: '',
+  to: '',
+  replace: false,
+  center: false,
+  size: '',
+  className: '',
+  iconSlot: null,
+  linkSlot: null,
+  click: (event: any) => {},
+  onClick: (event: any) => {},
+} as CellProps
+
+export const Cell: FunctionComponent<
+  Partial<CellProps> & Omit<React.HTMLAttributes<HTMLDivElement>, 'title'>
+> = (props) => {
+  const {
+    children,
+    click,
+    onClick,
+    title,
+    subTitle,
+    desc,
+    descTextAlign,
+    isLink,
+    icon,
+    roundRadius,
+    url,
+    to,
+    replace,
+    center,
+    size,
+    className,
+    iconSlot,
+    linkSlot,
+    iconClassPrefix,
+    iconFontClassName,
+    ...rest
+  } = {
+    ...defaultProps,
+    ...props,
   }
+  const b = bem('cell')
+  const handleClick = (event: any) => {
+    click(event)
+    onClick(event)
+    if (url) {
+      if (
+        url.startsWith('https://') ||
+        url.startsWith('http://') ||
+        url.startsWith('//')
+      ) {
+        Taro.showToast({
+          title: '暂不支持此属性',
+          icon: 'error',
+          duration: 2000,
+        })
+      } else {
+        Taro.navigateTo({ url })
+      }
+    }
+  }
+
+  const baseStyle = {
+    borderRadius: parseInt(String(roundRadius)),
+  }
+
+  const styles =
+    title || subTitle || icon
+      ? {}
+      : {
+          textAlign: descTextAlign,
+          flex: 1,
+        }
   return (
-    <>
-      <View className="demo">
-        <Text className="demo-h2">{translated.basic}</Text>
-        <Cell title={translated.title} desc={translated.desc} />
-      </View>
-    </>
+    <View
+      className={`${b(
+        { clickable: !!(isLink || to), center, large: size === 'large' },
+        [className]
+      )} `}
+      onClick={(event) => handleClick(event)}
+      style={baseStyle}
+      {...rest}
+    >
+      {children || (
+        <>
+          {icon || iconSlot ? (
+            <View className={b('icon')}>
+              {iconSlot ||
+                (icon ? (
+                  <Icon
+                    classPrefix={iconClassPrefix}
+                    fontClassName={iconFontClassName}
+                    name={icon}
+                    className="icon"
+                  />
+                ) : null)}
+            </View>
+          ) : null}
+          {title || subTitle ? (
+            <View className={`${b('title')}`}>
+              {title ? <View className={b('maintitle')}>{title}</View> : null}
+              {subTitle ? (
+                <View className={b('subtitle', { large: size === 'large' })}>
+                  {subTitle}
+                </View>
+              ) : null}
+            </View>
+          ) : null}
+          {desc ? (
+            <View
+              className={b('value', {
+                alone: !title && !subTitle,
+              })}
+              style={styles as React.CSSProperties}
+            >
+              {desc}
+            </View>
+          ) : null}
+          {!linkSlot && (isLink || to) ? (
+            <Icon
+              classPrefix={iconClassPrefix}
+              fontClassName={iconFontClassName}
+              name="right"
+              className={b('link')}
+            />
+          ) : (
+            linkSlot
+          )}
+        </>
+      )}
+    </View>
   )
 }
 
-export default CellDemo
+Cell.defaultProps = defaultProps
+Cell.displayName = 'NutCell'

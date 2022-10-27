@@ -1,0 +1,37 @@
+@import '../icon/icon.scss';
+
+.nut-rate {
+  display: flex;
+  &-item {
+    display: flex;
+    flex-shrink: 0;
+    position: relative;
+
+    &__icon {
+      color: $rate-icon-color;
+      cursor: pointer;
+      &--disabled {
+        color: $rate-icon-void-color;
+      }
+
+      &.nut-rate-item__icon.nut-rate-item__icon--half {
+        position: absolute;
+        width: 50% !important;
+        left: 0;
+        top: 0;
+        overflow: hidden;
+      }
+
+      &.nut-rate-item__icon::before {
+        position: relative;
+        top: auto;
+        left: auto;
+        transform: none;
+      }
+    }
+
+    &:last-child {
+      margin-right: 0;
+    }
+  }
+}

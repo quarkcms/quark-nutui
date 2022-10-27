@@ -1,0 +1,123 @@
+@import '../popup/popup.scss';
+.nut-picker {
+  background-color: #fff;
+  width: 100%;
+}
+.nut-picker__control {
+  display: flex;
+  height: 56px;
+  font-size: 16px;
+  align-items: center;
+  justify-content: space-between;
+  padding: 15px;
+
+  .nut-picker__cancel-btn {
+    color: #fa2c19;
+  }
+  .nut-picker__title {
+    flex: 1;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+    text-align: center;
+  }
+}
+.nut-picker__panel {
+  display: flex;
+  position: relative;
+
+  .nut-picker-indicator {
+    position: absolute;
+    top: 108px;
+    height: 36px;
+    width: 100%;
+    border-top: 1px solid #ececec;
+    border-bottom: 1px solid #ececec;
+    z-index: 3;
+  }
+}
+
+.nut-picker-list {
+  flex: 1;
+  position: relative;
+  height: 252px;
+  overflow: hidden;
+  text-align: center;
+  .nut-picker-list-panel {
+    transform-style: preserve-3d;
+  }
+  .nut-picker-mask {
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background-image: linear-gradient(
+        180deg,
+        rgba(255, 255, 255, 0.9),
+        rgba(255, 255, 255, 0.4)
+      ),
+      linear-gradient(0deg, rgba(255, 255, 255, 0.9), rgba(255, 255, 255, 0.4));
+    background-position: top, bottom;
+    background-size: 100% 108px;
+    background-repeat: no-repeat;
+    z-index: 3;
+  }
+
+  .nut-picker-content,
+  .nut-picker-roller {
+    position: absolute;
+    top: 108px;
+    width: 100%;
+    height: 36px;
+  }
+  .nut-picker-content {
+    background: #fff;
+    z-index: 2;
+    overflow: hidden;
+  }
+  .nut-picker-item,
+  .nut-picker-roller-item {
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    height: 36px;
+    line-height: 36px;
+    color: #262626;
+    font-size: 14px;
+    text-align: center;
+  }
+  .nut-picker-item {
+    font-size: 16px;
+    background: #fff;
+  }
+  .nut-picker-roller {
+    z-index: 1;
+    transform-style: preserve-3d;
+    .nut-picker-roller-item {
+      backface-visibility: hidden;
+      -moz-backface-visibility: hidden;
+      -webkit-backface-visibility: hidden;
+      position: absolute;
+      top: 0;
+      width: 100%;
+      color: #262626;
+    }
+
+    .nut-picker-roller-item-tile {
+      display: block;
+      width: 100%;
+      height: 36px;
+      line-height: 36px;
+      color: #262626;
+      font-size: 14px;
+    }
+    .nut-picker-roller-item-hidden {
+      visibility: hidden;
+      opacity: 0;
+    }
+  }
+}
+.nut-picker-placeholder {
+  height: 1px;
+}

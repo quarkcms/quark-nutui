@@ -1,6 +1,8 @@
 import React from 'react'
+import { View, Text } from '@tarojs/components'
+
 import { useTranslate } from '@/sites/assets/locale/taro'
-import { Switch, Cell, CellGroup } from '@/packages/nutui.react.taro'
+import { Cell, CellGroup } from '@/packages/nutui.react.taro.rn'
 
 interface T {
   basic: string
@@ -103,86 +105,15 @@ const CellDemo = () => {
       displayIcon: 'Display Icon',
     },
   })
-  const testClick = (
-    event: React.MouseEvent<HTMLDivElement, globalThis.MouseEvent>
-  ) => {
+  const testClick = (event: React.MouseEvent<any, any>) => {
     console.log('点击事件')
   }
   return (
     <>
-      <div className="demo">
-        <h2>{translated.basic}</h2>
+      <View className="demo">
+        <Text className="demo-h2">{translated.basic}</Text>
         <Cell title={translated.title} desc={translated.desc} />
-        <Cell
-          title={translated.title}
-          subTitle={translated.title1}
-          desc={translated.desc}
-        />
-        <Cell
-          title={translated.title3}
-          onClick={(
-            event: React.MouseEvent<HTMLDivElement, globalThis.MouseEvent>
-          ) => testClick(event)}
-        />
-        <Cell title={translated.title4} roundRadius="0" />
-        <h2>尺寸设置large</h2>
-        <Cell size="large" title={translated.title} desc={translated.desc} />
-        <Cell
-          size="large"
-          title={translated.title}
-          subTitle={translated.title1}
-          desc={translated.desc}
-        />
-        <h2>{translated.title2}</h2>
-        <Cell>
-          <div>{translated.content}</div>
-        </Cell>
-        <h2>{translated.title8}</h2>
-        <Cell
-          title={
-            <span>
-              Title <b style={{ color: 'red' }}>1</b>
-            </span>
-          }
-          desc={translated.desc}
-        />
-        <CellGroup title={translated.title5} desc={translated.desc1}>
-          <Cell title={translated.link} isLink />
-          <Cell
-            title={translated.urlJump}
-            desc="跳转小程序demo库首页"
-            isLink
-            url="/pages/index/index"
-          />
-          <Cell title={translated.routerJump} to="/" />
-        </CellGroup>
-        <CellGroup title={translated.customRight}>
-          <Cell title="Switch" linkSlot={<Switch checked />} />
-        </CellGroup>
-        <CellGroup title={translated.customLeftIcon}>
-          <Cell
-            title={translated.image}
-            iconSlot={
-              <img
-                className="nut-icon"
-                alt=""
-                src="https://img11.360buyimg.com/imagetools/jfs/t1/137646/13/7132/1648/5f4c748bE43da8ddd/a3f06d51dcae7b60.png"
-              />
-            }
-          />
-        </CellGroup>
-        <h2>{translated.displayIcon}</h2>
-        <Cell title={translated.name} icon="my" desc={translated.desc} isLink />
-        <h2>{translated.title6}</h2>
-        <Cell descTextAlign="left" desc={translated.desc} />
-        <h2>垂直居中</h2>
-        <Cell
-          center
-          title={translated.title}
-          subTitle={translated.title1}
-          desc={translated.desc}
-        />
-      </div>
+      </View>
     </>
   )
 }
