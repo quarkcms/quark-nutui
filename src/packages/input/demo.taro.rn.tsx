@@ -1,6 +1,6 @@
 import React, { useState } from 'react'
 import { useTranslate } from '@/sites/assets/locale/taro'
-import { Input, Button } from '@/packages/nutui.react.taro'
+import { Input, Button } from '@/packages/nutui.react.taro.rn'
 
 interface Idata {
   val1: string

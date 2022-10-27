@@ -6,7 +6,7 @@ import {
   Checkbox,
   CheckboxGroup,
   Toast,
-} from '@/packages/nutui.react.taro'
+} from '@/packages/nutui.react.taro.rn'
 import '@/packages/checkbox/demo.scss'
 
 interface T {

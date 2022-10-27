@@ -1,7 +1,7 @@
 import React, { useState } from 'react'
 import Taro from '@tarojs/taro'
 import { useTranslate } from '@/sites/assets/locale/taro'
-import { NavBar, Tabs, TabPane, Icon } from '@/packages/nutui.react.taro'
+import { NavBar, Tabs, TabPane, Icon } from '@/packages/nutui.react.taro.rn'
 
 interface T {
   ce5c5446: string

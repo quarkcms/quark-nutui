@@ -1,6 +1,6 @@
 import React, { useState } from 'react'
 import { useTranslate } from '@/sites/assets/locale/taro'
-import { Button, Cell, Overlay } from '@/packages/nutui.react.taro'
+import { Button, Cell, Overlay } from '@/packages/nutui.react.taro.rn'
 import '@/packages/overlay/demo.scss'
 
 interface T {

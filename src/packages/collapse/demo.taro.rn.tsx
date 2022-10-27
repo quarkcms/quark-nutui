@@ -1,5 +1,5 @@
 import React, { useState } from 'react'
-import { Collapse, CollapseItem, Button } from '@/packages/nutui.react.taro'
+import { Collapse, CollapseItem, Button } from '@/packages/nutui.react.taro.rn'
 
 const oldDate = [
   {

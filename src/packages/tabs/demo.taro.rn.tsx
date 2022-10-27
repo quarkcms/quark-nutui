@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from 'react'
-import { Tabs, TabPane, Icon } from '@/packages/nutui.react.taro'
+import { Tabs, TabPane, Icon } from '@/packages/nutui.react.taro.rn'
 import { useTranslate } from '@/sites/assets/locale/taro'
 
 interface T {

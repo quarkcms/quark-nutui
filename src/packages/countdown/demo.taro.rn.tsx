@@ -1,5 +1,5 @@
 import React, { useEffect, useRef, useState } from 'react'
-import { Button, Cell, CountDown } from '@/packages/nutui.react.taro'
+import { Button, Cell, CountDown } from '@/packages/nutui.react.taro.rn'
 
 const CountDownDemo = () => {
   const stateRef = useRef({

@@ -1,6 +1,6 @@
 import React from 'react'
 import Taro from '@tarojs/taro'
-import { Rate, Cell } from '@/packages/nutui.react.taro'
+import { Rate, Cell } from '@/packages/nutui.react.taro.rn'
 
 const RateDemo = () => {
   const onChange = (val: any) => {

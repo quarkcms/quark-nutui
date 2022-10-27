@@ -1,5 +1,5 @@
 import React from 'react'
-import { ConfigProvider, TextArea } from '@/packages/nutui.react.taro'
+import { ConfigProvider, TextArea } from '@/packages/nutui.react.taro.rn'
 import enUS from '../../locales/en-US'
 import zhCN from '../../locales/zh-CN'
 import zhTW from '../../locales/zh-TW'

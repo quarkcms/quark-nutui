@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from 'react'
-import { Cell, Price } from '@/packages/nutui.react.taro'
+import { Cell, Price } from '@/packages/nutui.react.taro.rn'
 import { useTranslate } from '@/sites/assets/locale/taro'
 
 interface T {

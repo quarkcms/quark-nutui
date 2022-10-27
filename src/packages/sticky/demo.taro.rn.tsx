@@ -1,6 +1,6 @@
 import React from 'react'
 import { useTranslate } from '@/sites/assets/locale/taro'
-import { Sticky } from '@/packages/nutui.react.taro'
+import { Sticky } from '@/packages/nutui.react.taro.rn'
 
 const StickyDemo = () => {
   return (

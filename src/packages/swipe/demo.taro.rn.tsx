@@ -7,7 +7,7 @@ import {
   Dialog,
   InputNumber,
   Swipe,
-} from '@/packages/nutui.react.taro'
+} from '@/packages/nutui.react.taro.rn'
 
 type TSwipeDemo = {
   title1: string

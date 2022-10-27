@@ -1,6 +1,6 @@
 import React, { useState } from 'react'
 import { useTranslate } from '@/sites/assets/locale/taro'
-import { Button, Step, Steps } from '@/packages/nutui.react.taro'
+import { Button, Step, Steps } from '@/packages/nutui.react.taro.rn'
 import '@/packages/steps/demo.scss'
 
 interface T {

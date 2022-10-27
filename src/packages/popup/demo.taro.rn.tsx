@@ -1,7 +1,7 @@
 import React, { useState } from 'react'
 import { useTranslate } from '@/sites/assets/locale/taro'
 import '@/packages/popup/demo.scss'
-import { Cell, Popup } from '@/packages/nutui.react.taro'
+import { Cell, Popup } from '@/packages/nutui.react.taro.rn'
 
 interface T {
   ce5c5446: string

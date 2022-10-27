@@ -1,6 +1,6 @@
 import React from 'react'
 import { useTranslate } from '@/sites/assets/locale/taro'
-import { Row, Col } from '@/packages/nutui.react.taro'
+import { Row, Col } from '@/packages/nutui.react.taro.rn'
 import '@/packages/layout/demo.scss'
 type TLayoutDemo = {
   title1: string

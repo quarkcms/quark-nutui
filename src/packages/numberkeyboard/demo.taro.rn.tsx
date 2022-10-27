@@ -1,6 +1,6 @@
 import React, { useState } from 'react'
 import { useTranslate } from '@/sites/assets/locale/taro'
-import { Cell, Toast, NumberKeyboard } from '@/packages/nutui.react.taro'
+import { Cell, Toast, NumberKeyboard } from '@/packages/nutui.react.taro.rn'
 
 const NumberKeyboardDemo = () => {
   const [translated] = useTranslate({

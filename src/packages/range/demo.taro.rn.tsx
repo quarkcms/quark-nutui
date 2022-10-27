@@ -1,6 +1,6 @@
 import React, { useState } from 'react'
 import { useTranslate } from '@/sites/assets/locale/taro'
-import { Range, Cell, Toast } from '@/packages/nutui.react.taro'
+import { Range, Cell, Toast } from '@/packages/nutui.react.taro.rn'
 import '@/packages/range/demo.scss'
 
 interface T {

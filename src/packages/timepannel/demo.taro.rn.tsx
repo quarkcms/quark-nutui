@@ -1,5 +1,5 @@
 import React from 'react'
-import { TimePannel } from '@/packages/nutui.react.taro'
+import { TimePannel } from '@/packages/nutui.react.taro.rn'
 
 const TimePannelDemo = () => {
   return (

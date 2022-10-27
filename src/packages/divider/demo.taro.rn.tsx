@@ -1,6 +1,6 @@
 import React from 'react'
 import Taro from '@tarojs/taro'
-import { Divider, Cell } from '@/packages/nutui.react.taro'
+import { Divider, Cell } from '@/packages/nutui.react.taro.rn'
 import { useTranslate } from '@/sites/assets/locale/taro'
 
 interface T {

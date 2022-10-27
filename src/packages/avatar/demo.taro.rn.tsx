@@ -1,6 +1,11 @@
 import React from 'react'
 import { useTranslate } from '@/sites/assets/locale/taro'
-import { Cell, Badge, Avatar, AvatarGroup } from '@/packages/nutui.react.taro'
+import {
+  Cell,
+  Badge,
+  Avatar,
+  AvatarGroup,
+} from '@/packages/nutui.react.taro.rn'
 
 import '@/packages/avatar/demo.scss'
 

@@ -1,6 +1,6 @@
 import React, { useCallback, useEffect, useState } from 'react'
 import { useTranslate } from '@/sites/assets/locale/taro'
-import { Cell, CellGroup, Radio } from '@/packages/nutui.react.taro'
+import { Cell, CellGroup, Radio } from '@/packages/nutui.react.taro.rn'
 
 import VirtualList from './index'
 

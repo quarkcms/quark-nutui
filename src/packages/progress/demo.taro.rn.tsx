@@ -6,7 +6,7 @@ import {
   Progress,
   Button,
   Toast,
-} from '@/packages/nutui.react.taro'
+} from '@/packages/nutui.react.taro.rn'
 
 interface T {
   basic: string

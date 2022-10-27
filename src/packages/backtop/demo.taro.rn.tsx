@@ -1,5 +1,5 @@
 import React from 'react'
-import { BackTop, Icon } from '@/packages/nutui.react.taro'
+import { BackTop, Icon } from '@/packages/nutui.react.taro.rn'
 import { useTranslate } from '@/sites/assets/locale/taro'
 
 interface T {

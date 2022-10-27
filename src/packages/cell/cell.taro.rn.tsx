@@ -116,7 +116,7 @@ export const Cell: FunctionComponent<
       )} `}
       onClick={(event) => handleClick(event)}
       style={baseStyle}
-      {...rest}
+      // {...rest}
     >
       {children || (
         <>

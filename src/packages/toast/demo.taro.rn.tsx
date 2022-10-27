@@ -1,5 +1,5 @@
 import React, { useState } from 'react'
-import { Cell, Toast } from '@/packages/nutui.react.taro'
+import { Cell, Toast } from '@/packages/nutui.react.taro.rn'
 
 const ToastDemo = () => {
   const [state, SetState] = useState({

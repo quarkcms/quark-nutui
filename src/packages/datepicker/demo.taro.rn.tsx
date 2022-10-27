@@ -1,5 +1,5 @@
 import React, { useState } from 'react'
-import { Cell, DatePicker } from '@/packages/nutui.react.taro'
+import { Cell, DatePicker } from '@/packages/nutui.react.taro.rn'
 
 interface PickerOption {
   text: string | number

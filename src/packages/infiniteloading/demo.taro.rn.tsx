@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from 'react'
 import Taro from '@tarojs/taro'
 import { useTranslate } from '@/sites/assets/locale/taro'
-import { Infiniteloading, Cell } from '@/packages/nutui.react.taro'
+import { Infiniteloading, Cell } from '@/packages/nutui.react.taro.rn'
 import '@/packages/infiniteloading/demo.scss'
 
 interface T {

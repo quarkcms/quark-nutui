@@ -1,5 +1,5 @@
 import React, { useState } from 'react'
-import { Dialog, Cell } from '@/packages/nutui.react.taro'
+import { Dialog, Cell } from '@/packages/nutui.react.taro.rn'
 import { useTranslate } from '@/sites/assets/locale/taro'
 
 interface T {

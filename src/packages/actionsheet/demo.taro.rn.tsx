@@ -1,6 +1,6 @@
 import React, { useState } from 'react'
 import { useTranslate } from '@/sites/assets/locale/taro'
-import { ActionSheet, Cell } from '@/packages/nutui.react.taro'
+import { ActionSheet, Cell } from '@/packages/nutui.react.taro.rn'
 
 export type ItemType<T> = { [key: string]: T }
 interface Item {

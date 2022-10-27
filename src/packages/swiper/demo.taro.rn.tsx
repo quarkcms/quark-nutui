@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from 'react'
 import '@/packages/swiper/demo.scss'
 import { useTranslate } from '@/sites/assets/locale/taro'
-import { SwiperItem, Swiper, Icon } from '@/packages/nutui.react.taro'
+import { SwiperItem, Swiper, Icon } from '@/packages/nutui.react.taro.rn'
 
 interface T {
   basic: string

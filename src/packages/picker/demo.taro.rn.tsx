@@ -1,5 +1,5 @@
 import React, { useState } from 'react'
-import { Cell, Picker } from '@/packages/nutui.react.taro'
+import { Cell, Picker } from '@/packages/nutui.react.taro.rn'
 
 interface PickerOption {
   text: string | number

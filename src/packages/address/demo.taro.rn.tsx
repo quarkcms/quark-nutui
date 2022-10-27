@@ -1,5 +1,5 @@
 import React, { useState } from 'react'
-import { Address, Cell } from '@/packages/nutui.react.taro'
+import { Address, Cell } from '@/packages/nutui.react.taro.rn'
 
 interface CalBack {
   next: string

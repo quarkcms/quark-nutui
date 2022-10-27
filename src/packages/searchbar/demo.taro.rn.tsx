@@ -1,5 +1,5 @@
 import React, { useState } from 'react'
-import { SearchBar, Icon, Toast } from '@/packages/nutui.react.taro'
+import { SearchBar, Icon, Toast } from '@/packages/nutui.react.taro.rn'
 import { useTranslate } from '@/sites/assets/locale/taro'
 
 type TSearchDemo = {

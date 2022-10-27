@@ -1,6 +1,6 @@
 import React from 'react'
 import { useTranslate } from '@/sites/assets/locale/taro'
-import { Signature } from '@/packages/nutui.react.taro'
+import { Signature } from '@/packages/nutui.react.taro.rn'
 
 interface T {
   basic: string

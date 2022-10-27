@@ -1,5 +1,5 @@
 import React, { useRef, useState } from 'react'
-import { Button, Icon, Popover } from '@/packages/nutui.react.taro'
+import { Button, Icon, Popover } from '@/packages/nutui.react.taro.rn'
 import '@/packages/popover/demo.scss'
 
 interface List {

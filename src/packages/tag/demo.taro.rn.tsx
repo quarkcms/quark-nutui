@@ -1,6 +1,6 @@
 import React from 'react'
 import Taro from '@tarojs/taro'
-import { CellGroup, Cell, Tag } from '@/packages/nutui.react.taro'
+import { CellGroup, Cell, Tag } from '@/packages/nutui.react.taro.rn'
 
 const TagDemo = () => {
   return (

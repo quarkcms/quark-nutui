@@ -1,5 +1,5 @@
 import React from 'react'
-import { TimeDetail } from '@/packages/nutui.react.taro'
+import { TimeDetail } from '@/packages/nutui.react.taro.rn'
 
 const TimeDetailDemo = () => {
   return (

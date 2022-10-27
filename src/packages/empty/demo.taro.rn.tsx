@@ -1,6 +1,6 @@
 import React, { useState } from 'react'
 import { useTranslate } from '@/sites/assets/locale/taro'
-import { Button, Tabs, TabPane, Empty } from '@/packages/nutui.react.taro'
+import { Button, Tabs, TabPane, Empty } from '@/packages/nutui.react.taro.rn'
 import '@/packages/empty/demo.scss'
 
 interface T {

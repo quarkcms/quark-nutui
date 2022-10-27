@@ -1,7 +1,7 @@
 import React from 'react'
 import Taro from '@tarojs/taro'
 import { useTranslate } from '@/sites/assets/locale/taro'
-import { Avatar, Grid, GridItem } from '@/packages/nutui.react.taro'
+import { Avatar, Grid, GridItem } from '@/packages/nutui.react.taro.rn'
 
 interface T {
   basic: string

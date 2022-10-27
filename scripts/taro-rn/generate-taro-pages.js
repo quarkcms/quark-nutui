@@ -65,7 +65,7 @@ const createIndexConfig = (enName, package) => {
           let fileString = data.toString()
           const lines = fileString.split('\n')
           const reg =
-            /import{1,}[\w\s\S]+(\'@\/packages\/nutui\.react\.taro\'){1,}/g
+            /import{1,}[\w\s\S]+(\'@\/packages\/nutui\.react\.taro\.rn\'){1,}/g
           let fileStrArr = fileString.match(reg)
           fileStrArr = fileStrArr[0].split('import')
           let importScssStr = ''

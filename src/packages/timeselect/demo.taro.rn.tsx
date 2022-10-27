@@ -1,6 +1,6 @@
 import React, { useState } from 'react'
 import { useTranslate } from '@/sites/assets/locale/taro'
-import { TimeSelect, Cell } from '@/packages/nutui.react.taro'
+import { TimeSelect, Cell } from '@/packages/nutui.react.taro.rn'
 
 export interface TimeType {
   key?: string | number

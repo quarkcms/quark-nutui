@@ -1,6 +1,6 @@
 import React, { useState } from 'react'
 import { useTranslate } from '@/sites/assets/locale/taro'
-import { InputNumber, Cell, Toast } from '@/packages/nutui.react.taro'
+import { InputNumber, Cell, Toast } from '@/packages/nutui.react.taro.rn'
 
 interface IValState {
   val1: number | string
