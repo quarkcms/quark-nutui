@@ -1,7 +1,7 @@
 import React, { useState } from 'react'
 import { useTranslate } from '@/sites/assets/locale/taro'
 import { Cell, Button, Video } from '@/packages/nutui.react.taro.rn'
-import '@/packages/video/demo.scss'
+//import '@/packages/video/demo.scss'
 
 interface T {
   '84aa6bce': string

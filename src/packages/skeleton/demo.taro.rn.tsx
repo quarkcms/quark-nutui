@@ -1,7 +1,7 @@
 import React, { useState } from 'react'
 import { useTranslate } from '@/sites/assets/locale/taro'
 import { Skeleton, Switch, Avatar } from '@/packages/nutui.react.taro.rn'
-import '@/packages/skeleton/demo.scss'
+//import '@/packages/skeleton/demo.scss'
 
 interface T {
   '3b02fdee': string

@@ -1,6 +1,6 @@
 import React, { useState } from 'react'
 import { useTranslate } from '@/sites/assets/locale/taro'
-import '@/packages/circleprogress/demo.scss'
+//import '@/packages/circleprogress/demo.scss'
 import { Button, CircleProgress } from '@/packages/nutui.react.taro.rn'
 
 interface T {

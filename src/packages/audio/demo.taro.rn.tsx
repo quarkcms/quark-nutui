@@ -1,6 +1,6 @@
 import React, { useState } from 'react'
 import { Icon, Cell, Audio } from '@/packages/nutui.react.taro.rn'
-import '@/packages/audio/demo.scss'
+//import '@/packages/audio/demo.scss'
 
 const formatseconds = (value: string) => {
   if (!value) {

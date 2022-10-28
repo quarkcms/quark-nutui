@@ -3,7 +3,7 @@ import Taro from '@tarojs/taro'
 import { useTranslate } from '@/sites/assets/locale/taro'
 import icons from '@/styles/font/config.json'
 import { Icon, Cell, CellGroup } from '@/packages/nutui.react.taro.rn'
-import '@/packages/icon/demo.scss'
+//import '@/packages/icon/demo.scss'
 
 interface T {
   '84aa6bce': string

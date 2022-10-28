@@ -7,7 +7,7 @@ import {
   Row,
   Indicator,
 } from '@/packages/nutui.react.taro.rn'
-import '@/packages/indicator/demo.scss'
+//import '@/packages/indicator/demo.scss'
 
 interface T {
   ce5c5446: string

@@ -7,7 +7,7 @@ import {
   AvatarGroup,
 } from '@/packages/nutui.react.taro.rn'
 
-import '@/packages/avatar/demo.scss'
+//import '@/packages/avatar/demo.scss'
 
 interface T {
   b040e71e: string

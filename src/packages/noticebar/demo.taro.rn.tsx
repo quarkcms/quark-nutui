@@ -1,7 +1,7 @@
 import React from 'react'
 import { useTranslate } from '@/sites/assets/locale/taro'
 import { NoticeBar, Icon } from '@/packages/nutui.react.taro.rn'
-import '@/packages/noticebar/demo.scss'
+//import '@/packages/noticebar/demo.scss'
 
 const NoticeBarDemo = () => {
   const [translated] = useTranslate({
