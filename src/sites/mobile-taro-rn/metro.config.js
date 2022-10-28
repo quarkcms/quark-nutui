@@ -12,6 +12,7 @@ const extraNodeModules = {
   '@/utils': path.resolve(__dirname + '/../../../src/utils'),
   '@/sites': path.resolve(__dirname + '/../../../src/sites'),
   '@/locales': path.resolve(__dirname + '/../../../src/locales'),
+  '@/styles': path.resolve(__dirname + '/../../../src/styles'),
   '@': path.resolve(__dirname + '/../../../src'),
 }
 const watchFolders = [
@@ -19,6 +20,7 @@ const watchFolders = [
   path.resolve(__dirname + '/../../../src/utils'),
   path.resolve(__dirname + '/../../../src/sites'),
   path.resolve(__dirname + '/../../../src/locales'),
+  path.resolve(__dirname + '/../../../src/styles'),
   path.resolve(__dirname + '/../../../src'),
 ]
 

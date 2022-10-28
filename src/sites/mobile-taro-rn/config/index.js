@@ -74,6 +74,9 @@ const config = {
       devServer: {},
     },
   },
+  rn: {
+    enableSvgTransform: true,
+  },
   isWatch: true,
 }
 

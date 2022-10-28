@@ -1,12 +1,15 @@
-import React, { ReactElement, ReactHTML } from 'react'
+import React, { ReactElement } from 'react'
+import { Image } from '@tarojs/components'
 import bem from '@/utils/bem'
+import '@/packages/icon/icon.rn.scss'
+import ICONS from './icons.rn'
 
 export interface IconProps {
   name: string
   size: string | number
   classPrefix: string
   color: string
-  tag: keyof ReactHTML
+  tag: any
   onClick: (e: MouseEvent) => void
   fontClassName: string
   className: string
@@ -25,8 +28,16 @@ const defaultProps = {
   className: '',
 } as IconProps
 
-function pxCheck(value: string | number): string {
-  return Number.isNaN(Number(value)) ? String(value) : `${value}px`
+function pxCheck(value: string | number): number {
+  let getValue: any = value
+  if (Number.isNaN(Number(value))) {
+    getValue = parseInt(String(value))
+  }
+  if (!getValue || getValue == '') {
+    getValue = undefined
+  }
+
+  return getValue
 }
 
 export function Icon<T>(props: Partial<IconProps> & T): ReactElement {
@@ -47,10 +58,10 @@ export function Icon<T>(props: Partial<IconProps> & T): ReactElement {
     ...props,
   }
   const isImage = name ? name.indexOf('/') !== -1 : false
-  const type = isImage ? 'img' : tag
+  const type = isImage ? Image : ICONS[name]
   const b = bem('icon')
 
-  const handleClick = (e: MouseEvent) => {
+  const handleClick = (e: any) => {
     if (onClick) {
       onClick(e)
     }
@@ -59,7 +70,28 @@ export function Icon<T>(props: Partial<IconProps> & T): ReactElement {
     if (isImage) return { src: name }
     return {}
   }
-  return <></>
+
+  return React.createElement<any>(
+    type,
+    {
+      className: isImage
+        ? `${b('img')} ${className || ''} `
+        : `${fontClassName} ${b(null)} ${classPrefix}-${name} ${
+            className || ''
+          }`,
+      style: {
+        color,
+        fontSize: pxCheck(size),
+        width: pxCheck(size),
+        height: pxCheck(size),
+        ...style,
+      },
+      ...rest,
+      onClick: handleClick,
+      ...hasSrc(),
+    },
+    children
+  )
 }
 
 Icon.defaultProps = defaultProps

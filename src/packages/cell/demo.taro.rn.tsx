@@ -113,6 +113,47 @@ const CellDemo = () => {
       <View className="demo">
         <Text className="demo-h2">{translated.basic}</Text>
         <Cell title={translated.title} desc={translated.desc} />
+        <Cell
+          title={translated.title}
+          subTitle={translated.title1}
+          desc={translated.desc}
+        />
+        <Cell
+          title={translated.title3}
+          onClick={(event: React.MouseEvent<any, any>) => testClick(event)}
+        />
+        <Cell title={translated.title4} roundRadius="0" />
+        <Text className="demo-h2">尺寸设置large</Text>
+        <Cell size="large" title={translated.title} desc={translated.desc} />
+        <Cell
+          size="large"
+          title={translated.title}
+          subTitle={translated.title1}
+          desc={translated.desc}
+        />
+        <Text className="demo-h2">{translated.title2}</Text>
+        <Cell>
+          <View>{translated.content}</View>
+        </Cell>
+        <Text className="demo-h2">{translated.title8}</Text>
+        <Cell
+          title={
+            <Text>
+              Title <Text style={{ color: 'red' }}>1</Text>
+            </Text>
+          }
+          desc={translated.desc}
+        />
+        <CellGroup title={translated.title5} desc={translated.desc1}>
+          <Cell title={translated.link} isLink />
+          <Cell
+            title={translated.urlJump}
+            desc="跳转小程序demo库首页"
+            isLink
+            url="/pages/index/index"
+          />
+          <Cell title={translated.routerJump} to="/" />
+        </CellGroup>
       </View>
     </>
   )

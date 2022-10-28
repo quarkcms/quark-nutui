@@ -1,0 +1,15 @@
+// @import '../../styles/font/iconfont.css';
+// @import '../../styles/mixins/index.scss';
+
+.nut-icon {
+  position: relative;
+  width: $icon-width;
+  height: $icon-height;
+  line-height: $icon-line-height;
+  text-align: right;
+
+  &__img {
+    width: $icon-width;
+    height: $icon-height;
+  }
+}
