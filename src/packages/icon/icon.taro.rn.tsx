@@ -1,8 +1,8 @@
 import React, { ReactElement } from 'react'
 import { Image } from '@tarojs/components'
 import bem from '@/utils/bem'
-import '@/packages/icon/icon.rn.scss'
 import ICONS from './icons.rn'
+import '@/packages/icon/icon.rn.scss'
 
 export interface IconProps {
   name: string
@@ -22,7 +22,7 @@ const defaultProps = {
   size: '',
   classPrefix: 'nut-icon',
   fontClassName: 'nutui-iconfont',
-  color: '',
+  color: '#666666',
   tag: 'i',
   onClick: (e: MouseEvent) => {},
   className: '',
@@ -34,7 +34,7 @@ function pxCheck(value: string | number): number {
     getValue = parseInt(String(value))
   }
   if (!getValue || getValue == '') {
-    getValue = undefined
+    getValue = 20
   }
 
   return getValue
@@ -79,11 +79,10 @@ export function Icon<T>(props: Partial<IconProps> & T): ReactElement {
         : `${fontClassName} ${b(null)} ${classPrefix}-${name} ${
             className || ''
           }`,
+      width: pxCheck(size),
+      height: pxCheck(size),
+      fill: color ? color : '#666666',
       style: {
-        color,
-        fontSize: pxCheck(size),
-        width: pxCheck(size),
-        height: pxCheck(size),
         ...style,
       },
       ...rest,

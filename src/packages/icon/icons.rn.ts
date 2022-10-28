@@ -1,8 +1,8 @@
 /* eslint-disable prettier/prettier */
 
-import right from '../../styles/font/svgs/add.svg'
+import right from '../../styles/font/iconfont.svg'
 
-const ICONS = {
+const ICONS: any = {
   right: right,
 }
 
