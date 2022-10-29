@@ -1,7 +1,8 @@
 import React, { ReactElement } from 'react'
 import { Image } from '@tarojs/components'
 import bem from '@/utils/bem'
-import ICONS from './icons.rn'
+import { Iconfont } from '@/styles/font/iconfont'
+import { Svg } from 'react-native-svg'
 import '@/packages/icon/icon.rn.scss'
 
 export interface IconProps {
@@ -22,7 +23,7 @@ const defaultProps = {
   size: '',
   classPrefix: 'nut-icon',
   fontClassName: 'nutui-iconfont',
-  color: '#666666',
+  color: '#979797',
   tag: 'i',
   onClick: (e: MouseEvent) => {},
   className: '',
@@ -58,7 +59,6 @@ export function Icon<T>(props: Partial<IconProps> & T): ReactElement {
     ...props,
   }
   const isImage = name ? name.indexOf('/') !== -1 : false
-  const type = isImage ? Image : ICONS[name]
   const b = bem('icon')
 
   const handleClick = (e: any) => {
@@ -66,30 +66,49 @@ export function Icon<T>(props: Partial<IconProps> & T): ReactElement {
       onClick(e)
     }
   }
-  const hasSrc = () => {
-    if (isImage) return { src: name }
-    return {}
+
+  if (isImage) {
+    return (
+      <Image
+        className={
+          isImage
+            ? `${b('img')} ${className || ''} `
+            : `${fontClassName} ${b(null)} ${classPrefix}-${name} ${
+                className || ''
+              }`
+        }
+        style={{
+          color,
+          fontSize: pxCheck(size),
+          width: pxCheck(size),
+          height: pxCheck(size),
+          ...style,
+        }}
+        onClick={handleClick}
+        src={name}
+      >
+        {children}
+      </Image>
+    )
   }
 
-  return React.createElement<any>(
-    type,
-    {
-      className: isImage
-        ? `${b('img')} ${className || ''} `
-        : `${fontClassName} ${b(null)} ${classPrefix}-${name} ${
-            className || ''
-          }`,
-      width: pxCheck(size),
-      height: pxCheck(size),
-      fill: color ? color : '#666666',
-      style: {
-        ...style,
-      },
-      ...rest,
-      onClick: handleClick,
-      ...hasSrc(),
-    },
-    children
+  return (
+    <Svg
+      className={
+        isImage
+          ? `${b('img')} ${className || ''} `
+          : `${fontClassName} ${b(null)} ${classPrefix}-${name} ${
+              className || ''
+            }`
+      }
+      width={pxCheck(size)}
+      height={pxCheck(size)}
+      viewBox="0 0 1024 1024"
+      fill={color}
+      onClick={handleClick}
+    >
+      <Iconfont name={`#${classPrefix}-${name}`} color={color} />
+    </Svg>
   )
 }
 
