@@ -1,5 +1,5 @@
 import React, { ReactElement } from 'react'
-import { Image } from '@tarojs/components'
+import { View, Image } from '@tarojs/components'
 import bem from '@/utils/bem'
 import { Iconfont } from '@/styles/font/iconfont'
 import { Svg } from 'react-native-svg'
@@ -93,7 +93,7 @@ export function Icon<T>(props: Partial<IconProps> & T): ReactElement {
   }
 
   return (
-    <Svg
+    <View
       className={
         isImage
           ? `${b('img')} ${className || ''} `
@@ -101,14 +101,17 @@ export function Icon<T>(props: Partial<IconProps> & T): ReactElement {
               className || ''
             }`
       }
-      width={pxCheck(size)}
-      height={pxCheck(size)}
-      viewBox="0 0 1024 1024"
-      fill={color}
       onClick={handleClick}
     >
-      <Iconfont name={`#${classPrefix}-${name}`} color={color} />
-    </Svg>
+      <Svg
+        width={pxCheck(size)}
+        height={pxCheck(size)}
+        viewBox="0 0 1024 1024"
+        fill={color}
+      >
+        <Iconfont name={`#${classPrefix}-${name}`} color={color} />
+      </Svg>
+    </View>
   )
 }
 

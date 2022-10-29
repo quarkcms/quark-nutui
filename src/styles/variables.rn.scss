@@ -1,37 +1,37 @@
 // color
 
 // 主色调
-$primary-color: #fa2c19 !default;
-$primary-color-end: #fa6419 !default;
+$primary-color: #fa2c19;
+$primary-color-end: #fa6419;
 // 辅助色
-$help-color: #f5f5f5 !default;
+$help-color: #f5f5f5;
 // 标题常规文字
-$title-color: #1a1a1a !default;
+$title-color: #1a1a1a;
 // 副标题
-$title-color2: #666666 !default;
+$title-color2: #666666;
 // 次内容
-$text-color: #808080 !default;
+$text-color: #808080;
 // 特殊禁用色
-$disable-color: #cccccc !default;
+$disable-color: #cccccc;
 $white: #fff;
 $black: #000;
-$required-color: #fa2c19 !default;
+$required-color: #fa2c19;
 
-$dark-background: #1a1919 !default;
-$dark-background2: #1d1b1c !default;
-$dark-background3: #141414 !default;
-$dark-color: $white !default;
-$dark-color-gray: $text-color !default;
+$dark-background: #1a1919;
+$dark-background2: #1d1b1c;
+$dark-background3: #141414;
+$dark-color: $white;
+$dark-color-gray: $text-color;
 
 // padding
 $padding-xs: 12px;
 
 $font-family: PingFang SC, Microsoft YaHei, Helvetica, Hiragino Sans GB, SimSun,
-  sans-serif !default;
+  sans-serif;
 
 // ---- Animation ----
-$animation-duration: 0.25s !default;
-$animation-timing-fun: cubic-bezier(0.55, 0.085, 0.68, 0.53) !default;
+$animation-duration: 0.25s;
+$animation-timing-fun: cubic-bezier(0.55, 0.085, 0.68, 0.53);
 
 // Font
 $font-size-0: 10px;
@@ -44,7 +44,7 @@ $font-weight-bold: 400;
 $font-size-small: $font-size-1;
 $font-size-base: $font-size-2;
 $font-size-large: $font-size-3;
-$line-height-base: 1.5 !default;
+$line-height-base: 1.5;
 // button
 $button-border-radius: 25px;
 $button-border-width: 1px;
@@ -63,52 +63,72 @@ $button-default-font-size: $font-size-2;
 $button-disabled-opacity: 0.68;
 $button-primary-color: $white;
 $button-primary-border-color: $primary-color;
-$button-primary-background-color: $primary-color;
+$button-primary-background-color: linear-gradient(
+  135deg,
+  $primary-color 0%,
+  $primary-color-end 100%
+);
 $button-info-color: $white;
 $button-info-border-color: #496af2;
-$button-info-background-color: rgba(73, 143, 242, 1);
+$button-info-background-color: linear-gradient(
+  315deg,
+  rgba(73, 143, 242, 1) 0%,
+  rgba(73, 101, 242, 1) 100%
+);
 $button-success-color: $white;
 $button-success-border-color: rgba(38, 191, 38, 1);
-$button-success-background-color: rgba(38, 191, 38, 1);
+$button-success-background-color: linear-gradient(
+  135deg,
+  rgba(38, 191, 38, 1) 0%,
+  rgba(39, 197, 48, 1) 45%,
+  rgba(40, 207, 63, 1) 83%,
+  rgba(41, 212, 70, 1) 100%
+);
 
 $button-danger-color: $white;
 $button-danger-border-color: rgba(250, 44, 25, 1);
 $button-danger-background-color: rgba(250, 44, 25, 1);
 $button-warning-color: $white;
 $button-warning-border-color: rgba(255, 158, 13, 1);
-$button-warning-background-color: rgba(255, 158, 13, 1);
+$button-warning-background-color: linear-gradient(
+  135deg,
+  rgba(255, 158, 13, 1) 0%,
+  rgba(255, 167, 13, 1) 45%,
+  rgba(255, 182, 13, 1) 83%,
+  rgba(255, 190, 13, 1) 100%
+);
 $button-plain-background-color: #fff;
 $button-plain-background-color: $white;
 
 // cell
 
-$cell-color: $title-color2 !default;
-$cell-title-font: $font-size-2 !default;
-$cell-title-desc-font: $font-size-1 !default;
-$cell-desc-font: $font-size-2 !default;
-$cell-desc-color: $disable-color !default;
-$cell-border-radius: 6px !default;
-$cell-padding: 13px 16px !default;
-$cell-line-height: 20px !default;
-$cell-after-right: 16px !default;
-$cell-after-border-bottom: 2px solid #f5f6f7 !default;
-$cell-default-icon-margin: 0 4px 0 0px !default;
-$cell-large-title-font: $font-size-large !default;
-$cell-large-title-desc-font: $font-size-base !default;
-$cell-large-padding: 15px 16px !default;
-$cell-background: $white !default;
+$cell-color: $title-color2;
+$cell-title-font: $font-size-2;
+$cell-title-desc-font: $font-size-1;
+$cell-desc-font: $font-size-2;
+$cell-desc-color: $disable-color;
+$cell-border-radius: 6px;
+$cell-padding: 13px 16px;
+$cell-line-height: 20px;
+$cell-after-right: 16px;
+$cell-after-border-bottom: 2px solid #f5f6f7;
+$cell-default-icon-margin: 0 4px 0 0px;
+$cell-large-title-font: $font-size-large;
+$cell-large-title-desc-font: $font-size-base;
+$cell-large-padding: 15px 16px;
+$cell-background: $white;
 
 // cell-group
 
-$cell-group-title-padding: 0 10px !default;
-$cell-group-title-color: #909ca4 !default;
-$cell-group-title-font-size: $font-size-2 !default;
-$cell-group-title-line-height: 20px !default;
-$cell-group-desc-padding: 0 10px !default;
-$cell-group-desc-color: #909ca4 !default;
-$cell-group-desc-font-size: $font-size-1 !default;
-$cell-group-desc-line-height: 16px !default;
-$cell-group-background-color: $white !default;
+$cell-group-title-padding: 0 10px;
+$cell-group-title-color: #909ca4;
+$cell-group-title-font-size: $font-size-2;
+$cell-group-title-line-height: 20px;
+$cell-group-desc-padding: 0 10px;
+$cell-group-desc-color: #909ca4;
+$cell-group-desc-font-size: $font-size-1;
+$cell-group-desc-line-height: 16px;
+$cell-group-background-color: $white;
 // icon
 
 $icon-height: 20px;
@@ -117,16 +137,16 @@ $icon-line-height: 20px;
 
 // uploader
 
-$uploader-picture-width: 100px !default;
-$uploader-picture-height: 100px !default;
-$uploader-background: #f7f8fa !default;
+$uploader-picture-width: 100px;
+$uploader-picture-height: 100px;
+$uploader-background: #f7f8fa;
 
 //input
-$input-border-bottom: #eaf0fb !default;
-$input-disabled-color: #c8c9cc !default;
-$input-required-color: $required-color !default;
-$input-font-size: $font-size-2 !default;
-$input-padding: 10px 25px !default;
+$input-border-bottom: #eaf0fb;
+$input-disabled-color: #c8c9cc;
+$input-required-color: $required-color;
+$input-font-size: $font-size-2;
+$input-padding: 10px 25px;
 
 // textarea
 
@@ -146,9 +166,9 @@ $inputnumber-input-width: 40px;
 $inputnumber-icon-size: 20px;
 
 // actionsheet
-$zindex-actionsheet: 10001 !default;
-$body-background: #f6f6f6 !default;
-$light-color: #f6f6f6 !default;
+$zindex-actionsheet: 10001;
+$body-background: #f6f6f6;
+$light-color: #f6f6f6;
 $font-size-base: $font-size-2;
 $font-size-small: $font-size-1;
 
@@ -175,35 +195,35 @@ $switch-close-bg-color: #ebebeb;
 $switch-close--cline-bg-color: #f0f0f0;
 
 // toast
-$toast-title-font-size: 16px !default;
-$toast-text-font-size: 14px !default;
-$toast-font-color: $white !default;
-$toast-inner-padding: 24px 30px !default;
-$toast-inner-bg-color: rgba(0, 0, 0, 0.8) !default;
-$toast-inner-border-radius: 12px !default;
-$toast-cover-bg-color: rgba(0, 0, 0, 0) !default;
+$toast-title-font-size: 16px;
+$toast-text-font-size: 14px;
+$toast-font-color: $white;
+$toast-inner-padding: 24px 30px;
+$toast-inner-bg-color: rgba(0, 0, 0, 0.8);
+$toast-inner-border-radius: 12px;
+$toast-cover-bg-color: rgba(0, 0, 0, 0);
 
 //backtop
 $backtop-border-color: #e0e0e0;
 
 // calendar
-$calendar-primary-color: $primary-color !default;
-$calendar-choose-color: rgba($primary-color, 0.09) !default;
-$calendar-choose-font-color: $primary-color !default;
-$calendar-base-color: #333333 !default;
-$calendar-disable-color: #d1d0d0 !default;
-$calendar-base-font: $font-size-3 !default;
-$calendar-title-font: $font-size-4 !default;
-$calendar-title-font-weight: 500 !default;
-$calendar-sub-title-font: $font-size-2 !default;
-$calendar-text-font: $font-size-1 !default;
-$calendar-day-font: 16px !default;
-$calendar-day-active-border-radius: 0px !default;
-$calendar-day-width: 14.28% !default;
-$calendar-day-height: 64px !default;
-$calendar-day-font-weight: 500 !default;
-$calendar-day67-font-color: $primary-color !default;
-$calendar-top-slot-height: 24px !default;
+$calendar-primary-color: $primary-color;
+$calendar-choose-color: rgba($primary-color, 0.09);
+$calendar-choose-font-color: $primary-color;
+$calendar-base-color: #333333;
+$calendar-disable-color: #d1d0d0;
+$calendar-base-font: $font-size-3;
+$calendar-title-font: $font-size-4;
+$calendar-title-font-weight: 500;
+$calendar-sub-title-font: $font-size-2;
+$calendar-text-font: $font-size-1;
+$calendar-day-font: 16px;
+$calendar-day-active-border-radius: 0px;
+$calendar-day-width: 14.28%;
+$calendar-day-height: 64px;
+$calendar-day-font-weight: 500;
+$calendar-day67-font-color: $primary-color;
+$calendar-top-slot-height: 24px;
 
 //overlay
 $overlay-bg-color: rgba(0, 0, 0, 0.7);
@@ -219,17 +239,17 @@ $notify-font-size: 14px;
 $notify-height: 44px;
 
 // NoticeBar
-$noticebar-background: rgba(251, 248, 220, 1) !default;
-$noticebar-color: #d9500b !default;
-$noticebar-font-size: 14px !default;
-$noticebar-height: 40px !default;
-$noticebar-line-height: 24px !default;
-$noticebar-left-icon-width: 16px !default;
-$noticebar-right-icon-width: 16px !default;
-$noticebar-box-padding: 0 16px !default;
-$noticebar-wrapable-padding: 16px !default;
-$noticebar-lefticon-margin: 0px 10px !default;
-$noticebar-righticon-margin: 0px 10px !default;
+$noticebar-background: rgba(251, 248, 220, 1);
+$noticebar-color: #d9500b;
+$noticebar-font-size: 14px;
+$noticebar-height: 40px;
+$noticebar-line-height: 24px;
+$noticebar-left-icon-width: 16px;
+$noticebar-right-icon-width: 16px;
+$noticebar-box-padding: 0 16px;
+$noticebar-wrapable-padding: 16px;
+$noticebar-lefticon-margin: 0px 10px;
+$noticebar-righticon-margin: 0px 10px;
 
 //notify
 $notify-base-background-color: linear-gradient(
@@ -265,30 +285,30 @@ $rate-icon-void-color: $disable-color;
 
 // tabbar
 
-$tabbar-active-color: $primary-color !default;
-$tabbar-unactive-color: $primary-color !default;
-$tabbar-border-top: 1px solid #eee !default;
-$tabbar-border-bottom: 1px solid #eee !default;
-$tabbar-box-shadow: none !default;
-$tabbar-item-text-font-size: $font-size-0 !default;
-$tabbar-item-text-line-height: initial !default;
+$tabbar-active-color: $primary-color;
+$tabbar-unactive-color: $primary-color;
+$tabbar-border-top: 1px solid #eee;
+$tabbar-border-bottom: 1px solid #eee;
+$tabbar-box-shadow: none;
+$tabbar-item-text-font-size: $font-size-0;
+$tabbar-item-text-line-height: initial;
 
 //infiniteloading
 $infinite-bottom-color: #c8c8c8;
 
 //range
-$range-tip-font-color: #333333 !default;
-$range-bg-color: rgba($primary-color, 0.5) !default;
-$range-bg-color-tick: #fa958c !default;
+$range-tip-font-color: #333333;
+$range-bg-color: rgba($primary-color, 0.5);
+$range-bg-color-tick: #fa958c;
 $range-bar-bg-color: linear-gradient(
   135deg,
   $primary-color 0%,
   $primary-color-end 100%
-) !default;
-$range-bar-btn-bg-color: $white !default;
-$range-bar-btn-width: 24px !default;
-$range-bar-btn-height: 24px !default;
-$range-bar-btn-border: 1px solid $primary-color !default;
+);
+$range-bar-btn-bg-color: $white;
+$range-bar-btn-width: 24px;
+$range-bar-btn-height: 24px;
+$range-bar-btn-border: 1px solid $primary-color;
 
 //address
 $address-region-tab-line: linear-gradient(
@@ -298,53 +318,53 @@ $address-region-tab-line: linear-gradient(
 );
 
 //steps
-$steps-base-icon-width: 25px !default;
-$steps-base-icon-height: 25px !default;
-$steps-base-icon-line-height: 25px !default;
-$steps-base-icon-font-size: 13px !default;
-$steps-base-title-font-size: 14px !default;
-$steps-base-line-color: #909ca4 !default;
-$steps-base-title-color: #909ca4 !default;
-$steps-base-title-margin-bottom: 10px !default;
-$steps-base-content-font-size: 14px !default;
-$steps-base-content-color: #666 !default;
+$steps-base-icon-width: 25px;
+$steps-base-icon-height: 25px;
+$steps-base-icon-line-height: 25px;
+$steps-base-icon-font-size: 13px;
+$steps-base-title-font-size: 14px;
+$steps-base-line-color: #909ca4;
+$steps-base-title-color: #909ca4;
+$steps-base-title-margin-bottom: 10px;
+$steps-base-content-font-size: 14px;
+$steps-base-content-color: #666;
 
-$steps-wait-icon-bg-color: #959fb1 !default;
-$steps-wait-icon-color: $white !default;
-$steps-wait-head-color: #909ca4 !default;
-$steps-wait-head-border-color: #909ca4 !default;
-$steps-wait-content-color: #909ca4 !default;
+$steps-wait-icon-bg-color: #959fb1;
+$steps-wait-icon-color: $white;
+$steps-wait-head-color: #909ca4;
+$steps-wait-head-border-color: #909ca4;
+$steps-wait-content-color: #909ca4;
 
-$steps-finish-head-color: $primary-color !default;
-$steps-finish-head-border-color: $primary-color !default;
-$steps-finish-title-color: $primary-color !default;
-$steps-finish-line-background: $primary-color !default;
-$steps-finish-icon-text-color: $white !default;
+$steps-finish-head-color: $primary-color;
+$steps-finish-head-border-color: $primary-color;
+$steps-finish-title-color: $primary-color;
+$steps-finish-line-background: $primary-color;
+$steps-finish-icon-text-color: $white;
 
-$steps-process-head-color: $white !default;
-$steps-process-head-border-color: $primary-color !default;
-$steps-process-title-color: $primary-color !default;
-$steps-process-icon-text-color: $primary-color !default;
+$steps-process-head-color: $white;
+$steps-process-head-border-color: $primary-color;
+$steps-process-title-color: $primary-color;
+$steps-process-icon-text-color: $primary-color;
 
 // dialog
 $dialog-width: 296px;
 
 // checkbox
-$checkbox-label-color: #1d1e1e !default;
-$checkbox-label-disable-color: #999 !default;
-$checkbox-icon-disable-color: #d6d6d6 !default;
-$checkbox-label-margin-left: 15px !default;
-$checkbox-label-font-size: 14px !default;
-$checkbox-icon-font-size: 18px !default;
+$checkbox-label-color: #1d1e1e;
+$checkbox-label-disable-color: #999;
+$checkbox-icon-disable-color: #d6d6d6;
+$checkbox-label-margin-left: 15px;
+$checkbox-label-font-size: 14px;
+$checkbox-icon-font-size: 18px;
 
 //radio
-$radio-label-font-color: #1d1e1e !default;
-$radio-label-font-active-color: #f0250f !default;
-$radio-label-disable-color: #999 !default;
-$radio-icon-disable-color: #d6d6d6 !default;
+$radio-label-font-color: #1d1e1e;
+$radio-label-font-active-color: #f0250f;
+$radio-label-disable-color: #999;
+$radio-icon-disable-color: #d6d6d6;
 
-$radio-label-button-border-color: #f0250f !default;
-$radio-label-button-background: rgba(240, 37, 15, 0.05) !default;
+$radio-label-button-border-color: #f0250f;
+$radio-label-button-background: rgba(240, 37, 15, 0.05);
 
 // signature
 $signature-border-color: #dadada;
@@ -364,317 +384,317 @@ $fixednav-btn-bg: linear-gradient(
 );
 
 // Tag
-$tag-font-size: 12px !default;
-$tag-default-background-color: #000000 !default;
-$tag-primary-background-color: #3460fa !default;
-$tag-success-background-color: #4fc08d !default;
+$tag-font-size: 12px;
+$tag-default-background-color: #000000;
+$tag-primary-background-color: #3460fa;
+$tag-success-background-color: #4fc08d;
 $tag-danger-background-color: linear-gradient(
   135deg,
   rgba(242, 20, 12, 1) 0%,
   rgba(232, 34, 14, 1) 69.83950099728881%,
   rgba(242, 77, 12, 1) 100%
-) !default;
-$tag-warning-background-color: #f3812e !default;
-$tag-default-color: #ffffff !default;
-$tag-border-width: 1px !default;
+);
+$tag-warning-background-color: #f3812e;
+$tag-default-color: #ffffff;
+$tag-border-width: 1px;
 
-$tag-plain-background-color: #fff !default;
-$tag-plain-color: rgb(250, 36, 0) !default;
+$tag-plain-background-color: #fff;
+$tag-plain-color: rgb(250, 36, 0);
 
 //badge
 $badge-background-color: linear-gradient(
   135deg,
   $primary-color 0%,
   $primary-color-end 100%
-) !default;
-$badge-font-size: $font-size-1 !default;
-$badge-default-background-color: rgba(255, 255, 255, 1) !default;
+);
+$badge-font-size: $font-size-1;
+$badge-default-background-color: rgba(255, 255, 255, 1);
 
 //popover
-$popover-white-background-color: rgba(255, 255, 255, 1) !default;
-$popover-dark-background-color: rgba(75, 76, 77, 1) !default;
-$popover-border-bottom-color: rgba(229, 229, 229, 1) !default;
-$popover-primary-text-color: rgba(51, 51, 51, 1) !default;
-$popover-disable-color: rgba(154, 155, 157, 1) !default;
+$popover-white-background-color: rgba(255, 255, 255, 1);
+$popover-dark-background-color: rgba(75, 76, 77, 1);
+$popover-border-bottom-color: rgba(229, 229, 229, 1);
+$popover-primary-text-color: rgba(51, 51, 51, 1);
+$popover-disable-color: rgba(154, 155, 157, 1);
 
 //pagination
-$pagination-color: $primary-color !default;
-$pagination-font-size: $font-size-2 !default;
-$pagination-item-border-color: #e4e7eb !default;
+$pagination-color: $primary-color;
+$pagination-font-size: $font-size-2;
+$pagination-item-border-color: #e4e7eb;
 $pagination-active-background-color: linear-gradient(
   135deg,
   rgba(250, 44, 25, 1) 0%,
   rgba(250, 63, 25, 1) 44.59259259%,
   rgba(250, 89, 25, 1) 83.40740741%,
   rgba(250, 100, 25, 1) 100%
-) !default;
-$pagination-disable-color: rgba(116, 116, 116, 0.31) !default;
-$pagination-disable-background-color: #f7f8fa !default;
-$pagination-item-border-width: 1px !default;
-$pagination-item-border-radius: 2px !default;
-$pagination-prev-next-padding: 0 11px !default;
+);
+$pagination-disable-color: rgba(116, 116, 116, 0.31);
+$pagination-disable-background-color: #f7f8fa;
+$pagination-item-border-width: 1px;
+$pagination-item-border-radius: 2px;
+$pagination-prev-next-padding: 0 11px;
 
 // dialog
-$dialog-min-height: 156px !default;
-$dialog-padding: 28px 24px 16px 24px !default;
-$dialog-header-height: 20px !default;
-$dialog-header-color: rgba(38, 38, 38, 1) !default;
-$dialog-content-margin: 20px 0 !default;
-$dialog-content-max-height: 268px !default;
-$dialog-content-line-height: 16px !default;
-$dialog-mask-z-index: 1050 !default;
-$dialog-mask-background-color: rgba($black, 0.7) !default;
-$dialog-outer-z-index: 2000 !default;
-$dialog-outer-bordder-radius: 20px !default;
-$dialog-vertical-footer-ok-margin-top: 10px !default;
-$dialog-footer-button-min-width: 100px !default;
-$dialog-footer-cancel-margin-right: 20px !default;
-$dialog-footer-ok-max-width: 128px !default;
+$dialog-min-height: 156px;
+$dialog-padding: 28px 24px 16px 24px;
+$dialog-header-height: 20px;
+$dialog-header-color: rgba(38, 38, 38, 1);
+$dialog-content-margin: 20px 0;
+$dialog-content-max-height: 268px;
+$dialog-content-line-height: 16px;
+$dialog-mask-z-index: 1050;
+$dialog-mask-background-color: rgba($black, 0.7);
+$dialog-outer-z-index: 2000;
+$dialog-outer-bordder-radius: 20px;
+$dialog-vertical-footer-ok-margin-top: 10px;
+$dialog-footer-button-min-width: 100px;
+$dialog-footer-cancel-margin-right: 20px;
+$dialog-footer-ok-max-width: 128px;
 // 在组件中import
 //@import './mixins/index';
 //@import './animation/index';
 
 // tabs
-$tabs-tab-smile-color: $primary-color !default;
-$tabs-titles-border-radius: 0 !default;
-$tabs-titles-item-large-font-size: $font-size-3 !default;
-$tabs-titles-item-font-size: $font-size-2 !default;
-$tabs-titles-item-small-font-size: $font-size-1 !default;
-$tabs-titles-item-color: $title-color !default;
-$tabs-titles-background-color: $help-color !default;
+$tabs-tab-smile-color: $primary-color;
+$tabs-titles-border-radius: 0;
+$tabs-titles-item-large-font-size: $font-size-3;
+$tabs-titles-item-font-size: $font-size-2;
+$tabs-titles-item-small-font-size: $font-size-1;
+$tabs-titles-item-color: $title-color;
+$tabs-titles-background-color: $help-color;
 $tabs-horizontal-tab-line-color: linear-gradient(
   90deg,
   $primary-color 0%,
   rgba($primary-color, 0.15) 100%
-) !default;
-$tabs-horizontal-titles-height: 46px !default;
-$tabs-horizontal-titles-item-min-width: 50px !default;
-$tabs-horizontal-titles-item-active-line-width: 40px !default;
+);
+$tabs-horizontal-titles-height: 46px;
+$tabs-horizontal-titles-item-min-width: 50px;
+$tabs-horizontal-titles-item-active-line-width: 40px;
 $tabs-vertical-tab-line-color: linear-gradient(
   180deg,
   $primary-color 0%,
   rgba($primary-color, 0.15) 100%
-) !default;
-$tabs-vertical-titles-item-height: 40px !default;
-$tabs-vertical-titles-item-active-line-height: 14px !default;
-$tabs-vertical-titles-width: 100px !default;
+);
+$tabs-vertical-titles-item-height: 40px;
+$tabs-vertical-titles-item-active-line-height: 14px;
+$tabs-vertical-titles-width: 100px;
 
 // empty
-$empty-padding: 32px 0 !default;
-$empty-image-size: 170px !default;
-$empty-description-margin-top: 4px !default;
-$empty-description-color: #666666 !default;
-$empty-description-font-size: 14px !default;
-$empty-description-line-height: 20px !default;
-$empty-description-padding: 0 40px !default;
+$empty-padding: 32px 0;
+$empty-image-size: 170px;
+$empty-description-margin-top: 4px;
+$empty-description-color: #666666;
+$empty-description-font-size: 14px;
+$empty-description-line-height: 20px;
+$empty-description-padding: 0 40px;
 
 // indicator
-$indicator-color: $primary-color !default;
-$indicator-dot-color: $disable-color !default;
-$indicator-white: $white !default;
-$indicator-size: 18px !default;
-$indicator-dot-size: calc(#{$indicator-size} / 3) !default;
-$indicator-border-size: $indicator-size + 2 !default;
-$indicator-number-font-size: 10px !default;
-$indicator-dot-margin: 4px !default;
-$indicator-dot-vertical-margin: 4px !default;
-$indicator-dot-first-margin: 0px !default;
-$indicator-dot-last-margin: 0px !default;
+$indicator-color: $primary-color;
+$indicator-dot-color: $disable-color;
+$indicator-white: $white;
+$indicator-size: 18px;
+$indicator-dot-size: calc(#{$indicator-size} / 3);
+$indicator-border-size: $indicator-size + 2;
+$indicator-number-font-size: 10px;
+$indicator-dot-margin: 4px;
+$indicator-dot-vertical-margin: 4px;
+$indicator-dot-first-margin: 0px;
+$indicator-dot-last-margin: 0px;
 
 // circleProgress
-$circleprogress-primary-color: $primary-color !default;
-$circleprogress-path-color: #e5e9f2 !default;
-$circleprogress-text-color: #000000 !default;
-$circleprogress-text-size: $font-size-3 !default;
+$circleprogress-primary-color: $primary-color;
+$circleprogress-path-color: #e5e9f2;
+$circleprogress-text-color: #000000;
+$circleprogress-text-size: $font-size-3;
 
 // divider
 
-$divider-margin: 16px 0 !default;
-$divider-text-font-size: $font-size-2 !default;
-$divider-text-color: #909ca4 !default;
-$divider-line-height: 2px !default;
-$divider-before-margin-right: 16px !default;
-$divider-after-margin-left: 16px !default;
-$divider-vertical-height: 12px !default;
-$divider-vertical-top: 2px !default;
-$divider-vertical-border-left: rgba(0, 0, 0, 0.06) !default;
-$divider-vertical-margin: 0 8px !default;
+$divider-margin: 16px 0;
+$divider-text-font-size: $font-size-2;
+$divider-text-color: #909ca4;
+$divider-line-height: 2px;
+$divider-before-margin-right: 16px;
+$divider-after-margin-left: 16px;
+$divider-vertical-height: 12px;
+$divider-vertical-top: 2px;
+$divider-vertical-border-left: rgba(0, 0, 0, 0.06);
+$divider-vertical-margin: 0 8px;
 
 // swiper
-$swiper-pagination-item-background-color: #ddd !default;
+$swiper-pagination-item-background-color: #ddd;
 
 // Table
-$table-border-color: #ececec !default;
-$table-cols-padding: 10px !default;
-$table-tr-even-bg-color: #f3f3f3 !default;
-$table-tr-odd-bg-color: $white !default;
+$table-border-color: #ececec;
+$table-cols-padding: 10px;
+$table-tr-even-bg-color: #f3f3f3;
+$table-tr-odd-bg-color: $white;
 
 //numberkeyboard
-$numberkeyboard-width: 100% !default;
-$numberkeyboard-padding: 0 0 22px 0 !default;
-$numberkeyboard-background-color: #f2f3f5 !default;
-$numberkeyboard-header-height: 34px !default;
-$numberkeyboard-header-padding: 6px 0 0 0 !default;
-$numberkeyboard-header-color: #646566 !default;
-$numberkeyboard-header-font-size: 16px !default;
-$numberkeyboard-header-close-padding: 0 16px !default;
-$numberkeyboard-header-close-color: #576b95 !default;
-$numberkeyboard-header-close-font-size: 14px !default;
-$numberkeyboard-header-close-background-color: transparent !default;
-$numberkeyboard-key-background-color: #fff !default;
-$numberkeyboard-key-active-background-color: #ebedf0 !default;
-$numberkeyboard-key-height: 48px !default;
-$numberkeyboard-key-line-height: 1.5 !default;
-$numberkeyboard-key-border-radius: 8px !default;
-$numberkeyboard-key-font-size: 28px !default;
-$numberkeyboard-key-font-size-color: #333 !default;
-$numberkeyboard-key-finish-font-size: 16px !default;
-$numberkeyboard-key-finish-font-size-color: #fff !default;
-$numberkeyboard-key-finish-background-color: #1989fa !default;
-$numberkeyboard-key-activeFinsh-background-color: #0570db !default;
+$numberkeyboard-width: 100%;
+$numberkeyboard-padding: 0 0 22px 0;
+$numberkeyboard-background-color: #f2f3f5;
+$numberkeyboard-header-height: 34px;
+$numberkeyboard-header-padding: 6px 0 0 0;
+$numberkeyboard-header-color: #646566;
+$numberkeyboard-header-font-size: 16px;
+$numberkeyboard-header-close-padding: 0 16px;
+$numberkeyboard-header-close-color: #576b95;
+$numberkeyboard-header-close-font-size: 14px;
+$numberkeyboard-header-close-background-color: transparent;
+$numberkeyboard-key-background-color: #fff;
+$numberkeyboard-key-active-background-color: #ebedf0;
+$numberkeyboard-key-height: 48px;
+$numberkeyboard-key-line-height: 1.5;
+$numberkeyboard-key-border-radius: 8px;
+$numberkeyboard-key-font-size: 28px;
+$numberkeyboard-key-font-size-color: #333;
+$numberkeyboard-key-finish-font-size: 16px;
+$numberkeyboard-key-finish-font-size-color: #fff;
+$numberkeyboard-key-finish-background-color: #1989fa;
+$numberkeyboard-key-activeFinsh-background-color: #0570db;
 
 // elevator
-$elevator-list-item-highcolor: $primary-color !default;
-$elevator-list-item-font-size: 12px !default;
-$elevator-list-item-font-color: #333333 !default;
-$elevator-list-item-name-padding: 0 20px !default;
-$elevator-list-item-name-height: 30px !default;
-$elevator-list-item-name-line-height: 30px !default;
-$elevator-list-item-code-font-size: 14px !default;
-$elevator-list-item-code-font-color: #1a1a1a !default;
-$elevator-list-item-code-font-weight: 500 !default;
-$elevator-list-item-code-padding: 0 20px !default;
-$elevator-list-item-code-height: 35px !default;
-$elevator-list-item-code-line-height: 35px !default;
-$elevator-list-item-code-after-width: 100% !default;
-$elevator-list-item-code-after-height: 1px !default;
-$elevator-list-item-code-after-bg-color: #f5f5f5 !default;
+$elevator-list-item-highcolor: $primary-color;
+$elevator-list-item-font-size: 12px;
+$elevator-list-item-font-color: #333333;
+$elevator-list-item-name-padding: 0 20px;
+$elevator-list-item-name-height: 30px;
+$elevator-list-item-name-line-height: 30px;
+$elevator-list-item-code-font-size: 14px;
+$elevator-list-item-code-font-color: #1a1a1a;
+$elevator-list-item-code-font-weight: 500;
+$elevator-list-item-code-padding: 0 20px;
+$elevator-list-item-code-height: 35px;
+$elevator-list-item-code-line-height: 35px;
+$elevator-list-item-code-after-width: 100%;
+$elevator-list-item-code-after-height: 1px;
+$elevator-list-item-code-after-bg-color: #f5f5f5;
 $elevator-list-item-code-current-box-shadow: 0 3px 3px 1px
-  rgba(240, 240, 240, 1) !default;
-$elevator-list-item-code-current-bg-color: #fff !default;
-$elevator-list-item-code-current-border-radius: 50% !default;
-$elevator-list-item-code-current-width: 45px !default;
-$elevator-list-item-code-current-height: 45px !default;
-$elevator-list-item-code-current-line-height: 45px !default;
-$elevator-list-item-code-current-position: absolute !default;
-$elevator-list-item-code-current-right: 60px !default;
-$elevator-list-item-code-current-top: 50% !default;
-$elevator-list-item-code-current-transform: translateY(-50%) !default;
-$elevator-list-item-code-current-text-align: center !default;
-$elevator-list-item-bars-position: absolute !default;
-$elevator-list-item-bars-right: 8px !default;
-$elevator-list-item-bars-top: 50% !default;
-$elevator-list-item-bars-transform: translateY(-50%) !default;
-$elevator-list-item-bars-padding: 15px 0 !default;
-$elevator-list-item-bars-background-color: #eeeff2 !default;
-$elevator-list-item-bars-border-radius: 6px !default;
-$elevator-list-item-bars-text-align: center !default;
-$elevator-list-item-bars-z-index: 1 !default;
-$elevator-list-item-bars-inner-item-padding: 3px !default;
-$elevator-list-item-bars-inner-item-font-size: 10px !default;
-$elevator-list-fixed-color: $primary-color !default;
-$elevator-list-fixed-bg-color: $white !default;
-$elevator-list-fixed-box-shadow: 0 0 10px #eee !default;
-$elevator-list-item-bars-inner-item-active-color: $primary-color !default;
+  rgba(240, 240, 240, 1);
+$elevator-list-item-code-current-bg-color: #fff;
+$elevator-list-item-code-current-border-radius: 50%;
+$elevator-list-item-code-current-width: 45px;
+$elevator-list-item-code-current-height: 45px;
+$elevator-list-item-code-current-line-height: 45px;
+$elevator-list-item-code-current-position: absolute;
+$elevator-list-item-code-current-right: 60px;
+$elevator-list-item-code-current-top: 50%;
+$elevator-list-item-code-current-transform: translateY(-50%);
+$elevator-list-item-code-current-text-align: center;
+$elevator-list-item-bars-position: absolute;
+$elevator-list-item-bars-right: 8px;
+$elevator-list-item-bars-top: 50%;
+$elevator-list-item-bars-transform: translateY(-50%);
+$elevator-list-item-bars-padding: 15px 0;
+$elevator-list-item-bars-background-color: #eeeff2;
+$elevator-list-item-bars-border-radius: 6px;
+$elevator-list-item-bars-text-align: center;
+$elevator-list-item-bars-z-index: 1;
+$elevator-list-item-bars-inner-item-padding: 3px;
+$elevator-list-item-bars-inner-item-font-size: 10px;
+$elevator-list-fixed-color: $primary-color;
+$elevator-list-fixed-bg-color: $white;
+$elevator-list-fixed-box-shadow: 0 0 10px #eee;
+$elevator-list-item-bars-inner-item-active-color: $primary-color;
 
 //navbar
-$navbar-height: 44px !default;
-$navbar-margin-bottom: 20px !default;
-$navbar-padding: 13px 16px !default;
-$navbar-background: $white !default;
-$navbar-box-shadow: 0px 1px 7px 0px rgba(237, 238, 241, 1) !default;
-$navbar-color: $title-color2 !default;
-$navbar-title-base-font: $font-size-2 !default;
-$navbar-title-font: $font-size-2 !default;
-$navbar-title-font-weight: 0 !default;
-$navbar-title-font-color: $navbar-color !default;
-$navbar-title-width: 100px !default;
-$navbar-title-icon-margin: 0 0 0 13px !default;
+$navbar-height: 44px;
+$navbar-margin-bottom: 20px;
+$navbar-padding: 13px 16px;
+$navbar-background: $white;
+$navbar-box-shadow: 0px 1px 7px 0px rgba(237, 238, 241, 1);
+$navbar-color: $title-color2;
+$navbar-title-base-font: $font-size-2;
+$navbar-title-font: $font-size-2;
+$navbar-title-font-weight: 0;
+$navbar-title-font-color: $navbar-color;
+$navbar-title-width: 100px;
+$navbar-title-icon-margin: 0 0 0 13px;
 
 // layout
-$row-content-color: #fff !default;
-$row-content-background-color: #ff8881 !default;
-$row-content-light-background-color: #ffc7c4 !default;
-$row-content-border-radius: 6px !default;
-$row-content-height: 50px !default;
-$row-content-line-height: 40px !default;
-$col-default-margin-bottom: 15px !default;
+$row-content-color: #fff;
+$row-content-background-color: #ff8881;
+$row-content-light-background-color: #ffc7c4;
+$row-content-border-radius: 6px;
+$row-content-height: 50px;
+$row-content-line-height: 40px;
+$col-default-margin-bottom: 15px;
 
 // searchbar
-$searchbar-background: $white !default;
-$searchbar-right-out-color: $black !default;
-$searchbar-padding: 9px 16px !default;
-$searchbar-width: 100% !default;
-$searchbar-action-text-color: #323233 !default;
-$searchbar-input-background: #f7f7f7 !default;
-$searchbar-input-padding: 0 28px !default;
-$searchbar-input-height: 32px !default;
-$searchbar-input-width: 100% !default;
-$searchbar-input-border-radius: 16px !default;
-$searchbar-input-box-shadow: 0 0 8px 0 rgba(0, 0, 0, 0.04) !default;
+$searchbar-background: $white;
+$searchbar-right-out-color: $black;
+$searchbar-padding: 9px 16px;
+$searchbar-width: 100%;
+$searchbar-action-text-color: #323233;
+$searchbar-input-background: #f7f7f7;
+$searchbar-input-padding: 0 28px;
+$searchbar-input-height: 32px;
+$searchbar-input-width: 100%;
+$searchbar-input-border-radius: 16px;
+$searchbar-input-box-shadow: 0 0 8px 0 rgba(0, 0, 0, 0.04);
 
 // progress
-$progress-border-radius: 12px !default;
-$progress-text-padding: 0 5px !default;
-$progress-text-font-size: 13px !default;
-$progress-insidetext-border-radius: 5px !default;
-$progress-small-height: 5px !default;
-$progress-base-height: 10px !default;
-$progress-large-height: 15px !default;
-$progress-small-padding: 0 4px !default;
-$progress-base-padding: 0 5px !default;
-$progress-large-padding: 0 5px !default;
-$progress-small-font-size: 7px !default;
-$progress-base-font-size: 9px !default;
-$progress-large-font-size: 13px !default;
+$progress-border-radius: 12px;
+$progress-text-padding: 0 5px;
+$progress-text-font-size: 13px;
+$progress-insidetext-border-radius: 5px;
+$progress-small-height: 5px;
+$progress-base-height: 10px;
+$progress-large-height: 15px;
+$progress-small-padding: 0 4px;
+$progress-base-padding: 0 5px;
+$progress-large-padding: 0 5px;
+$progress-small-font-size: 7px;
+$progress-base-font-size: 9px;
+$progress-large-font-size: 13px;
 
 // animatingnumbers
-$countup-height: 32px !default;
-$countup-base-size: 18px !default;
-$countup-border-raduis: 4px !default;
-$countup-lr-margin: 1px !default;
-$countup-bgcolor: #031f63 !default;
-$countup-color: #ffffff !default;
-$countup-width: 24px !default;
+$countup-height: 32px;
+$countup-base-size: 18px;
+$countup-border-raduis: 4px;
+$countup-lr-margin: 1px;
+$countup-bgcolor: #031f63;
+$countup-color: #ffffff;
+$countup-width: 24px;
 
 // menu
-$menu-bar-line-height: 48px !default;
-$menu-item-font-size: $font-size-2 !default;
-$menu-item-text-color: $title-color !default;
-$menu-item-active-text-color: $primary-color !default;
-$menu-bar-border-bottom-color: #eaf0fb !default;
-$menu-bar-opened-z-index: 2001 !default;
-$menu-item-disabled-color: #969799 !default;
-$menu-title-text-padding-left: 8px !default;
-$menu-title-text-padding-right: 8px !default;
-$menu-item-content-padding: 12px 24px !default;
-$menu-item-content-max-height: 214px !default;
-$menu-item-option-padding-top: 12px !default;
-$menu-item-option-padding-bottom: 12px !default;
-$menu-item-option-i-margin-right: 6px !default;
-$menu-bar-box-shadow: 0 2px 12px rgba(89, 89, 89, 0.12) !default;
-$menu-scroll-fixed-top: 0 !default;
-$menu-scroll-fixed-z-index: 1000 !default;
+$menu-bar-line-height: 48px;
+$menu-item-font-size: $font-size-2;
+$menu-item-text-color: $title-color;
+$menu-item-active-text-color: $primary-color;
+$menu-bar-border-bottom-color: #eaf0fb;
+$menu-bar-opened-z-index: 2001;
+$menu-item-disabled-color: #969799;
+$menu-title-text-padding-left: 8px;
+$menu-title-text-padding-right: 8px;
+$menu-item-content-padding: 12px 24px;
+$menu-item-content-max-height: 214px;
+$menu-item-option-padding-top: 12px;
+$menu-item-option-padding-bottom: 12px;
+$menu-item-option-i-margin-right: 6px;
+$menu-bar-box-shadow: 0 2px 12px rgba(89, 89, 89, 0.12);
+$menu-scroll-fixed-top: 0;
+$menu-scroll-fixed-z-index: 1000;
 
 // cascader
-$cascader-font-size: 14px !default;
-$cascader-line-height: 22px !default;
-$cascader-tabs-item-padding: 0 10px !default;
-$cascader-title-padding: 24px 20px 17px !default;
-$cascader-title-font-size: 18px !default;
-$cascader-title-line-height: 20px !default;
-$cascader-item-padding: 10px 20px !default;
-$cascader-item-font-size: 14px !default;
-$cascader-item-color: #1a1a1a !default;
-$cascader-item-active-color: #fa2c19 !default;
-$cascader-pane-height: 342px !default;
-$cascader-pane-paddingTop: 10px !default;
-$cascader-icon-checklist-marginLeft: 10px !default;
+$cascader-font-size: 14px;
+$cascader-line-height: 22px;
+$cascader-tabs-item-padding: 0 10px;
+$cascader-title-padding: 24px 20px 17px;
+$cascader-title-font-size: 18px;
+$cascader-title-line-height: 20px;
+$cascader-item-padding: 10px 20px;
+$cascader-item-font-size: 14px;
+$cascader-item-color: #1a1a1a;
+$cascader-item-active-color: #fa2c19;
+$cascader-pane-height: 342px;
+$cascader-pane-paddingTop: 10px;
+$cascader-icon-checklist-marginLeft: 10px;
 
 // Grid
-$grid-border-color: #f5f6f7 !default;
-$grid-item-content-padding: 16px 8px !default;
-$grid-item-content-bg-color: $white !default;
-$grid-item-text-margin: 8px !default;
-$grid-item-text-color: $title-color2 !default;
-$grid-item-text-font-size: $font-size-1 !default;
+$grid-border-color: #f5f6f7;
+$grid-item-content-padding: 16px 8px;
+$grid-item-content-bg-color: $white;
+$grid-item-text-margin: 8px;
+$grid-item-text-color: $title-color2;
+$grid-item-text-font-size: $font-size-1;

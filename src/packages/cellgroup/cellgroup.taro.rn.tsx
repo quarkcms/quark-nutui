@@ -34,7 +34,7 @@ export const CellGroup: FunctionComponent<Partial<CellGroupProps>> = (
         <>{title ? <View className={b('title')}>{title}</View> : null}</>
       )}
       {descSlot || (
-        <>{title ? <View className={b('desc')}>{desc}</View> : null}</>
+        <>{desc ? <View className={b('desc')}>{desc}</View> : null}</>
       )}
 
       <View className={b('wrap')}>

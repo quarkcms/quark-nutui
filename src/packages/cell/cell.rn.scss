@@ -1,4 +1,4 @@
-@import '../icon/icon';
+@import '../icon/icon.rn.scss';
 
 .nut-cell {
   position: relative;
@@ -64,6 +64,10 @@
 
   &__value--large {
     font-size: $cell-large-title-desc-font;
+  }
+
+  &__linkSlot {
+    display: flex;
   }
 
   &__link {

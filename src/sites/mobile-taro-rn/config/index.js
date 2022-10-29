@@ -20,7 +20,7 @@ const config = {
     // '@': path.resolve(__dirname, '../../../../src'),
   },
   sass: {
-    resource: path.resolve(__dirname, '../../../', 'styles/variables.scss'),
+    resource: path.resolve(__dirname, '../../../', 'styles/variables.rn.scss'),
   },
   defineConstants: {},
   copy: {

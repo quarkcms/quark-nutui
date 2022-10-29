@@ -1,5 +1,5 @@
 import React from 'react'
-import { View, Text } from '@tarojs/components'
+import { View, Text, Switch, Image } from '@tarojs/components'
 
 import { useTranslate } from '@/sites/assets/locale/taro'
 import { Cell, CellGroup } from '@/packages/nutui.react.taro.rn'
@@ -154,6 +154,37 @@ const CellDemo = () => {
           />
           <Cell title={translated.routerJump} to="/" />
         </CellGroup>
+        <CellGroup title={translated.customRight}>
+          <Cell title="Switch" linkSlot={<Switch checked />} />
+        </CellGroup>
+        <CellGroup title={translated.customLeftIcon}>
+          <Cell
+            title={translated.image}
+            iconSlot={
+              <Image
+                style={{
+                  position: 'relative',
+                  width: 25,
+                  height: 25,
+                  lineHeight: 20,
+                  textAlign: 'right',
+                }}
+                src="https://img11.360buyimg.com/imagetools/jfs/t1/137646/13/7132/1648/5f4c748bE43da8ddd/a3f06d51dcae7b60.png"
+              />
+            }
+          />
+        </CellGroup>
+        <Text className="demo-h2">{translated.displayIcon}</Text>
+        <Cell title={translated.name} icon="my" desc={translated.desc} isLink />
+        <Text className="demo-h2">{translated.title6}</Text>
+        <Cell descTextAlign="left" desc={translated.desc} />
+        <Text className="demo-h2">垂直居中</Text>
+        <Cell
+          center
+          title={translated.title}
+          subTitle={translated.title1}
+          desc={translated.desc}
+        />
       </View>
     </>
   )

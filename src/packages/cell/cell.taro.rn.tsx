@@ -131,18 +131,14 @@ export const Cell: FunctionComponent<Partial<CellProps>> = (props) => {
     >
       {children || (
         <>
-          {icon || iconSlot ? (
-            <View className={b('icon')}>
-              {iconSlot ||
-                (icon ? (
-                  <Icon
-                    classPrefix={iconClassPrefix}
-                    fontClassName={iconFontClassName}
-                    name={icon}
-                    className="icon"
-                  />
-                ) : null)}
-            </View>
+          {iconSlot ? iconSlot : null}
+          {icon ? (
+            <Icon
+              classPrefix={iconClassPrefix}
+              fontClassName={iconFontClassName}
+              name={icon}
+              className="icon"
+            />
           ) : null}
           {title || subTitle ? (
             <View className={`${b('title')}`}>
@@ -177,7 +173,7 @@ export const Cell: FunctionComponent<Partial<CellProps>> = (props) => {
               className={b('link')}
             />
           ) : (
-            linkSlot
+            <View className={b('linkSlot')}>{linkSlot}</View>
           )}
         </>
       )}
