@@ -59,22 +59,22 @@
     "test": "jest",
     "test:demo": "jest  --testNamePattern=^should match snapshot$ --runTestsByPath ./src/packages/collapse/__test__/collapse.spec.tsx",
     "generate:file:taro": "node scripts/taro/generate-nutui-taro.js",
-    "generate:file:taro:rn": "node scripts/taro-rn/generate-nutui-taro.js",
+    "generate:file:rn": "node scripts/rn/generate-nutui-taro.js",
     "checked:taro": "npm run generate:file:taro && tsc --project ./tsconfig.taro.json",
-    "checked:taro:rn": "npm run generate:file:taro:rn && tsc --project ./tsconfig.taro.json",
+    "checked:rn": "npm run generate:file:rn",
     "generate:file:taro:pages": "node scripts/taro/generate-taro-pages.js",
-    "generate:file:taro:rn:pages": "node scripts/taro-rn/generate-taro-pages.js",
+    "generate:file:rn:pages": "node scripts/rn/generate-taro-pages.js",
     "dev:taro:weapp": "npm run checked:taro && npm run generate:file:taro:pages && cd ./src/sites/mobile-taro && npm run dev:weapp",
     "dev:taro:jd": "npm run checked:taro && npm run generate:file:taro:pages && cd ./src/sites/mobile-taro && npm run dev:jd",
     "dev:taro:h5": "npm run checked:taro && npm run generate:file:taro:pages && cd ./src/sites/mobile-taro && npm run dev:h5",
-    "dev:taro:rn": "npm run checked:taro:rn && npm run generate:file:taro:rn:pages && npm run add:taro:rn:config && cd ./src/sites/mobile-taro-rn && npm run dev:rn",
+    "dev:rn": "npm run checked:rn && npm run generate:file:rn:pages && npm run add:rn:config && cd ./src/sites/mobile-rn && npm run dev:rn",
     "replace:taro:types": "node scripts/taro/replace-taro-types-alias.js",
     "build:taro": "npm run checked:taro && vite build --config vite.config.build.taro.ts && npm run build:taro:es  && npm run build:css && npm run build:loader-style && npm --taro run build:dts && npm run build:locales",
     "build:taro:es": "npx rollup -c rollup.config.taro.es.js",
     "build:taro:weapp": "npm run checked:taro && vite build --config vite.config.build.taro.ts && npm run generate:file:taro:pages && cd ./src/sites/mobile-taro && npm run build:weapp",
-    "build:taro:rn": "npm run checked:taro:rn && vite build --config vite.config.build.taro.ts && npm run generate:file:taro:rn:pages && cd ./src/sites/mobile-taro-rn && npm run build:rn",
+    "build:rn": "npm run checked:rn && vite build --config vite.config.build.rn.ts && npm run generate:file:rn:pages && cd ./src/sites/mobile-rn && npm run build:rn",
     "add:taro:config": "node scripts/taro/generate-taro-route.js",
-    "add:taro:rn:config": "node scripts/taro-rn/generate-taro-route.js"
+    "add:rn:config": "node scripts/rn/generate-taro-route.js"
   },
   "engines": {
     "node": "^14.18.0 || >=15.0.0"
@@ -86,9 +86,11 @@
   "dependencies": {
     "@babel/runtime": "^7.16.5",
     "@bem-react/classname": "^1.5.10",
+    "@react-native-community/clipboard": "^1.5.1",
     "@react-spring/web": "^9.3.2",
     "@use-gesture/react": "^10.2.9",
     "classnames": "^2.3.1",
+    "react-native": "^0.70.4",
     "react-native-svg": "^13.4.0",
     "react-router-dom": "^5.2.0",
     "react-transition-group": "^4.4.2"

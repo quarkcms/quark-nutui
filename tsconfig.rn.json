@@ -1,0 +1,5 @@
+{
+  "extends": "./tsconfig.json",
+  "include": ["src/**/*.ts", "src/**/*.d.ts", "src/**/*.tsx"],
+  "exclude": ["./node_modules/*", "src/sites/*", "src/**/*.taro.ts", "src/**/nutui.taro.react.build.ts", "src/**/*.taro.tsx"]
+}

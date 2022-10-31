@@ -1,5 +1,5 @@
 {
   "extends": "./tsconfig.json",
   "include": ["src/**/*.ts", "src/**/*.d.ts", "src/**/*.tsx"],
-  "exclude": ["./node_modules/*", "src/sites/*",]
+  "exclude": ["./node_modules/*", "src/sites/*", "src/**/*.rn.ts", "src/**/nutui.rn.react.build.ts", "src/**/*.rn.tsx"]
 }
