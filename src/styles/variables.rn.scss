@@ -29,7 +29,7 @@ $padding-xs: 12px;
 $font-family: PingFang SC, Microsoft YaHei, Helvetica, Hiragino Sans GB, SimSun,
   sans-serif;
 
-// ---- Animation ----
+// Animation
 $animation-duration: 0.25s;
 $animation-timing-fun: cubic-bezier(0.55, 0.085, 0.68, 0.53);
 
@@ -45,6 +45,7 @@ $font-size-small: $font-size-1;
 $font-size-base: $font-size-2;
 $font-size-large: $font-size-3;
 $line-height-base: 1.5;
+
 // button
 $button-border-radius: 25px;
 $button-border-width: 1px;
@@ -63,45 +64,53 @@ $button-default-font-size: $font-size-2;
 $button-disabled-opacity: 0.68;
 $button-primary-color: $white;
 $button-primary-border-color: $primary-color;
-$button-primary-background-color: linear-gradient(
-  135deg,
-  $primary-color 0%,
-  $primary-color-end 100%
-);
+
+// RN暂时禁用渐变属性
+// $button-primary-background-color: linear-gradient(
+//   135deg,
+//   $primary-color 0%,
+//   $primary-color-end 100%
+// );
+$button-primary-background-color: $primary-color;
 $button-info-color: $white;
 $button-info-border-color: #496af2;
-$button-info-background-color: linear-gradient(
-  315deg,
-  rgba(73, 143, 242, 1) 0%,
-  rgba(73, 101, 242, 1) 100%
-);
+
+// RN暂时禁用渐变属性
+// $button-info-background-color: linear-gradient(
+//   315deg,
+//   rgba(73, 143, 242, 1) 0%,
+//   rgba(73, 101, 242, 1) 100%
+// );
+$button-info-background-color: rgba(73, 143, 242, 1);
 $button-success-color: $white;
 $button-success-border-color: rgba(38, 191, 38, 1);
-$button-success-background-color: linear-gradient(
-  135deg,
-  rgba(38, 191, 38, 1) 0%,
-  rgba(39, 197, 48, 1) 45%,
-  rgba(40, 207, 63, 1) 83%,
-  rgba(41, 212, 70, 1) 100%
-);
-
+// RN暂时禁用渐变属性
+// $button-success-background-color: linear-gradient(
+//   135deg,
+//   rgba(38, 191, 38, 1) 0%,
+//   rgba(39, 197, 48, 1) 45%,
+//   rgba(40, 207, 63, 1) 83%,
+//   rgba(41, 212, 70, 1) 100%
+// );
+$button-success-background-color: rgba(38, 191, 38, 1);
 $button-danger-color: $white;
 $button-danger-border-color: rgba(250, 44, 25, 1);
 $button-danger-background-color: rgba(250, 44, 25, 1);
 $button-warning-color: $white;
 $button-warning-border-color: rgba(255, 158, 13, 1);
-$button-warning-background-color: linear-gradient(
-  135deg,
-  rgba(255, 158, 13, 1) 0%,
-  rgba(255, 167, 13, 1) 45%,
-  rgba(255, 182, 13, 1) 83%,
-  rgba(255, 190, 13, 1) 100%
-);
+// RN暂时禁用渐变属性
+// $button-warning-background-color: linear-gradient(
+//   135deg,
+//   rgba(255, 158, 13, 1) 0%,
+//   rgba(255, 167, 13, 1) 45%,
+//   rgba(255, 182, 13, 1) 83%,
+//   rgba(255, 190, 13, 1) 100%
+// );
+$button-warning-background-color: rgba(255, 158, 13, 1);
 $button-plain-background-color: #fff;
 $button-plain-background-color: $white;
 
 // cell
-
 $cell-color: $title-color2;
 $cell-title-font: $font-size-2;
 $cell-title-desc-font: $font-size-1;
@@ -119,7 +128,6 @@ $cell-large-padding: 15px 16px;
 $cell-background: $white;
 
 // cell-group
-
 $cell-group-title-padding: 0 10px;
 $cell-group-title-color: #909ca4;
 $cell-group-title-font-size: $font-size-2;
@@ -129,19 +137,18 @@ $cell-group-desc-color: #909ca4;
 $cell-group-desc-font-size: $font-size-1;
 $cell-group-desc-line-height: 16px;
 $cell-group-background-color: $white;
-// icon
 
+// icon
 $icon-height: 20px;
 $icon-width: 20px;
 $icon-line-height: 20px;
 
 // uploader
-
 $uploader-picture-width: 100px;
 $uploader-picture-height: 100px;
 $uploader-background: #f7f8fa;
 
-//input
+// input
 $input-border-bottom: #eaf0fb;
 $input-disabled-color: #c8c9cc;
 $input-required-color: $required-color;
@@ -149,7 +156,6 @@ $input-font-size: $font-size-2;
 $input-padding: 10px 25px;
 
 // textarea
-
 $textarea-font: $font-size-2;
 $textarea-height: 100px;
 $textarea-limit-color: $text-color;
@@ -157,7 +163,6 @@ $textarea-text-color: $title-color;
 $textarea-disabled-color: $disable-color;
 
 // inputnumber
-
 $inputnumber-icon-color: $title-color;
 $inputnumber-icon-void-color: $disable-color;
 $inputnumber-input-background-color: $help-color;
@@ -172,16 +177,16 @@ $light-color: #f6f6f6;
 $font-size-base: $font-size-2;
 $font-size-small: $font-size-1;
 
-//shortpassword
+// shortpassword
 $shortpsd-background-color: rgba(245, 245, 245, 1);
 $shortpsd-border-color: #ddd;
 $shortpsd-error: rgba(242, 39, 12, 1);
 $shortpsd-forget: rgba(128, 128, 128, 1);
 
-//price
+// price
 $price-big-size: 24px;
 
-//avatar
+// avatar
 $avatar-square: 5px;
 $avatar-large-width: 60px;
 $avatar-large-height: 60px;
@@ -203,7 +208,7 @@ $toast-inner-bg-color: rgba(0, 0, 0, 0.8);
 $toast-inner-border-radius: 12px;
 $toast-cover-bg-color: rgba(0, 0, 0, 0);
 
-//backtop
+// backtop
 $backtop-border-color: #e0e0e0;
 
 // calendar
@@ -225,10 +230,10 @@ $calendar-day-font-weight: 500;
 $calendar-day67-font-color: $primary-color;
 $calendar-top-slot-height: 24px;
 
-//overlay
+// overlay
 $overlay-bg-color: rgba(0, 0, 0, 0.7);
 
-//popup
+// popup
 $popup-close-icon-margin: 16px;
 $popup-border-radius: 20px;
 
@@ -251,7 +256,7 @@ $noticebar-wrapable-padding: 16px;
 $noticebar-lefticon-margin: 0px 10px;
 $noticebar-righticon-margin: 0px 10px;
 
-//notify
+// notify
 $notify-base-background-color: linear-gradient(
   135deg,
   rgba(250, 44, 25, 1) 0%,
@@ -279,12 +284,10 @@ $notify-warning-background-color: linear-gradient(
 );
 
 // rate
-
 $rate-icon-color: $primary-color;
 $rate-icon-void-color: $disable-color;
 
 // tabbar
-
 $tabbar-active-color: $primary-color;
 $tabbar-unactive-color: $primary-color;
 $tabbar-border-top: 1px solid #eee;
@@ -293,10 +296,10 @@ $tabbar-box-shadow: none;
 $tabbar-item-text-font-size: $font-size-0;
 $tabbar-item-text-line-height: initial;
 
-//infiniteloading
+// infiniteloading
 $infinite-bottom-color: #c8c8c8;
 
-//range
+// range
 $range-tip-font-color: #333333;
 $range-bg-color: rgba($primary-color, 0.5);
 $range-bg-color-tick: #fa958c;
@@ -310,14 +313,14 @@ $range-bar-btn-width: 24px;
 $range-bar-btn-height: 24px;
 $range-bar-btn-border: 1px solid $primary-color;
 
-//address
+// address
 $address-region-tab-line: linear-gradient(
   90deg,
   $primary-color 0%,
   $primary-color-end 100%
 );
 
-//steps
+// steps
 $steps-base-icon-width: 25px;
 $steps-base-icon-height: 25px;
 $steps-base-icon-line-height: 25px;
@@ -357,7 +360,7 @@ $checkbox-label-margin-left: 15px;
 $checkbox-label-font-size: 14px;
 $checkbox-icon-font-size: 18px;
 
-//radio
+// radio
 $radio-label-font-color: #1d1e1e;
 $radio-label-font-active-color: #f0250f;
 $radio-label-disable-color: #999;
@@ -373,7 +376,7 @@ $signature-height: 10rem;
 $signature-margin-bottom: 1rem;
 $signature-btn-margin-right: 15px;
 
-//fixednav
+// fixednav
 $fixednav-bg-color: $white;
 $fixednav-font-color: $black;
 $fixednav-index: 201;
@@ -401,7 +404,7 @@ $tag-border-width: 1px;
 $tag-plain-background-color: #fff;
 $tag-plain-color: rgb(250, 36, 0);
 
-//badge
+// badge
 $badge-background-color: linear-gradient(
   135deg,
   $primary-color 0%,
@@ -410,14 +413,14 @@ $badge-background-color: linear-gradient(
 $badge-font-size: $font-size-1;
 $badge-default-background-color: rgba(255, 255, 255, 1);
 
-//popover
+// popover
 $popover-white-background-color: rgba(255, 255, 255, 1);
 $popover-dark-background-color: rgba(75, 76, 77, 1);
 $popover-border-bottom-color: rgba(229, 229, 229, 1);
 $popover-primary-text-color: rgba(51, 51, 51, 1);
 $popover-disable-color: rgba(154, 155, 157, 1);
 
-//pagination
+// pagination
 $pagination-color: $primary-color;
 $pagination-font-size: $font-size-2;
 $pagination-item-border-color: #e4e7eb;
@@ -508,7 +511,6 @@ $circleprogress-text-color: #000000;
 $circleprogress-text-size: $font-size-3;
 
 // divider
-
 $divider-margin: 16px 0;
 $divider-text-font-size: $font-size-2;
 $divider-text-color: #909ca4;
@@ -529,7 +531,7 @@ $table-cols-padding: 10px;
 $table-tr-even-bg-color: #f3f3f3;
 $table-tr-odd-bg-color: $white;
 
-//numberkeyboard
+// numberkeyboard
 $numberkeyboard-width: 100%;
 $numberkeyboard-padding: 0 0 22px 0;
 $numberkeyboard-background-color: #f2f3f5;
@@ -597,7 +599,7 @@ $elevator-list-fixed-bg-color: $white;
 $elevator-list-fixed-box-shadow: 0 0 10px #eee;
 $elevator-list-item-bars-inner-item-active-color: $primary-color;
 
-//navbar
+// navbar
 $navbar-height: 44px;
 $navbar-margin-bottom: 20px;
 $navbar-padding: 13px 16px;

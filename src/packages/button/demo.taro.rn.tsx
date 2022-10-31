@@ -1,7 +1,8 @@
 import React, { useState } from 'react'
 import { useTranslate } from '@/sites/assets/locale/taro'
 import { Button, Cell } from '@/packages/nutui.react.taro.rn'
-//import '@/packages/button/demo.scss'
+import { View, Text } from '@tarojs/components'
+import '@/packages/button/demo.rn.scss'
 
 interface T {
   ce5c5446: string
@@ -99,15 +100,10 @@ const ButtonDemo = () => {
   const [loading, setLoading] = useState(false)
   return (
     <>
-      <div className="demo">
-        <h2>{translated.ce5c5446}</h2>
+      <View className="demo">
+        <Text className="demo-h2">{translated.ce5c5446}</Text>
         <Cell className="button-cell">
-          <Button
-            className="aa"
-            style={{ margin: 8 }}
-            type="primary"
-            shape="round"
-          >
+          <Button style={{ margin: 8 }} type="primary" shape="round">
             {translated.c38a08ef}
           </Button>
           <Button type="info" style={{ margin: 8 }} shape="round">
@@ -127,7 +123,7 @@ const ButtonDemo = () => {
           </Button>
         </Cell>
 
-        <h2>{translated.e51e4582}</h2>
+        <Text className="demo-h2">{translated.e51e4582}</Text>
         <Cell className="button-cell">
           <Button plain style={{ margin: 8 }} type="primary">
             {translated.e51e4582}
@@ -136,7 +132,8 @@ const ButtonDemo = () => {
             {translated.e51e4582}
           </Button>
         </Cell>
-        <h2>{translated['7db1a8b2']}</h2>
+
+        <Text className="demo-h2">{translated['7db1a8b2']}</Text>
         <Cell className="button-cell">
           <Button disabled style={{ margin: 8 }} type="primary">
             {translated['7db1a8b2']}
@@ -149,7 +146,7 @@ const ButtonDemo = () => {
           </Button>
         </Cell>
 
-        <h2>{translated.a52bef0c}</h2>
+        <Text className="demo-h2">{translated['a52bef0c']}</Text>
         <Cell className="button-cell">
           <Button loading type="info" style={{ margin: 8 }} />
           <Button loading type="warning" style={{ margin: 8 }}>
@@ -170,8 +167,7 @@ const ButtonDemo = () => {
           </Button>
         </Cell>
 
-        <h2>{translated['0aaad620']}</h2>
-
+        <Text className="demo-h2">{translated['0aaad620']}</Text>
         <Cell className="button-cell">
           <Button
             shape="square"
@@ -189,7 +185,8 @@ const ButtonDemo = () => {
             {translated['60a53514']}
           </Button>
         </Cell>
-        <h2>{translated['0aaad620']}</h2>
+
+        <Text className="demo-h2">{translated['0aaad620']}</Text>
         <Cell className="button-cell">
           <Button size="large" type="primary">
             {translated.b8a453e3}
@@ -201,15 +198,15 @@ const ButtonDemo = () => {
             {translated.ea3d02f2}
           </Button>
         </Cell>
-        <h2>{translated.c9e6df49}</h2>
+
+        <Text className="demo-h2">{translated['c9e6df49']}</Text>
         <Cell>
           <Button block type="primary">
             {translated.c9e6df49}
           </Button>
         </Cell>
 
-        <h2>{translated['781b07fd']}</h2>
-
+        <Text className="demo-h2">{translated['781b07fd']}</Text>
         <Cell className="button-cell">
           <Button color="#7232dd" style={{ margin: 8 }}>
             {translated['1076d771']}
@@ -217,14 +214,11 @@ const ButtonDemo = () => {
           <Button color="#7232dd" plain style={{ margin: 8 }}>
             {translated['1076d771']}
           </Button>
-          <Button
-            color="linear-gradient(to right, #ff6034, #ee0a24)"
-            style={{ margin: 8 }}
-          >
+          <Button color="#ff6034" style={{ margin: 8 }}>
             {translated['6ab47cd2']}
           </Button>
         </Cell>
-      </div>
+      </View>
     </>
   )
 }

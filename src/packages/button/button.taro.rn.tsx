@@ -5,9 +5,10 @@ import React, {
   useEffect,
   useState,
 } from 'react'
-import Icon from '@/packages/icon/index.taro'
+import { View, Text } from '@tarojs/components'
+import Icon from '@/packages/icon/index.taro.rn'
 import { IComponent, ComponentDefaults } from '@/utils/typings'
-import { View } from '@tarojs/components'
+import '@/packages/button/button.rn.scss'
 
 export interface ButtonProps extends IComponent {
   className: string
@@ -78,13 +79,13 @@ export const Button: FunctionComponent<Partial<ButtonProps>> = (props) => {
     if (color) {
       if (plain) {
         style.color = color
-        style.background = '#fff'
+        style.backgroundColor = '#fff'
         if (!color?.includes('gradient')) {
           style.borderColor = color
         }
       } else {
         style.color = '#fff'
-        style.background = color
+        style.backgroundColor = color
       }
     }
     return style
@@ -96,7 +97,7 @@ export const Button: FunctionComponent<Partial<ButtonProps>> = (props) => {
       `${type ? `${prefixCls}--${type}` : ''}`,
       `${size ? `${prefixCls}--${size}` : ''}`,
       `${shape ? `${prefixCls}--${shape}` : ''}`,
-      `${plain ? `${prefixCls}--plain` : ''}`,
+      `${plain ? `${prefixCls}--plain ${prefixCls}--plain--${type}` : ''}`,
       `${block ? `${prefixCls}--block` : ''}`,
       `${disabled ? `${prefixCls}--disabled` : ''}`,
       `${loading ? `${prefixCls}--loading` : ''}`,
@@ -104,10 +105,23 @@ export const Button: FunctionComponent<Partial<ButtonProps>> = (props) => {
       .filter(Boolean)
       .join(' ')
   }, [block, disabled, loading, plain, shape, size, type])
+  const fontClasses = useCallback(() => {
+    const prefixCls = 'nut-button__font'
+    return [
+      prefixCls,
+      `${type ? `${prefixCls}--${type}` : ''}`,
+      `${plain ? `nut-button--plain--${type}` : ''}`,
+    ]
+      .filter(Boolean)
+      .join(' ')
+  }, [type])
+
   const [btnName, setBtnName] = useState(classes())
+  const [btnFontName, setFontName] = useState(fontClasses())
   const [btnStyle, setBtnStyle] = useState(getStyle())
   useEffect(() => {
     setBtnName(classes())
+    setFontName(fontClasses())
     setBtnStyle(getStyle())
   }, [
     className,
@@ -135,18 +149,18 @@ export const Button: FunctionComponent<Partial<ButtonProps>> = (props) => {
 
   return (
     <View
-      // className={`${btnName} ${className}`}
-      className={`nut-button`}
+      className={`${btnName} ${className}`}
       style={{ ...btnStyle, ...style }}
       {...rest}
       onClick={(e) => handleClick(e)}
     >
-      <View className="nut-button__warp" style={getStyle()}>
-        {/* {loading && (
+      <Text className={`nut-button__warp ${btnFontName}`} style={btnStyle}>
+        {loading && (
           <Icon
             classPrefix={iconClassPrefix}
             fontClassName={iconFontClassName}
             name="loading"
+            color={'#ffffff'}
           />
         )}
         {!loading && icon ? (
@@ -154,12 +168,13 @@ export const Button: FunctionComponent<Partial<ButtonProps>> = (props) => {
             classPrefix={iconClassPrefix}
             fontClassName={iconFontClassName}
             name={icon}
+            color={'#ffffff'}
           />
         ) : (
           ''
-        )} */}
+        )}
         {children}
-      </View>
+      </Text>
     </View>
   )
 }
