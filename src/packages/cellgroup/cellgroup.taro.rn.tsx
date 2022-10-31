@@ -28,6 +28,27 @@ export const CellGroup: FunctionComponent<Partial<CellGroupProps>> = (
   }
   const b = bem('cell-group')
 
+  let cloneChildren: any = children
+  if (
+    Array.isArray(cloneChildren) ||
+    Object.prototype.toString.call(cloneChildren) === '[object Object]'
+  ) {
+    if (Array.isArray(cloneChildren)) {
+      cloneChildren = cloneChildren.map((o: any, i: any) => {
+        return React.cloneElement(o, {
+          key: i,
+          cellGroup: true,
+          isLast: i + 1 == cloneChildren.length,
+        })
+      })
+    } else {
+      cloneChildren = React.cloneElement(cloneChildren, {
+        cellGroup: true,
+        isLast: true,
+      })
+    }
+  }
+
   return (
     <View className={b(null, [classPrefix])}>
       {titleSlot || (
@@ -37,17 +58,7 @@ export const CellGroup: FunctionComponent<Partial<CellGroupProps>> = (
         <>{desc ? <View className={b('desc')}>{desc}</View> : null}</>
       )}
 
-      <View className={b('wrap')}>
-        {Array.isArray(children)
-          ? children.map((o: any, i: any) => {
-              return React.cloneElement(o, {
-                key: i,
-                cellGroup: true,
-                isLast: i + 1 == children.length,
-              })
-            })
-          : children}
-      </View>
+      <View className={b('wrap')}>{cloneChildren}</View>
     </View>
   )
 }
