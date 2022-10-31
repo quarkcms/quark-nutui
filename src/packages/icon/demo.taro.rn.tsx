@@ -1,9 +1,11 @@
 import React from 'react'
 import Taro from '@tarojs/taro'
+import { View, Text } from '@tarojs/components'
 import { useTranslate } from '@/sites/assets/locale/taro'
 import icons from '@/styles/font/config.json'
 import { Icon, Cell, CellGroup } from '@/packages/nutui.react.taro.rn'
-//import '@/packages/icon/demo.scss'
+import Clipboard from '@react-native-community/clipboard'
+import '@/packages/icon/demo.rn.scss'
 
 interface T {
   '84aa6bce': string
@@ -21,44 +23,9 @@ const generateAMCopyText = (icon: any) => {
     className="${`nut-icon-${icon['animation-name']}  nut-icon-${icon['animation-time']}`}"/>`
 }
 const copyTag = (text: string) => {
-  const input = document.createElement('input')
-  document.body.appendChild(input)
-  input.setAttribute('value', text)
-  input.select()
-  if (document.execCommand('copy')) {
-    document.execCommand('copy')
-    Taro.showToast({ title: `Copy: ${text}` })
-  }
-  document.body.removeChild(input)
+  Clipboard.setString(text)
+  Taro.showToast({ title: `Copy: ${text}` })
 }
-
-const style = `
-.nut-cell > .nutui-iconfont {
-  margin-right: 10px;
-}
-ul {
-  display: flex;
-  flex-wrap: wrap;
-  padding: 0;
-  width: 100%;
-}
-ul li {
-    flex: 0 0 25%;
-    max-width: 25%;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: center;
-}
-ul li  span {
-  height: 40px;
-  font-size: 12px;
-  text-align: center;
-}
-ul li span .nutui-iconfont {
-  margin: 16px 0 16px;
-}
-`
 
 const IconDemo = () => {
   const [translated] = useTranslate<T>({
@@ -87,49 +54,49 @@ const IconDemo = () => {
 
   return (
     <>
-      <style>{style}</style>
-      <div className="demo">
-        <h2>{translated['84aa6bce']}</h2>
+      <View className="demo">
+        <Text className="demo-h2">{translated['84aa6bce']}</Text>
         <Cell>
-          <Icon name="dongdong" />
-          <Icon name="JD" />
+          <Icon className="nutui-iconfont" name="dongdong" />
+          <Icon className="nutui-iconfont" name="JD" />
         </Cell>
-        <h2>{translated.dab8a74f}</h2>
+        <Text className="demo-h2">{translated['dab8a74f']}</Text>
         <Cell>
           <Icon
             size="40"
             name="https://img11.360buyimg.com/imagetools/jfs/t1/137646/13/7132/1648/5f4c748bE43da8ddd/a3f06d51dcae7b60.png"
           />
         </Cell>
-        <h2>{translated['52c15454']}</h2>
+        <Text className="demo-h2">{translated['52c15454']}</Text>
         <Cell>
-          <Icon name="dongdong" color="#fa2c19" />
-          <Icon name="dongdong" color="#64b578" />
-          <Icon name="JD" color="#fa2c19" />
+          <Icon className="nutui-iconfont" name="dongdong" color="#fa2c19" />
+          <Icon className="nutui-iconfont" name="dongdong" color="#64b578" />
+          <Icon className="nutui-iconfont" name="JD" color="#fa2c19" />
         </Cell>
-        <h2>{translated['7aeb5407']}</h2>
+        <Text className="demo-h2">{translated['7aeb5407']}</Text>
         <Cell>
-          <Icon name="dongdong" />
-          <Icon name="dongdong" size="24" />
-          <Icon name="dongdong" size="16" />
+          <Icon className="nutui-iconfont" name="dongdong" size="16" />
+          <Icon className="nutui-iconfont" name="dongdong" />
+          <Icon className="nutui-iconfont" name="dongdong" size="24" />
         </Cell>
         {icons.data.map((item, index) => {
           return (
             <CellGroup key={index} title={item.name}>
               <Cell>
-                <ul>
-                  {item.icons.map((icon) => {
+                <View className="h5-ul">
+                  {item.icons.map((icon, index) => {
                     return (
-                      <li
-                        key={icon}
+                      <View
+                        className="h5-li"
+                        key={icon + index}
                         onClick={() => copyTag(generateCopyText(icon))}
                       >
                         <Icon name={icon} />
-                        <span>{icon}</span>
-                      </li>
+                        <Text className="h5-span">{icon}</Text>
+                      </View>
                     )
                   })}
-                </ul>
+                </View>
               </Cell>
             </CellGroup>
           )
@@ -138,10 +105,11 @@ const IconDemo = () => {
           return (
             <CellGroup key={index} title={item.name}>
               <Cell>
-                <ul>
+                <View className="h5-ul-last">
                   {item.icons.map((icon) => {
                     return (
-                      <li
+                      <View
+                        className="h5-li"
                         key={icon.name}
                         onClick={() => copyTag(generateAMCopyText(icon))}
                       >
@@ -149,16 +117,16 @@ const IconDemo = () => {
                           name={icon.name}
                           className={`nut-icon-${icon['animation-name']}  nut-icon-${icon['animation-time']}`}
                         />
-                        <span>{icon['animation-name']}</span>
-                      </li>
+                        <Text>{icon['animation-name']}</Text>
+                      </View>
                     )
                   })}
-                </ul>
+                </View>
               </Cell>
             </CellGroup>
           )
         })}
-      </div>
+      </View>
     </>
   )
 }

@@ -109,9 +109,9 @@ const IconDemo = () => {
         </Cell>
         <h2>{translated['7aeb5407']}</h2>
         <Cell>
+          <Icon name="dongdong" size="16" />
           <Icon name="dongdong" />
           <Icon name="dongdong" size="24" />
-          <Icon name="dongdong" size="16" />
         </Cell>
         {icons.data.map((item, index) => {
           return (

@@ -3,6 +3,7 @@ import { View, Image } from '@tarojs/components'
 import bem from '@/utils/bem'
 import { Iconfont } from '@/styles/font/iconfont'
 import { Svg } from 'react-native-svg'
+import { Animated, Easing } from 'react-native'
 import '@/packages/icon/icon.rn.scss'
 
 export interface IconProps {
@@ -31,7 +32,7 @@ const defaultProps = {
 
 function pxCheck(value: string | number): number {
   let getValue: any = value
-  if (Number.isNaN(Number(value))) {
+  if (Number.isNaN(Number(value)) || typeof value === 'string') {
     getValue = parseInt(String(value))
   }
   if (!getValue || getValue == '') {
@@ -60,11 +61,28 @@ export function Icon<T>(props: Partial<IconProps> & T): ReactElement {
   }
   const isImage = name ? name.indexOf('/') !== -1 : false
   const b = bem('icon')
+  let deg = new Animated.Value(0)
 
   const handleClick = (e: any) => {
     if (onClick) {
       onClick(e)
     }
+  }
+
+  // 旋转动画
+  if (
+    className.indexOf('nut-icon-am-rotate') != -1 ||
+    name == 'loading' ||
+    name == 'loading1'
+  ) {
+    Animated.loop(
+      Animated.timing(deg, {
+        toValue: 360,
+        duration: 800,
+        easing: Easing.linear,
+        useNativeDriver: true,
+      })
+    ).start()
   }
 
   if (isImage) {
@@ -93,7 +111,7 @@ export function Icon<T>(props: Partial<IconProps> & T): ReactElement {
   }
 
   return (
-    <View
+    <Animated.View
       className={
         isImage
           ? `${b('img')} ${className || ''} `
@@ -101,6 +119,21 @@ export function Icon<T>(props: Partial<IconProps> & T): ReactElement {
               className || ''
             }`
       }
+      style={[
+        {
+          transform: [
+            {
+              rotate: deg.interpolate({
+                inputRange: [0, 360],
+                outputRange: ['0deg', '360deg'],
+              }),
+            },
+          ],
+          width: pxCheck(size),
+          height: pxCheck(size),
+        },
+        style,
+      ]}
       onClick={handleClick}
     >
       <Svg
@@ -111,7 +144,7 @@ export function Icon<T>(props: Partial<IconProps> & T): ReactElement {
       >
         <Iconfont name={`#${classPrefix}-${name}`} color={color} />
       </Svg>
-    </View>
+    </Animated.View>
   )
 }
 
