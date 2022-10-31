@@ -115,7 +115,8 @@ const IconDemo = () => {
                       >
                         <Icon
                           name={icon.name}
-                          className={`nut-icon-${icon['animation-name']}  nut-icon-${icon['animation-time']}`}
+                          animationName={`nut-icon-${icon['animation-name']}`}
+                          animationTime={`nut-icon-${icon['animation-time']}`}
                         />
                         <Text>{icon['animation-name']}</Text>
                       </View>

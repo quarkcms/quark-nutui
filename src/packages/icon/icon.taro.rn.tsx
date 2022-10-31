@@ -15,6 +15,7 @@ export interface IconProps {
   onClick: (e: MouseEvent) => void
   fontClassName: string
   className: string
+  animationName: string
   style: React.CSSProperties
   children: React.ReactNode
 }
@@ -28,6 +29,7 @@ const defaultProps = {
   tag: 'i',
   onClick: (e: MouseEvent) => {},
   className: '',
+  animationName: '',
 } as IconProps
 
 function pxCheck(value: string | number): number {
@@ -51,6 +53,7 @@ export function Icon<T>(props: Partial<IconProps> & T): ReactElement {
     tag,
     children,
     className,
+    animationName,
     fontClassName,
     style,
     onClick,
@@ -71,7 +74,7 @@ export function Icon<T>(props: Partial<IconProps> & T): ReactElement {
 
   // 旋转动画
   if (
-    className.indexOf('nut-icon-am-rotate') != -1 ||
+    animationName.indexOf('am-rotate') != -1 ||
     name == 'loading' ||
     name == 'loading1'
   ) {
