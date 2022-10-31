@@ -5,6 +5,7 @@ import React, {
   useEffect,
   useState,
 } from 'react'
+import { TouchableHighlight } from 'react-native'
 import { View, Text } from '@tarojs/components'
 import Icon from '@/packages/icon/index.taro.rn'
 import { IComponent, ComponentDefaults } from '@/utils/typings'
@@ -22,6 +23,7 @@ export interface ButtonProps extends IComponent {
   size: ButtonSize
   block: boolean
   icon: string
+  iconFontColor: string
   children: any
   onClick: (e: MouseEvent) => void
 }
@@ -48,6 +50,7 @@ const defaultProps = {
   size: 'normal',
   block: false,
   icon: '',
+  iconFontColor: '#fff',
   style: {},
   children: undefined,
   onClick: (e: MouseEvent) => {},
@@ -69,6 +72,7 @@ export const Button: FunctionComponent<Partial<ButtonProps>> = (props) => {
     style,
     iconClassPrefix,
     iconFontClassName,
+    iconFontColor,
     ...rest
   } = {
     ...defaultProps,
@@ -147,20 +151,24 @@ export const Button: FunctionComponent<Partial<ButtonProps>> = (props) => {
     }
   }
 
-  return (
-    <View
-      className={`${btnName} ${className}`}
-      style={{ ...btnStyle, ...style }}
-      {...rest}
-      onClick={(e) => handleClick(e)}
-    >
-      <Text className={`nut-button__warp ${btnFontName}`} style={btnStyle}>
+  const underlayColors: any = {
+    default: '#e6e6e6',
+    primary: '#e12f22',
+    info: '#4268da',
+    success: '#22b029',
+    danger: '#ed2618',
+    warning: '#e6940c',
+  }
+
+  const component = (
+    <View className={`nut-button__warp`}>
+      <Text className={`${btnFontName}`} style={btnStyle}>
         {loading && (
           <Icon
             classPrefix={iconClassPrefix}
             fontClassName={iconFontClassName}
             name="loading"
-            color={'#ffffff'}
+            color={iconFontColor}
           />
         )}
         {!loading && icon ? (
@@ -168,7 +176,7 @@ export const Button: FunctionComponent<Partial<ButtonProps>> = (props) => {
             classPrefix={iconClassPrefix}
             fontClassName={iconFontClassName}
             name={icon}
-            color={'#ffffff'}
+            color={iconFontColor}
           />
         ) : (
           ''
@@ -176,6 +184,32 @@ export const Button: FunctionComponent<Partial<ButtonProps>> = (props) => {
         {children}
       </Text>
     </View>
+  )
+
+  if (disabled || color) {
+    return (
+      <View
+        className={`${btnName} ${className}`}
+        style={{ ...btnStyle, ...style }}
+        onClick={(e: any) => handleClick(e)}
+        {...rest}
+      >
+        {component}
+      </View>
+    )
+  }
+
+  return (
+    <TouchableHighlight
+      activeOpacity={0.9}
+      underlayColor={plain ? underlayColors['default'] : underlayColors[type]}
+      className={`${btnName} ${className}`}
+      style={{ ...btnStyle, ...style }}
+      {...rest}
+      onPress={(e: any) => handleClick(e)}
+    >
+      {component}
+    </TouchableHighlight>
   )
 }
 
