@@ -57,8 +57,8 @@ const IconDemo = () => {
       <View className="demo">
         <Text className="demo-h2">{translated['84aa6bce']}</Text>
         <Cell>
-          <Icon className="nutui-iconfont" name="dongdong" />
-          <Icon className="nutui-iconfont" name="JD" />
+          <Icon name="dongdong" />
+          <Icon name="JD" />
         </Cell>
         <Text className="demo-h2">{translated['dab8a74f']}</Text>
         <Cell>
@@ -69,15 +69,15 @@ const IconDemo = () => {
         </Cell>
         <Text className="demo-h2">{translated['52c15454']}</Text>
         <Cell>
-          <Icon className="nutui-iconfont" name="dongdong" color="#fa2c19" />
-          <Icon className="nutui-iconfont" name="dongdong" color="#64b578" />
-          <Icon className="nutui-iconfont" name="JD" color="#fa2c19" />
+          <Icon name="dongdong" color="#fa2c19" />
+          <Icon name="dongdong" color="#64b578" />
+          <Icon name="JD" color="#fa2c19" />
         </Cell>
         <Text className="demo-h2">{translated['7aeb5407']}</Text>
         <Cell>
-          <Icon className="nutui-iconfont" name="dongdong" size="16" />
-          <Icon className="nutui-iconfont" name="dongdong" />
-          <Icon className="nutui-iconfont" name="dongdong" size="24" />
+          <Icon name="dongdong" size="16" />
+          <Icon name="dongdong" size="20" />
+          <Icon name="dongdong" size="24" />
         </Cell>
         {icons.data.map((item, index) => {
           return (
