@@ -1,50 +1,22 @@
 .nut-overlay {
-  position: fixed;
+  flex: 1;
+  position: absolute;
   top: 0;
   left: 0;
-  width: 100%;
-  height: 100%;
   background: $overlay-bg-color;
 }
+.nut-overlay-warp {
+  flex: 1;
+  position: absolute;
+  top: 0;
+  left: 0;
+}
 .nut-overflow-hidden {
-  overflow: hidden !important;
-}
-.overlay-fade-enter-active {
-  animation: nut-fade-in;
-}
-.overlay-fade-leave-active {
-  animation: nut-fade-out;
+  overflow: hidden;
 }
 .first-render {
   display: none;
 }
 .hidden-render {
   display: none;
-}
-@keyframes nut-fade-in {
-  0% {
-    opacity: 0;
-  }
-
-  1% {
-    opacity: 0;
-  }
-
-  100% {
-    opacity: 1;
-  }
-}
-
-@keyframes nut-fade-out {
-  0% {
-    opacity: 1;
-  }
-
-  1% {
-    opacity: 1;
-  }
-
-  100% {
-    opacity: 0;
-  }
 }

@@ -1,3 +1,3 @@
-import { Overlay } from './overlay.taro'
+import { Overlay } from './overlay.rn'
 
 export default Overlay

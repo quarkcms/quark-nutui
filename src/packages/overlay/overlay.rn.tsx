@@ -1,12 +1,16 @@
-import React, {
-  FunctionComponent,
-  MouseEventHandler,
-  useEffect,
-  useRef,
-  useState,
-} from 'react'
+import React, { FunctionComponent, useEffect, useRef, useState } from 'react'
+import {
+  AppRegistry,
+  StyleSheet,
+  Animated,
+  Dimensions,
+  Easing,
+  TouchableOpacity,
+} from 'react-native'
+import { View, Text } from '@tarojs/components'
 import classNames from 'classnames'
 import bem from '@/utils/bem'
+import '@/packages/overlay/overlay.rn.scss'
 
 export interface OverlayProps {
   zIndex: number
@@ -55,7 +59,7 @@ export const Overlay: FunctionComponent<
   useEffect(() => {
     return () => {
       clearTimeout(intervalRef.current)
-      document.body.classList.remove('nut-overflow-hidden')
+      // document.body.classList.remove('nut-overflow-hidden')
     }
   }, [])
 
@@ -79,14 +83,14 @@ export const Overlay: FunctionComponent<
   }
 
   const lock = () => {
-    if (lockScroll && visible) {
-      document.body.classList.add('nut-overflow-hidden')
-    } else {
-      document.body.classList.remove('nut-overflow-hidden')
-    }
+    // if (lockScroll && visible) {
+    //   document.body.classList.add('nut-overflow-hidden')
+    // } else {
+    //   document.body.classList.remove('nut-overflow-hidden')
+    // }
   }
 
-  const handleClick: MouseEventHandler<HTMLDivElement> = (e) => {
+  const handleClick = (e: any) => {
     if (closeOnClickOverlay) {
       props.onClick && props.onClick(e)
       renderRef.current = false
@@ -98,11 +102,26 @@ export const Overlay: FunctionComponent<
   }
 
   return (
-    <>
-      <div className={classes} style={styles} {...rest} onClick={handleClick}>
+    <Animated.View
+      className={classes}
+      style={{
+        ...styles,
+        width: Dimensions.get('window').width,
+        height: Dimensions.get('window').height,
+      }}
+    >
+      <TouchableOpacity
+        className={'nut-overlay-warp'}
+        onPress={handleClick}
+        style={{
+          ...styles,
+          width: Dimensions.get('window').width,
+          height: Dimensions.get('window').height,
+        }}
+      >
         {children}
-      </div>
-    </>
+      </TouchableOpacity>
+    </Animated.View>
   )
 }
 
