@@ -174,6 +174,7 @@ const ButtonDemo = () => {
             plain
             type="primary"
             icon="star-fill"
+            iconFontColor="#fa2c19"
             style={{ margin: 8 }}
           />
           <Button
