@@ -91,6 +91,7 @@
     "@use-gesture/react": "^10.2.9",
     "classnames": "^2.3.1",
     "react-native": "^0.70.4",
+    "react-native-root-portal": "^1.0.9",
     "react-native-svg": "^13.4.0",
     "react-router-dom": "^5.2.0",
     "react-transition-group": "^4.4.2"

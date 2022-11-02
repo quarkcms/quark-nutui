@@ -1,4 +1,5 @@
 import React, { FunctionComponent, createContext, useContext } from 'react'
+import Portal from 'react-native-root-portal'
 import { BaseLang } from '@/locales/base'
 import zhCN from '@/locales/zh-CN'
 
@@ -46,6 +47,7 @@ export const ConfigProvider: FunctionComponent<
         ...config,
       }}
     >
+      <Portal.Exit name={'overlay'} />
       {children}
     </ConfigContext.Provider>
   )

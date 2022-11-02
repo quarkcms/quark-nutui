@@ -1,3 +1,3 @@
-import { ConfigProvider } from './configprovider.taro'
+import { ConfigProvider } from './configprovider.rn'
 
 export default ConfigProvider
