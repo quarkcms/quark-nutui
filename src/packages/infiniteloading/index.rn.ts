@@ -1,3 +1,3 @@
-import { Infiniteloading } from './infiniteloading.taro'
+import { Infiniteloading } from './infiniteloading.rn'
 
 export default Infiniteloading

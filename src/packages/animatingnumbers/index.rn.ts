@@ -1,3 +1,3 @@
-import { AnimatingNumbers } from './animatingnumbers.taro'
+import { AnimatingNumbers } from './animatingnumbers.rn'
 
 export default AnimatingNumbers

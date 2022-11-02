@@ -2,6 +2,7 @@ import React, { useState } from 'react'
 import { useTranslate } from '@/sites/assets/locale/taro'
 //import '@/packages/popup/demo.scss'
 import { Cell, Popup } from '@/packages/nutui.react.rn'
+import { View, Text } from '@tarojs/components'
 
 interface T {
   ce5c5446: string
@@ -87,8 +88,8 @@ const PopupDemo = () => {
 
   return (
     <>
-      <div className="demo">
-        <h2>{translated.ce5c5446}</h2>
+      <View className="demo">
+        <Text className="demo-h2">{translated.ce5c5446}</Text>
         <Cell
           title={translated.c38a08ef}
           isLink
@@ -106,7 +107,7 @@ const PopupDemo = () => {
           {translated.b840c88f}
         </Popup>
 
-        <h2>{translated.a74a1fd4}</h2>
+        <Text className="demo-h2">{translated.a74a1fd4}</Text>
         <Cell
           title={translated['8dab2f66']}
           isLink
@@ -168,7 +169,7 @@ const PopupDemo = () => {
           }}
         />
 
-        <h2>{translated['7db1a8b2']}</h2>
+        <Text className="demo-h2">{translated['7db1a8b2']}</Text>
         <Cell
           title={translated['7db1a8b2']}
           isLink
@@ -220,7 +221,7 @@ const PopupDemo = () => {
           }}
         />
 
-        <h2>{translated['0aaad620']}</h2>
+        <Text className="demo-h2">{translated['0aaad620']}</Text>
         <Cell
           title={translated['0aaad620']}
           isLink
@@ -238,27 +239,8 @@ const PopupDemo = () => {
             setShowBottomRound(false)
           }}
         />
-        {/* 等一下3.5.0 */}
-        {/* <h2>{translated.ea3d02f2}</h2>
-        <Cell
-          title={translated.ea3d02f2}
-          isLink
-          onClick={() => {
-            setShowMountNode(true)
-          }}
-        />
-        <Popup
-          visible={showMountNode}
-          style={{ padding: '30px 50px' }}
-          teleport={document.body}
-          onClose={() => {
-            setShowMountNode(false)
-          }}
-        >
-          body
-        </Popup> */}
 
-        <h2>{translated.c9e6df49}</h2>
+        <Text className="demo-h2">{translated.c9e6df49}</Text>
         <Cell
           title={translated.c9e6df49}
           isLink
@@ -273,13 +255,13 @@ const PopupDemo = () => {
             setShowMutiple(false)
           }}
         >
-          <span
+          <View
             onClick={() => {
               setShowMutipleInner(true)
             }}
           >
             Click It
-          </span>
+          </View>
         </Popup>
         <Popup
           visible={showMutipleInner}
@@ -289,15 +271,15 @@ const PopupDemo = () => {
             setShowMutipleInner(false)
           }}
         >
-          <span
+          <View
             onClick={() => {
               setShowMutipleInner(false)
             }}
           >
             close
-          </span>
+          </View>
         </Popup>
-      </div>
+      </View>
     </>
   )
 }

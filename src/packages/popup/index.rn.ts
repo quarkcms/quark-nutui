@@ -1,3 +1,3 @@
-import { Popup } from './popup.taro'
+import { Popup } from './popup.rn'
 
 export default Popup

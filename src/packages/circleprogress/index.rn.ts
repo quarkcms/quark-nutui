@@ -1,3 +1,3 @@
-import { CircleProgress } from './circleprogress.taro'
+import { CircleProgress } from './circleprogress.rn'
 
 export default CircleProgress

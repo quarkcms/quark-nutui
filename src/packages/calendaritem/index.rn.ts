@@ -1,3 +1,3 @@
-import { CalendarItem } from './calendaritem.taro'
+import { CalendarItem } from './calendaritem.rn'
 
 export default CalendarItem

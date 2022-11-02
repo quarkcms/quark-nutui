@@ -1,5 +1,3 @@
-@import '../icon/icon.scss';
-@import '../overlay/overlay.scss';
 .popup-slide {
   &-center-enter,
   &-center-exit {
@@ -7,47 +5,14 @@
   }
   &-center-enter-active {
     opacity: 1;
-    transition: opacity 0.5s ease;
-  }
-
-  &-top-enter,
-  &-top-exit {
-    transform: translate(0, -100%);
-  }
-  &-top-enter-active {
-    transform: translate(0, 0);
-  }
-
-  &-right-enter,
-  &-right-exit {
-    transform: translate(100%, 0);
-  }
-  &-right-enter-active {
-    transform: translate(0, 0);
-  }
-
-  &-bottom-enter,
-  &-bottom-exit {
-    transform: translate(0, 100%);
-  }
-  &-bottom-enter-active {
-    transform: translate(0, 0);
-  }
-
-  &-left-enter,
-  &-left-exit {
-    transform: translate(-100%, 0);
-  }
-  &-left-enter-active {
-    transform: translate(0, 0);
   }
 }
 
 .popup-center {
+  position: absolute;
   top: 50%;
   left: 50%;
-  transform: translate(-50%, -50%);
-  &.round {
+  &__round {
     border-radius: $popup-border-radius;
   }
 }
@@ -56,7 +21,7 @@
   bottom: 0;
   left: 0;
   width: 100%;
-  &.round {
+  &__round {
     border-radius: $popup-border-radius $popup-border-radius 0 0;
   }
 }
@@ -65,7 +30,7 @@
   top: 0;
   right: 0;
 
-  &.round {
+  &__round {
     border-radius: $popup-border-radius 0 0 $popup-border-radius;
   }
 }
@@ -74,7 +39,7 @@
   top: 0;
   left: 0;
 
-  &.round {
+  &__round {
     border-radius: 0 $popup-border-radius $popup-border-radius 0;
   }
 }
@@ -84,39 +49,31 @@
   left: 0;
   width: 100%;
 
-  &.round {
+  &__round {
     border-radius: 0 0 $popup-border-radius $popup-border-radius;
   }
 }
 
 .nut-popup {
-  position: fixed;
+  position: absolute;
   max-height: 100%;
-  overflow-y: auto;
   background-color: $white;
-  transition: transform 0.5s;
-  -webkit-overflow-scrolling: touch;
 }
 
 .nut-overflow-hidden {
-  overflow: hidden !important;
+  overflow: hidden;
 }
 
 .nutui-popup {
   &__close-icon {
-    position: absolute !important;
+    position: absolute;
     z-index: 1;
     color: #969799;
     font-size: 18px;
-    cursor: pointer;
     width: 30px;
     height: 30px;
     line-height: 30px;
     text-align: center;
-
-    &:active {
-      opacity: 0.7;
-    }
 
     &--top-left {
       top: $popup-close-icon-margin;
@@ -138,14 +95,4 @@
       bottom: $popup-close-icon-margin;
     }
   }
-}
-
-.fade-enter {
-  transform: translate(0, -100%);
-}
-.fade-enter-active {
-  transform: translate(0, 0);
-}
-.fade-exit {
-  transform: translate(0, -100%);
 }

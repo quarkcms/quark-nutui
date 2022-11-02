@@ -1,3 +1,3 @@
-import { Swiper } from './swiper.taro'
+import { Swiper } from './swiper.rn'
 
 export default Swiper

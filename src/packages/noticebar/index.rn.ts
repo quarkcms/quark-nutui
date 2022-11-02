@@ -1,3 +1,3 @@
-import { NoticeBar } from './noticebar.taro'
+import { NoticeBar } from './noticebar.rn'
 
 export default NoticeBar

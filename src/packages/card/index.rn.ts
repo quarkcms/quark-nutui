@@ -1,3 +1,3 @@
-import { Card } from './card.taro'
+import { Card } from './card.rn'
 
 export default Card

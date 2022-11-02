@@ -1,3 +1,3 @@
-import { Drag } from './drag.taro'
+import { Drag } from './drag.rn'
 
 export default Drag

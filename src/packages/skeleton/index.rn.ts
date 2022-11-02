@@ -1,3 +1,3 @@
-import { Skeleton } from './skeleton.taro'
+import { Skeleton } from './skeleton.rn'
 
 export default Skeleton

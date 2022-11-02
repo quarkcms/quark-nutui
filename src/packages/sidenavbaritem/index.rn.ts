@@ -1,3 +1,3 @@
-import { SideNavBarItem } from './sidenavbaritem.taro'
+import { SideNavBarItem } from './sidenavbaritem.rn'
 
 export default SideNavBarItem

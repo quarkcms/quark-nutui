@@ -1,3 +1,3 @@
-import { ShortPassword } from './shortpassword.taro'
+import { ShortPassword } from './shortpassword.rn'
 
 export default ShortPassword

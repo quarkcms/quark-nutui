@@ -1,3 +1,3 @@
-import { Collapse } from './collapse.taro'
+import { Collapse } from './collapse.rn'
 
 export default Collapse

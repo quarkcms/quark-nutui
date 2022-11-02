@@ -1,3 +1,3 @@
-import { Indicator } from './indicator.taro'
+import { Indicator } from './indicator.rn'
 
 export default Indicator

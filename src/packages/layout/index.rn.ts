@@ -1,3 +1,3 @@
-import { Layout } from './layout.taro'
+import { Layout } from './layout.rn'
 
 export default Layout

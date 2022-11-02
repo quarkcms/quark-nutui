@@ -1,3 +1,3 @@
-import { Badge } from './badge.taro'
+import { Badge } from './badge.rn'
 
 export default Badge

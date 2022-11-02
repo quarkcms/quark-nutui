@@ -1,3 +1,3 @@
-import { BackTop } from './backtop.taro'
+import { BackTop } from './backtop.rn'
 
 export default BackTop

@@ -1,3 +1,3 @@
-import { FixedNav } from './fixednav.taro'
+import { FixedNav } from './fixednav.rn'
 
 export default FixedNav

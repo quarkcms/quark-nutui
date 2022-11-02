@@ -1,3 +1,3 @@
-import { Barrage } from './barrage.taro'
+import { Barrage } from './barrage.rn'
 
 export default Barrage

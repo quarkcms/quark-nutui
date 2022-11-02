@@ -1,3 +1,3 @@
-import { Radio } from './radio.taro'
+import { Radio } from './radio.rn'
 
 export default Radio

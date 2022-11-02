@@ -1,3 +1,3 @@
-import { Signature } from './signature.taro'
+import { Signature } from './signature.rn'
 
 export default Signature

@@ -1,3 +1,3 @@
-import { Menu } from './menu.taro'
+import { Menu } from './menu.rn'
 
 export default Menu

@@ -1,3 +1,3 @@
-import { Elevator } from './elevator.taro'
+import { Elevator } from './elevator.rn'
 
 export default Elevator

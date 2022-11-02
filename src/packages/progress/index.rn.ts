@@ -1,3 +1,3 @@
-import { Progress } from './progress.taro'
+import { Progress } from './progress.rn'
 
 export default Progress

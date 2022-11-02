@@ -1,3 +1,3 @@
-import { SideNavBar } from './sidenavbar.taro'
+import { SideNavBar } from './sidenavbar.rn'
 
 export default SideNavBar

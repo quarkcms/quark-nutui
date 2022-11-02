@@ -1,3 +1,3 @@
-import { ImagePreview } from './imagepreview.taro'
+import { ImagePreview } from './imagepreview.rn'
 
 export default ImagePreview

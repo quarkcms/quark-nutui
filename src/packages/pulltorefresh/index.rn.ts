@@ -1,3 +1,3 @@
-import { PullToRefresh } from './pulltorefresh.taro'
+import { PullToRefresh } from './pulltorefresh.rn'
 
 export default PullToRefresh

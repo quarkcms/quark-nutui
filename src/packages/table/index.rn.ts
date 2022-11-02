@@ -1,3 +1,3 @@
-import { Table } from './table.taro'
+import { Table } from './table.rn'
 
 export default Table

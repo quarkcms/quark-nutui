@@ -1,6 +1,6 @@
 import React, { FunctionComponent, useEffect, useRef, useState } from 'react'
 import Portal from 'react-native-root-portal'
-import { Animated, TouchableOpacity } from 'react-native'
+import { Animated, Easing, TouchableOpacity } from 'react-native'
 import classNames from 'classnames'
 import bem from '@/utils/bem'
 import '@/packages/overlay/overlay.rn.scss'
@@ -69,7 +69,6 @@ export const Overlay: FunctionComponent<
 
   const styles = {
     zIndex,
-    animationDuration: `${props.duration}s`,
     ...overlayStyle,
   }
 
@@ -84,12 +83,22 @@ export const Overlay: FunctionComponent<
     }
   }
 
+  const animatedValue = useRef(new Animated.Value(0)).current
+
+  Animated.timing(animatedValue, {
+    toValue: visible ? 1 : 0,
+    duration: duration * 1000,
+    easing: Easing.ease,
+    useNativeDriver: true,
+  }).start()
+
   return (
     <Portal.Entry target={'overlay'}>
       <Animated.View
         className={classes}
         style={{
           ...styles,
+          opacity: animatedValue,
           width: '100%',
           height: '100%',
         }}

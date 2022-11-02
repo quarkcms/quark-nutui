@@ -1,3 +1,3 @@
-import { Tag } from './tag.taro'
+import { Tag } from './tag.rn'
 
 export default Tag

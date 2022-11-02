@@ -1,3 +1,3 @@
-import { AvatarGroup } from './avatargroup'
+import { AvatarGroup } from './avatargroup.rn'
 
 export default AvatarGroup

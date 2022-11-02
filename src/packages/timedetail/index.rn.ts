@@ -1,3 +1,3 @@
-import { TimeDetail } from './timedetail.taro'
+import { TimeDetail } from './timedetail.rn'
 
 export default TimeDetail

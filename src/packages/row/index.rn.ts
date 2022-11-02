@@ -1,3 +1,3 @@
-import { Row } from './row.taro'
+import { Row } from './row.rn'
 
 export default Row

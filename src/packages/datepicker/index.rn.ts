@@ -1,3 +1,3 @@
-import { DatePicker } from './datepicker.taro'
+import { DatePicker } from './datepicker.rn'
 
 export default DatePicker

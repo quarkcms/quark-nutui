@@ -1,3 +1,3 @@
-import { GridItem } from './griditem.taro'
+import { GridItem } from './griditem.rn'
 
 export default GridItem

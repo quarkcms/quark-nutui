@@ -1,3 +1,3 @@
-import { Address } from './address.taro'
+import { Address } from './address.rn'
 
 export default Address

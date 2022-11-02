@@ -1,3 +1,3 @@
-import { Swipe } from './swipe.taro'
+import { Swipe } from './swipe.rn'
 
 export default Swipe

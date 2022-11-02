@@ -1,3 +1,3 @@
-import { SearchBar } from './searchbar.taro'
+import { SearchBar } from './searchbar.rn'
 
 export default SearchBar

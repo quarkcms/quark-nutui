@@ -1,3 +1,3 @@
-import { Cascader } from './cascader.taro'
+import { Cascader } from './cascader.rn'
 
 export default Cascader

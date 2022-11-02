@@ -1,7 +1,13 @@
 import React, { useState } from 'react'
 import { useTranslate } from '@/sites/assets/locale/taro'
-import { Button, Cell, Overlay } from '@/packages/nutui.react.rn'
-//import '@/packages/overlay/demo.scss'
+import {
+  Button,
+  Cell,
+  Overlay,
+  ConfigProvider,
+} from '@/packages/nutui.react.rn'
+import { View, Text } from '@tarojs/components'
+import '@/packages/overlay/demo.rn.scss'
 
 interface T {
   '84aa6bce': string
@@ -59,16 +65,16 @@ const OverlayDemo = () => {
     setVisible3(false)
   }
   return (
-    <>
-      <div className="demo demo-overlay">
-        <h2>{translated['84aa6bce']}</h2>
+    <ConfigProvider>
+      <View className="demo demo-overlay">
+        <Text className="demo-h2">{translated['84aa6bce']}</Text>
         <Cell>
           <Button type="primary" onClick={handleToggleShow}>
             {translated['2a9e4928']}
           </Button>
           <Overlay visible={visible} onClick={onClose} />
         </Cell>
-        <h2>{translated.abbf9359}</h2>
+        <Text className="demo-h2">{translated['abbf9359']}</Text>
         <Cell>
           <Button type="primary" onClick={handleToggleShow2}>
             {translated['2a9e4928']}
@@ -81,19 +87,19 @@ const OverlayDemo = () => {
             }}
           />
         </Cell>
-        <h2>{translated.ec0d7acf}</h2>
+        <Text className="demo-h2">{translated['ec0d7acf']}</Text>
         <Cell>
           <Button type="success" onClick={handleToggleShow3}>
             {translated.ec0d7acf}
           </Button>
           <Overlay visible={visible3} onClick={onClose3}>
-            <div className="wrapper">
-              <div className="content">{translated.ce1e18a2}</div>
-            </div>
+            <View className="wrapper">
+              <View className="content">{translated.ce1e18a2}</View>
+            </View>
           </Overlay>
         </Cell>
-      </div>
-    </>
+      </View>
+    </ConfigProvider>
   )
 }
 

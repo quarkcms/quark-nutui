@@ -1,3 +1,3 @@
-import { NumberKeyboard } from './numberkeyboard.taro'
+import { NumberKeyboard } from './numberkeyboard.rn'
 
 export default NumberKeyboard

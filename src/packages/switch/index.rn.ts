@@ -1,3 +1,3 @@
-import { Switch } from './switch.taro'
+import { Switch } from './switch.rn'
 
 export default Switch

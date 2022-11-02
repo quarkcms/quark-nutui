@@ -1,3 +1,3 @@
-import { Popover } from './popover.taro'
+import { Popover } from './popover.rn'
 
 export default Popover

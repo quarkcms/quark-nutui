@@ -1,2 +1,2 @@
-import { Sticky } from './sticky.taro'
+import { Sticky } from './sticky.rn'
 export default Sticky

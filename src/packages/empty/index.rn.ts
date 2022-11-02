@@ -1,3 +1,3 @@
-import { Empty } from './empty.taro'
+import { Empty } from './empty.rn'
 
 export default Empty

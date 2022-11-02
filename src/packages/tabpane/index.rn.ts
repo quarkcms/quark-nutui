@@ -1,3 +1,3 @@
-import { TabPane } from './tabpane.taro'
+import { TabPane } from './tabpane.rn'
 
 export default TabPane

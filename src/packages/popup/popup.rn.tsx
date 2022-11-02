@@ -2,23 +2,25 @@ import React, {
   FunctionComponent,
   useState,
   useEffect,
-  MouseEventHandler,
   MouseEvent,
   ReactElement,
   ReactPortal,
+  useRef,
 } from 'react'
 import { createPortal } from 'react-dom'
-import { CSSTransition } from 'react-transition-group'
 import classNames from 'classnames'
-import { EnterHandler, ExitHandler } from 'react-transition-group/Transition'
+import { View } from '@tarojs/components'
+import { Animated, Easing, Dimensions, StatusBar } from 'react-native'
 import {
   OverlayProps,
   defaultOverlayProps,
-} from '@/packages/overlay/overlay.taro'
-import Icon from '@/packages/icon/index.taro'
-import Overlay from '@/packages/overlay/index.taro'
+} from '@/packages/overlay/overlay.rn'
+import Icon from '@/packages/icon/index.rn'
+import Overlay from '@/packages/overlay/index.rn'
 import bem from '@/utils/bem'
 import { ComponentDefaults, IComponent } from '@/utils/typings'
+import Portal from 'react-native-root-portal'
+import '@/packages/popup/popup.rn.scss'
 
 type Teleport = HTMLElement | (() => HTMLElement) | null
 
@@ -112,7 +114,6 @@ export const Popup: FunctionComponent<
 
   const baseStyle = {
     zIndex: index,
-    animationDuration: `${duration}s`,
   }
 
   const overlayStyles = {
@@ -170,27 +171,13 @@ export const Popup: FunctionComponent<
     }
   }
 
-  const onHandleClick: MouseEventHandler<HTMLDivElement> = (e: MouseEvent) => {
+  const onHandleClick: any = (e: any) => {
     onClick && onClick(e)
   }
 
-  const onHandleClickCloseIcon: MouseEventHandler<HTMLDivElement> = (
-    e: MouseEvent
-  ) => {
+  const onHandleClickCloseIcon: any = (e: any) => {
     onClickCloseIcon && onClickCloseIcon(e)
     close()
-  }
-
-  const onHandleOpened: EnterHandler<HTMLElement | undefined> | undefined = (
-    e: HTMLElement
-  ) => {
-    onOpened && onOpened(e)
-  }
-
-  const onHandleClosed: ExitHandler<HTMLElement | undefined> | undefined = (
-    e: HTMLElement
-  ) => {
-    onClosed && onClosed(e)
   }
 
   const resolveContainer = (getContainer: Teleport | undefined) => {
@@ -208,32 +195,85 @@ export const Popup: FunctionComponent<
     return node
   }
 
+  const animatedValue = useRef(new Animated.Value(0)).current
+
+  Animated.timing(animatedValue, {
+    toValue: innerVisible ? 1 : 0,
+    duration: duration ? duration * 1000 : 300,
+    easing: Easing.ease,
+    useNativeDriver: true,
+  }).start()
+
+  const getStyles = () => {
+    let styles: any = {}
+
+    switch (position) {
+      case 'top':
+        styles = { top: 0, left: 0, width: '100%' }
+        break
+
+      case 'center':
+        styles = {
+          top:
+            Dimensions.get('window').height / 2 -
+            (popStyles?.paddingTop
+              ? parseInt(String(popStyles.paddingTop))
+              : 0) -
+            StatusBar.currentHeight,
+          left:
+            Dimensions.get('window').width / 2 -
+            (popStyles?.paddingLeft
+              ? parseInt(String(popStyles.paddingLeft))
+              : 0),
+        }
+        break
+
+      default:
+        styles = {
+          top:
+            Dimensions.get('window').height / 2 -
+            (popStyles?.paddingTop
+              ? parseInt(String(popStyles.paddingTop))
+              : 0) -
+            StatusBar.currentHeight,
+          left:
+            Dimensions.get('window').width / 2 -
+            (popStyles?.paddingLeft
+              ? parseInt(String(popStyles.paddingLeft))
+              : 0),
+        }
+        break
+    }
+    console.log(styles)
+    return styles
+  }
+
   const renderPop = () => {
     return (
-      <CSSTransition
-        classNames={transitionName}
-        unmountOnExit
-        timeout={500}
-        in={innerVisible}
-        onEntered={onHandleOpened}
-        onExited={onHandleClosed}
-      >
-        <div style={popStyles} className={classes} onClick={onHandleClick}>
-          {showChildren ? children : ''}
-          {closeable ? (
-            <div className={closeClasses} onClick={onHandleClickCloseIcon}>
-              <Icon
-                classPrefix={iconClassPrefix}
-                fontClassName={iconFontClassName}
-                name={closeIcon}
-                size="12px"
-              />
-            </div>
-          ) : (
-            ''
-          )}
-        </div>
-      </CSSTransition>
+      <Portal.Entry target={'popup'}>
+        <Animated.View
+          style={{
+            position: 'absolute',
+            opacity: animatedValue,
+            ...popStyles,
+            ...getStyles(),
+          }}
+        >
+          <View className={classes} style={popStyles} onClick={onHandleClick}>
+            {showChildren ? children : ''}
+            {closeable ? (
+              <View className={closeClasses} onClick={onHandleClickCloseIcon}>
+                <Icon
+                  classPrefix={iconClassPrefix}
+                  fontClassName={iconFontClassName}
+                  name={closeIcon}
+                  size="12px"
+                />
+              </View>
+            ) : null}
+          </View>
+        </Animated.View>
+      </Portal.Entry>
     )
   }
 

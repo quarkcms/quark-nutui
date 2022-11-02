@@ -1,3 +1,3 @@
-import Picker from './picker.taro'
+import Picker from './picker.rn'
 
 export default Picker

@@ -1,3 +1,3 @@
-import { VirtualList } from './virtuallist.taro'
+import { VirtualList } from './virtuallist.rn'
 
 export default VirtualList

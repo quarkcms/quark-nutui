@@ -1,3 +1,3 @@
-import { CheckboxGroup } from './checkboxgroup.taro'
+import { CheckboxGroup } from './checkboxgroup.rn'
 
 export default CheckboxGroup

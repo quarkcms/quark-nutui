@@ -1,3 +1,3 @@
-import { Tabbar } from './tabbar.taro'
+import { Tabbar } from './tabbar.rn'
 
 export default Tabbar

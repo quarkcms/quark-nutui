@@ -1,3 +1,3 @@
-import { InputNumber } from './inputnumber.taro'
+import { InputNumber } from './inputnumber.rn'
 
 export default InputNumber

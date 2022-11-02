@@ -1,3 +1,3 @@
-import { CountDown } from './countdown.taro'
+import { CountDown } from './countdown.rn'
 
 export default CountDown

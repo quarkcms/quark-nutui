@@ -1,3 +1,3 @@
-import { Audio } from './audio.taro'
+import { Audio } from './audio.rn'
 
 export default Audio

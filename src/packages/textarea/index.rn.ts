@@ -1,3 +1,3 @@
-import { TextArea } from './textarea.taro'
+import { TextArea } from './textarea.rn'
 
 export default TextArea

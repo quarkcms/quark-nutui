@@ -1,3 +1,3 @@
-import { Avatar } from './avatar.taro'
+import { Avatar } from './avatar.rn'
 
 export default Avatar
