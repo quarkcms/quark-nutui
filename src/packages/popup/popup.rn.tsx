@@ -9,8 +9,9 @@ import React, {
 } from 'react'
 import { createPortal } from 'react-dom'
 import classNames from 'classnames'
+import { Animated, Easing } from 'react-native'
 import { View } from '@tarojs/components'
-import { Animated, Easing, Dimensions, StatusBar } from 'react-native'
+import Taro from '@tarojs/taro'
 import {
   OverlayProps,
   defaultOverlayProps,
@@ -111,6 +112,7 @@ export const Popup: FunctionComponent<
   const [transitionName, setTransitionName] = useState('')
 
   const b = bem('popup')
+  const systemInfo = Taro.getSystemInfoSync()
 
   const baseStyle = {
     zIndex: index,
@@ -218,13 +220,15 @@ export const Popup: FunctionComponent<
       case 'center':
         styles = {
           top:
-            Dimensions.get('window').height / 2 -
+            (systemInfo.windowHeight -
+              44 -
+              (systemInfo?.statusBarHeight ? systemInfo.statusBarHeight : 0)) /
+              2 -
             (popStyles?.paddingTop
               ? parseInt(String(popStyles.paddingTop))
-              : 0) -
-            StatusBar.currentHeight,
+              : 0),
           left:
-            Dimensions.get('window').width / 2 -
+            (systemInfo.windowWidth - 10) / 2 -
             (popStyles?.paddingLeft
               ? parseInt(String(popStyles.paddingLeft))
               : 0),
@@ -252,13 +256,14 @@ export const Popup: FunctionComponent<
       default:
         styles = {
           top:
-            Dimensions.get('window').height / 2 -
+            (systemInfo.windowHeight -
+              (systemInfo?.statusBarHeight ? systemInfo.statusBarHeight : 0)) /
+              2 -
             (popStyles?.paddingTop
               ? parseInt(String(popStyles.paddingTop))
-              : 0) -
-            StatusBar.currentHeight,
+              : 0),
           left:
-            Dimensions.get('window').width / 2 -
+            systemInfo.windowWidth / 2 -
             (popStyles?.paddingLeft
               ? parseInt(String(popStyles.paddingLeft))
               : 0),
