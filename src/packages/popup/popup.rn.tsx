@@ -9,7 +9,7 @@ import React, {
 } from 'react'
 import { createPortal } from 'react-dom'
 import classNames from 'classnames'
-import { Animated, Easing } from 'react-native'
+import { Animated, Easing, Modal, TouchableOpacity } from 'react-native'
 import { View } from '@tarojs/components'
 import Taro from '@tarojs/taro'
 import {
@@ -166,7 +166,7 @@ export const Popup: FunctionComponent<
     }
   }
 
-  const onHandleClickOverlay = (e: MouseEvent) => {
+  const onHandleClickOverlay = (e: any) => {
     if (closeOnClickOverlay) {
       onClickOverlay && onClickOverlay(e)
       close()
@@ -221,7 +221,6 @@ export const Popup: FunctionComponent<
         styles = {
           top:
             (systemInfo.windowHeight -
-              44 -
               (systemInfo?.statusBarHeight ? systemInfo.statusBarHeight : 0)) /
               2 -
             (popStyles?.paddingTop
@@ -254,20 +253,6 @@ export const Popup: FunctionComponent<
         }
         break
       default:
-        styles = {
-          top:
-            (systemInfo.windowHeight -
-              (systemInfo?.statusBarHeight ? systemInfo.statusBarHeight : 0)) /
-              2 -
-            (popStyles?.paddingTop
-              ? parseInt(String(popStyles.paddingTop))
-              : 0),
-          left:
-            systemInfo.windowWidth / 2 -
-            (popStyles?.paddingLeft
-              ? parseInt(String(popStyles.paddingLeft))
-              : 0),
-        }
         break
     }
 
@@ -276,55 +261,65 @@ export const Popup: FunctionComponent<
 
   const renderPop = () => {
     return (
-      <Portal.Entry target={'popup'}>
-        <Animated.View
-          className={classes}
-          style={{
-            display: innerVisible ? 'flex' : 'none',
-            position: 'absolute',
-            opacity: animatedValue,
-            ...popStyles,
-            ...getStyles(),
-          }}
-          onClick={onHandleClick}
-        >
-          {showChildren ? <View>{children}</View> : ''}
-          {closeable ? (
-            <View className={closeClasses} onClick={onHandleClickCloseIcon}>
-              <Icon
-                classPrefix={iconClassPrefix}
-                fontClassName={iconFontClassName}
-                name={closeIcon}
-                size="18px"
-              />
-            </View>
-          ) : null}
-        </Animated.View>
-      </Portal.Entry>
+      <Animated.View
+        className={classes}
+        style={{
+          display: innerVisible ? 'flex' : 'none',
+          position: 'absolute',
+          opacity: animatedValue,
+          ...popStyles,
+          ...getStyles(),
+        }}
+        onClick={onHandleClick}
+      >
+        {showChildren ? <View>{children}</View> : ''}
+        {closeable ? (
+          <View className={closeClasses} onClick={onHandleClickCloseIcon}>
+            <Icon
+              classPrefix={iconClassPrefix}
+              fontClassName={iconFontClassName}
+              name={closeIcon}
+              size="18px"
+            />
+          </View>
+        ) : null}
+      </Animated.View>
     )
   }
 
   const renderNode = () => {
     return (
-      <>
+      <Modal
+        visible={visible}
+        transparent={true}
+        animationType="fade"
+        onRequestClose={onHandleClickCloseIcon}
+      >
         {overlay ? (
           <>
-            <Overlay
-              style={overlayStyles}
-              overlayClass={overlayClass}
-              visible={innerVisible}
-              closeOnClickOverlay={closeOnClickOverlay}
-              zIndex={zIndex}
-              lockScroll={lockScroll}
-              duration={duration}
-              onClick={onHandleClickOverlay}
-            />
+            <TouchableOpacity
+              style={{
+                width: '100%',
+                height: '100%',
+              }}
+              onPress={onHandleClickOverlay}
+            >
+              <Overlay
+                style={overlayStyles}
+                overlayClass={overlayClass}
+                visible={innerVisible}
+                closeOnClickOverlay={closeOnClickOverlay}
+                zIndex={zIndex}
+                lockScroll={lockScroll}
+                duration={duration}
+              />
+            </TouchableOpacity>
             {renderPop()}
           </>
         ) : (
           <>{renderPop()}</>
         )}
-      </>
+      </Modal>
     )
   }
 

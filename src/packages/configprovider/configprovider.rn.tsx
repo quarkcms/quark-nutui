@@ -48,7 +48,6 @@ export const ConfigProvider: FunctionComponent<
       }}
     >
       <Portal.Exit name={'overlay'} />
-      <Portal.Exit name={'popup'} />
       {children}
     </ConfigContext.Provider>
   )
