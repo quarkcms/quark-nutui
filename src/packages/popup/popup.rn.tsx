@@ -128,8 +128,8 @@ export const Popup: FunctionComponent<
 
   const classes = classNames(
     {
-      round,
       [`popup-${position}`]: true,
+      [`popup-${position}__round`]: round,
       [`${popClass}`]: true,
       [`${className}`]: true,
     },
@@ -209,9 +209,12 @@ export const Popup: FunctionComponent<
 
     switch (position) {
       case 'top':
-        styles = { top: 0, left: 0, width: '100%' }
+        styles = {
+          top: 0,
+          left: 0,
+          width: '100%',
+        }
         break
-
       case 'center':
         styles = {
           top:
@@ -227,7 +230,25 @@ export const Popup: FunctionComponent<
               : 0),
         }
         break
-
+      case 'bottom':
+        styles = {
+          bottom: 0,
+          left: 0,
+          width: '100%',
+        }
+        break
+      case 'right':
+        styles = {
+          bottom: 0,
+          right: 0,
+        }
+        break
+      case 'left':
+        styles = {
+          bottom: 0,
+          left: 0,
+        }
+        break
       default:
         styles = {
           top:
@@ -244,7 +265,7 @@ export const Popup: FunctionComponent<
         }
         break
     }
-    console.log(styles)
+
     return styles
   }
 
@@ -252,26 +273,27 @@ export const Popup: FunctionComponent<
     return (
       <Portal.Entry target={'popup'}>
         <Animated.View
+          className={classes}
           style={{
+            display: innerVisible ? 'flex' : 'none',
             position: 'absolute',
             opacity: animatedValue,
             ...popStyles,
             ...getStyles(),
           }}
+          onClick={onHandleClick}
         >
-          <View className={classes} style={popStyles} onClick={onHandleClick}>
-            {showChildren ? children : ''}
-            {closeable ? (
-              <View className={closeClasses} onClick={onHandleClickCloseIcon}>
-                <Icon
-                  classPrefix={iconClassPrefix}
-                  fontClassName={iconFontClassName}
-                  name={closeIcon}
-                  size="12px"
-                />
-              </View>
-            ) : null}
-          </View>
+          {showChildren ? <View>{children}</View> : ''}
+          {closeable ? (
+            <View className={closeClasses} onClick={onHandleClickCloseIcon}>
+              <Icon
+                classPrefix={iconClassPrefix}
+                fontClassName={iconFontClassName}
+                name={closeIcon}
+                size="18px"
+              />
+            </View>
+          ) : null}
         </Animated.View>
       </Portal.Entry>
     )

@@ -1,6 +1,6 @@
 import React, { useState } from 'react'
 import { useTranslate } from '@/sites/assets/locale/taro'
-//import '@/packages/popup/demo.scss'
+import '@/packages/popup/demo.rn.scss'
 import { Cell, Popup, ConfigProvider } from '@/packages/nutui.react.rn'
 import { View, Text } from '@tarojs/components'
 
@@ -94,7 +94,6 @@ const PopupDemo = () => {
           title={translated.c38a08ef}
           isLink
           onClick={() => {
-            console.log('aaa')
             setShowBasic(true)
           }}
         />
@@ -118,7 +117,6 @@ const PopupDemo = () => {
           title={translated['8dab2f66']}
           isLink
           onClick={() => {
-            console.log('xxx')
             setShowTop(true)
           }}
         />
@@ -145,7 +143,7 @@ const PopupDemo = () => {
             setShowBottom(false)
           }}
         />
-        {/* <Cell
+        <Cell
           title={translated.c3a3a1d2}
           isLink
           onClick={() => {
@@ -159,8 +157,8 @@ const PopupDemo = () => {
           onClose={() => {
             setShowLeft(false)
           }}
-        /> */}
-        {/* <Cell
+        />
+        <Cell
           title={translated.e51e4582}
           isLink
           onClick={() => {
@@ -174,9 +172,9 @@ const PopupDemo = () => {
           onClose={() => {
             setShowRight(false)
           }}
-        /> */}
+        />
 
-        {/* <Text className="demo-h2">{translated['7db1a8b2']}</Text>
+        <Text className="demo-h2">{translated['7db1a8b2']}</Text>
         <Cell
           title={translated['7db1a8b2']}
           isLink
@@ -192,8 +190,8 @@ const PopupDemo = () => {
           onClose={() => {
             setShowIcon(false)
           }}
-        /> */}
-        {/* <Cell
+        />
+        <Cell
           title={translated.a52bef0c}
           isLink
           onClick={() => {
@@ -209,8 +207,8 @@ const PopupDemo = () => {
           onClose={() => {
             setShowIconPosition(false)
           }}
-        /> */}
-        {/* <Cell
+        />
+        <Cell
           title={translated.d04fcbda}
           isLink
           onClick={() => {
@@ -226,9 +224,9 @@ const PopupDemo = () => {
           onClose={() => {
             setShowIconDefine(false)
           }}
-        /> */}
+        />
 
-        {/* <Text className="demo-h2">{translated['0aaad620']}</Text>
+        <Text className="demo-h2">{translated['0aaad620']}</Text>
         <Cell
           title={translated['0aaad620']}
           isLink
@@ -245,19 +243,24 @@ const PopupDemo = () => {
           onClose={() => {
             setShowBottomRound(false)
           }}
-        /> */}
+        />
 
-        {/* <Text className="demo-h2">{translated.c9e6df49}</Text>
+        <Text className="demo-h2">{translated.c9e6df49}</Text>
         <Cell
           title={translated.c9e6df49}
           isLink
           onClick={() => {
             setShowMutiple(true)
           }}
-        /> */}
-        {/* <Popup
+        />
+        <Popup
           visible={showMutiple}
-          style={{ padding: '30px 50px' }}
+          style={{
+            paddingTop: 30,
+            paddingBottom: 30,
+            paddingRight: 50,
+            paddingLeft: 50,
+          }}
           onClose={() => {
             setShowMutiple(false)
           }}
@@ -269,10 +272,15 @@ const PopupDemo = () => {
           >
             Click It
           </View>
-        </Popup> */}
-        {/* <Popup
+        </Popup>
+        <Popup
           visible={showMutipleInner}
-          style={{ padding: '30px 50px' }}
+          style={{
+            paddingTop: 30,
+            paddingBottom: 30,
+            paddingRight: 50,
+            paddingLeft: 50,
+          }}
           overlayStyle={{ backgroundColor: 'transparent' }}
           onClose={() => {
             setShowMutipleInner(false)
@@ -285,7 +293,7 @@ const PopupDemo = () => {
           >
             close
           </View>
-        </Popup> */}
+        </Popup>
       </View>
     </ConfigProvider>
   )

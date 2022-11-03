@@ -1,4 +1,5 @@
 import React, { FunctionComponent, ReactNode } from 'react'
+import { TouchableHighlight } from 'react-native'
 import Taro from '@tarojs/taro'
 import { View } from '@tarojs/components'
 import bem from '@/utils/bem'
@@ -113,6 +114,80 @@ export const Cell: FunctionComponent<Partial<CellProps>> = (props) => {
           textAlign: descTextAlign,
           flex: 1,
         }
+
+  const component: any = children || (
+    <>
+      {iconSlot ? iconSlot : null}
+      {icon ? (
+        <Icon
+          classPrefix={iconClassPrefix}
+          fontClassName={iconFontClassName}
+          name={icon}
+          className="icon"
+        />
+      ) : null}
+      {title || subTitle ? (
+        <View className={`${b('title')}`}>
+          {title ? (
+            <View className={b('maintitle', { large: size === 'large' })}>
+              {title}
+            </View>
+          ) : null}
+          {subTitle ? (
+            <View className={b('subtitle', { large: size === 'large' })}>
+              {subTitle}
+            </View>
+          ) : null}
+        </View>
+      ) : null}
+      {desc ? (
+        <View
+          className={b('value', {
+            alone: !title && !subTitle,
+            large: size === 'large',
+          })}
+          style={styles as React.CSSProperties}
+        >
+          {desc}
+        </View>
+      ) : null}
+      {!linkSlot && (isLink || to) ? (
+        <Icon
+          classPrefix={iconClassPrefix}
+          fontClassName={iconFontClassName}
+          name="right"
+          className={b('link')}
+        />
+      ) : (
+        <View className={b('linkSlot')}>{linkSlot}</View>
+      )}
+    </>
+  )
+
+  if (!!(isLink || to)) {
+    return (
+      <TouchableHighlight
+        className={`${b(
+          {
+            clickable: !!(isLink || to),
+            center,
+            large: size === 'large',
+            cellGroup: cellGroup,
+            isLast: isLast,
+          },
+          [className]
+        )} `}
+        style={baseStyle}
+        {...rest}
+        activeOpacity={0.9}
+        underlayColor={'#e6e6e6'}
+        onPress={(e: any) => handleClick(e)}
+      >
+        {component}
+      </TouchableHighlight>
+    )
+  }
+
   return (
     <View
       className={`${b(
@@ -125,58 +200,11 @@ export const Cell: FunctionComponent<Partial<CellProps>> = (props) => {
         },
         [className]
       )} `}
-      onClick={(event) => handleClick(event)}
+      onClick={(e: any) => handleClick(e)}
       style={baseStyle}
       {...rest}
     >
-      {children || (
-        <>
-          {iconSlot ? iconSlot : null}
-          {icon ? (
-            <Icon
-              classPrefix={iconClassPrefix}
-              fontClassName={iconFontClassName}
-              name={icon}
-              className="icon"
-            />
-          ) : null}
-          {title || subTitle ? (
-            <View className={`${b('title')}`}>
-              {title ? (
-                <View className={b('maintitle', { large: size === 'large' })}>
-                  {title}
-                </View>
-              ) : null}
-              {subTitle ? (
-                <View className={b('subtitle', { large: size === 'large' })}>
-                  {subTitle}
-                </View>
-              ) : null}
-            </View>
-          ) : null}
-          {desc ? (
-            <View
-              className={b('value', {
-                alone: !title && !subTitle,
-                large: size === 'large',
-              })}
-              style={styles as React.CSSProperties}
-            >
-              {desc}
-            </View>
-          ) : null}
-          {!linkSlot && (isLink || to) ? (
-            <Icon
-              classPrefix={iconClassPrefix}
-              fontClassName={iconFontClassName}
-              name="right"
-              className={b('link')}
-            />
-          ) : (
-            <View className={b('linkSlot')}>{linkSlot}</View>
-          )}
-        </>
-      )}
+      {component}
     </View>
   )
 }
