@@ -292,7 +292,7 @@ export const Popup: FunctionComponent<
       <Modal
         visible={visible}
         transparent={true}
-        animationType="fade"
+        animationType="none"
         onRequestClose={onHandleClickCloseIcon}
       >
         {overlay ? (
@@ -302,6 +302,7 @@ export const Popup: FunctionComponent<
                 width: '100%',
                 height: '100%',
               }}
+              activeOpacity={1}
               onPress={onHandleClickOverlay}
             >
               <Overlay

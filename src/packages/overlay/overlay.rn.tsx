@@ -106,6 +106,7 @@ export const Overlay: FunctionComponent<
         <TouchableOpacity
           className={'nut-overlay-warp'}
           onPress={handleClick}
+          activeOpacity={1}
           style={{
             ...styles,
             width: '100%',
