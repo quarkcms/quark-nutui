@@ -49,8 +49,6 @@ export const Row: FunctionComponent<
     gutter,
   }
 
-  console.log(getClasses())
-
   let cloneChildren: any = children
   if (
     Array.isArray(cloneChildren) ||

@@ -55,8 +55,6 @@ export const Col: FunctionComponent<
     setColStyle(getStyle)
   }, [span, offset, gutter])
 
-  console.log(`${colName} ${rowClassName}`)
-
   return (
     <View
       className={`${colName} ${rowClassName}`}
