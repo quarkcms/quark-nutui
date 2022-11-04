@@ -1,6 +1,7 @@
 import React from 'react'
 import Taro from '@tarojs/taro'
 import { Divider, Cell } from '@/packages/nutui.react.rn'
+import { View, Text } from '@tarojs/components'
 import { useTranslate } from '@/sites/assets/locale/taro'
 
 interface T {
@@ -38,65 +39,71 @@ const DividerDemo = () => {
   })
   return (
     <>
-      <div className="demo">
-        <h2>{translated.basic}</h2>
+      <View className="demo">
+        <Text className="demo-h2">{translated.basic}</Text>
         <Cell>
           <Divider />
         </Cell>
-        <h2>{translated.withText}</h2>
+        <Text className="demo-h2">{translated.withText}</Text>
         <Cell>
           <Divider>{translated.text}</Divider>
         </Cell>
-        <h2>{translated.withText}</h2>
+        <Text className="demo-h2">{translated.withText}</Text>
         <Cell>
           <Divider contentPosition="left">{translated.text}</Divider>
         </Cell>
         <Cell>
           <Divider contentPosition="right">{translated.text}</Divider>
         </Cell>
-        <h2>{translated.dashed}</h2>
+        <Text className="demo-h2">{translated.dashed}</Text>
         <Cell>
           <Divider dashed>{translated.text}</Divider>
         </Cell>
-        <h2>{translated.customStyle}</h2>
+        <Text className="demo-h2">{translated.customStyle}</Text>
         <Cell>
           <Divider
             styles={{
               color: '#1989fa',
               borderColor: '#1989fa',
-              padding: '0 16px',
+              marginRight: 16,
+              marginLeft: 16,
             }}
           >
             {translated.text}
           </Divider>
         </Cell>
-        <h2>{translated.verticalDivider}</h2>
+        <Text className="demo-h2">{translated.verticalDivider}</Text>
         <Cell>
-          <div
-            style={{ fontSize: '14px', marginLeft: '27px', color: '#909ca4' }}
+          <View
+            style={{
+              fontSize: 16,
+              marginLeft: 27,
+              color: '#909ca4',
+              flexDirection: 'row',
+            }}
           >
             {translated.text}
             <Divider direction="vertical" />
-            <span
+            <View
               onClick={() => {
                 Taro.navigateTo({ url: '/pages/index/index' })
               }}
-              style={{ color: '#1989fa', display: 'inline-block' }}
+              style={{ fontSize: 16, color: '#1989fa' }}
             >
               {translated.link}
-            </span>
+            </View>
             <Divider direction="vertical" />
-            <span
+            <View
               onClick={() => {
                 Taro.navigateTo({ url: '/pages/index/index' })
               }}
-              style={{ color: '#1989fa', display: 'inline-block' }}
+              style={{ fontSize: 16, color: '#1989fa' }}
             >
               {translated.link}
-            </span>
-          </div>
+            </View>
+          </View>
         </Cell>
-      </div>
+      </View>
     </>
   )
 }

@@ -1,6 +1,8 @@
 import React, { FunctionComponent } from 'react'
+import { View, Text } from '@tarojs/components'
 import classNames from 'classnames'
 import bem from '@/utils/bem'
+import '@/packages/divider/divider.rn.scss'
 
 export type ContentPositionType = 'left' | 'center' | 'right'
 export type DirectionType = 'horizontal' | 'vertical'
@@ -39,9 +41,6 @@ export const Divider: FunctionComponent<
     direction === 'horizontal'
       ? classNames({
           [dividerBem()]: true,
-          [dividerBem('center')]: children,
-          [dividerBem('left')]: contentPosition === 'left',
-          [dividerBem('right')]: contentPosition === 'right',
           [dividerBem('dashed')]: dashed,
           [dividerBem('hairline')]: hairline,
         })
@@ -49,10 +48,25 @@ export const Divider: FunctionComponent<
           [dividerBem()]: true,
           [dividerBem('vertical')]: direction === 'vertical',
         })
+  const positionClasses =
+    direction === 'horizontal'
+      ? classNames({
+          [dividerBem('center')]: true,
+          [dividerBem('left')]: contentPosition === 'left',
+          [dividerBem('right')]: contentPosition === 'right',
+        })
+      : classNames({
+          [dividerBem()]: true,
+          [dividerBem('vertical')]: direction === 'vertical',
+        })
   return (
-    <div className={`${classes} ${className || ''}`} style={styles} {...rest}>
-      {children}
-    </div>
+    <View className={`${classes} ${className || ''}`} style={styles}>
+      {children ? (
+        <Text className={`${positionClasses}`} style={styles}>
+          {children}
+        </Text>
+      ) : null}
+    </View>
   )
 }
 

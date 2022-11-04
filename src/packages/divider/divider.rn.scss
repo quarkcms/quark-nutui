@@ -1,63 +1,46 @@
 .nut-divider {
   display: flex;
   align-items: center;
-  font-size: $divider-text-font-size;
-  color: $divider-text-color;
   margin: $divider-margin;
   width: 100%;
+  border: $divider-line-height solid $divider-text-color;
+  border-width: $divider-line-height 0 0;
+  height: $divider-line-height;
+  flex: 1;
 
-  &::before,
-  &::after {
-    content: '';
-    border: $divider-line-height solid currentColor;
-    border-width: $divider-line-height 0 0;
-    height: $divider-line-height;
-    flex: 1;
+  &__center,
+  &__left,
+  &__right {
+    font-size: $divider-text-font-size;
+    color: $divider-text-color;
+    height: $divider-text-font-size * 3;
+    transform: scaleY(2);
+    background-color: #fff;
+    padding-right: $divider-before-margin-right;
+    padding-left: $divider-after-margin-left;
   }
 
-  &.nut-divider__center,
-  &.nut-divider__left,
-  &.nut-divider__right {
-    &::before {
-      margin-right: $divider-before-margin-right;
-    }
-
-    &::after {
-      margin-left: $divider-after-margin-left;
-    }
+  &__left {
+    margin-left: -60%;
   }
 
-  &.nut-divider__left {
-    &::before {
-      max-width: 10%;
-    }
+  &__right {
+    margin-left: 60%;
   }
 
-  &.nut-divider__right {
-    &::after {
-      max-width: 10%;
-    }
+  &__dashed {
+    border-style: dashed;
   }
 
-  &.nut-divider__dashed {
-    &::before,
-    &::after {
-      border-style: dashed;
-    }
+  &__hairline {
+    transform: scaleY(0.5);
   }
-
-  &.nut-divider__hairline {
-    &::before,
-    &::after {
-      transform: scaleY(0.5);
-    }
-  }
-  &.nut-divider__vertical {
+  &__vertical {
     position: relative;
     top: $divider-vertical-top;
-    display: inline-block;
     height: $divider-vertical-height;
-    border-left: 1px solid $divider-vertical-border-left;
+    border: 0px solid $divider-vertical-border-left;
+    border-left-width: 1px;
     margin: $divider-vertical-margin;
     width: auto;
   }
