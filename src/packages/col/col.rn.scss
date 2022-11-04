@@ -1,24 +1,17 @@
 .nut-col {
-  float: left;
-  box-sizing: border-box;
-  word-break: break-all;
   margin-bottom: $col-default-margin-bottom;
   &-gutter {
-    &:last-child {
-      padding-right: 0 !important;
-    }
-    &:first-child {
-      padding-left: 0 !important;
-    }
+    padding-right: 0;
+    padding-left: 0;
   }
 }
 
 @for $i from 1 through 24 {
   .nut-col-offset-#{$i} {
-    margin-left: calc((100 / 24) * #{$i} * 1%);
+    margin-left: (100 / 24) * $i * 1%;
   }
 
   .nut-col-#{$i} {
-    width: calc((100 / 24) * #{$i} * 1%);
+    width: (100 / 24) * $i * 1%;
   }
 }

@@ -5,25 +5,33 @@ import React, {
   CSSProperties,
   useContext,
 } from 'react'
+import { View } from '@tarojs/components'
 import { DataContext } from '@/packages/row/UserContext'
+import '@/packages/col/col.rn.scss'
+import '@/packages/row/row.rn.scss'
 
 type EventType = 'row' | 'col'
 export interface ColProps {
   span: string | number
   offset: string | number
   gutter: string | number
+  rowClassName: string
   onClick: (e: any, type: EventType) => void
 }
 const defaultProps = {
   span: '24',
   offset: '0',
   gutter: '0',
+  rowClassName: '',
 } as ColProps
 
 export const Col: FunctionComponent<
   Partial<ColProps> & Omit<React.HTMLAttributes<HTMLDivElement>, 'onClick'>
 > = (props) => {
-  const { span, offset, children, onClick } = { ...defaultProps, ...props }
+  const { span, offset, children, rowClassName, onClick } = {
+    ...defaultProps,
+    ...props,
+  }
   const [colName, setColName] = useState('')
   const [colStyle, setColStyle] = useState({})
   const { gutter } = useContext(DataContext) as any
@@ -38,8 +46,8 @@ export const Col: FunctionComponent<
   const getStyle = () => {
     // 定义col的style类
     const style: CSSProperties = {}
-    style.paddingLeft = `${(gutter as number) / 2}px`
-    style.paddingRight = `${(gutter as number) / 2}px`
+    style.paddingLeft = (gutter as number) / 2
+    style.paddingRight = (gutter as number) / 2
     return style
   }
   useEffect(() => {
@@ -47,16 +55,18 @@ export const Col: FunctionComponent<
     setColStyle(getStyle)
   }, [span, offset, gutter])
 
+  console.log(`${colName} ${rowClassName}`)
+
   return (
-    <div
-      className={`${colName}`}
+    <View
+      className={`${colName} ${rowClassName}`}
       style={{ ...colStyle }}
       onClick={(e) => {
         onClick && onClick(e, 'col')
       }}
     >
       {children}
-    </div>
+    </View>
   )
 }
 

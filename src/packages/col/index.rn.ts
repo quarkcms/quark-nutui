@@ -1,3 +1,3 @@
-import { Col } from './col.taro'
+import { Col } from './col.rn'
 
 export default Col

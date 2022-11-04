@@ -1,7 +1,9 @@
 import React from 'react'
 import { useTranslate } from '@/sites/assets/locale/taro'
+import { View, Text } from '@tarojs/components'
 import { Row, Col } from '@/packages/nutui.react.rn'
-//import '@/packages/layout/demo.scss'
+import '@/packages/layout/demo.rn.scss'
+
 type TLayoutDemo = {
   title1: string
   title2: string
@@ -12,8 +14,8 @@ const LayoutDemo = () => {
   const [translated] = useTranslate<TLayoutDemo>({
     'zh-CN': {
       title1: '基础布局',
-      title2: '搜索框形状及最大长度',
-      title3: '搜索框内外背景设置',
+      title2: '分栏间隔',
+      title3: 'Flex布局',
     },
     'zh-TW': {
       title1: '基礎佈局',
@@ -33,121 +35,121 @@ const LayoutDemo = () => {
   })
   return (
     <>
-      <div className="demo full">
-        <h2>{translated.title1}</h2>
-        <div className="box-item">
+      <View className="demo full">
+        <Text className="demo-h2">{translated.title1}</Text>
+        <View className="box-item">
           <Row>
             <Col span="24">
-              <div className="flex-content">span:24</div>
+              <View className="flex-content">span:24</View>
             </Col>
           </Row>
           <Row>
             <Col span="12">
-              <div className="flex-content">span:12</div>
+              <View className="flex-content">span:12</View>
             </Col>
             <Col span="12">
-              <div className="flex-content flex-content-light">span:12</div>
+              <View className="flex-content flex-content-light">span:12</View>
             </Col>
           </Row>
           <Row>
             <Col span="8">
-              <div className="flex-content">span:8</div>
+              <View className="flex-content">span:8</View>
             </Col>
             <Col span="8">
-              <div className="flex-content flex-content-light">span:8</div>
+              <View className="flex-content flex-content-light">span:8</View>
             </Col>
             <Col span="8">
-              <div className="flex-content">span:8</div>
+              <View className="flex-content">span:8</View>
             </Col>
           </Row>
           <Row>
             <Col span="6">
-              <div className="flex-content">span:6</div>
+              <View className="flex-content">span:6</View>
             </Col>
             <Col span="6">
-              <div className="flex-content flex-content-light">span:6</div>
+              <View className="flex-content flex-content-light">span:6</View>
             </Col>
             <Col span="6">
-              <div className="flex-content">span:6</div>
+              <View className="flex-content">span:6</View>
             </Col>
             <Col span="6">
-              <div className="flex-content flex-content-light">span:6</div>
+              <View className="flex-content flex-content-light">span:6</View>
             </Col>
           </Row>
-        </div>
-        <h2>{translated.title2}</h2>
-        <div className="box-item">
+        </View>
+        <Text className="demo-h2">{translated.title2}</Text>
+        <View className="box-item">
           <Row gutter="10">
             <Col span="8">
-              <div className="flex-content">span:8</div>
+              <View className="flex-content">span:8</View>
             </Col>
             <Col span="8">
-              <div className="flex-content flex-content-light">span:8</div>
+              <View className="flex-content flex-content-light">span:8</View>
             </Col>
             <Col span="8">
-              <div className="flex-content">span:8</div>
+              <View className="flex-content">span:8</View>
             </Col>
           </Row>
-        </div>
-        <h2>{translated.title3}</h2>
-        <div className="box-item">
+        </View>
+        <Text className="demo-h2">{translated.title3}</Text>
+        <View className="box-item">
           <Row type="flex" wrap="nowrap">
             <Col span="6">
-              <div className="flex-content">span:6</div>
+              <View className="flex-content">span:6</View>
             </Col>
             <Col span="6">
-              <div className="flex-content flex-content-light">span:6</div>
+              <View className="flex-content flex-content-light">span:6</View>
             </Col>
             <Col span="6">
-              <div className="flex-content">span:6</div>
+              <View className="flex-content">span:6</View>
             </Col>
           </Row>
           <Row type="flex" justify="center">
             <Col span="6">
-              <div className="flex-content">span:6</div>
+              <View className="flex-content">span:6</View>
             </Col>
             <Col span="6">
-              <div className="flex-content flex-content-light">span:6</div>
+              <View className="flex-content flex-content-light">span:6</View>
             </Col>
             <Col span="6">
-              <div className="flex-content">span:6</div>
+              <View className="flex-content">span:6</View>
             </Col>
           </Row>
           <Row type="flex" justify="end">
             <Col span="6">
-              <div className="flex-content">span:6</div>
+              <View className="flex-content">span:6</View>
             </Col>
             <Col span="6">
-              <div className="flex-content flex-content-light">span:6</div>
+              <View className="flex-content flex-content-light">span:6</View>
             </Col>
             <Col span="6">
-              <div className="flex-content">span:6</div>
+              <View className="flex-content">span:6</View>
             </Col>
           </Row>
           <Row type="flex" justify="space-between">
             <Col span="6">
-              <div className="flex-content">span:6</div>
+              <View className="flex-content">span:6</View>
             </Col>
             <Col span="6">
-              <div className="flex-content flex-content-light">span:6</div>
+              <View className="flex-content flex-content-light">span:6</View>
             </Col>
             <Col span="6">
-              <div className="flex-content">span:6</div>
+              <View className="flex-content">span:6</View>
             </Col>
           </Row>
           <Row type="flex" justify="space-around">
             <Col span="6">
-              <div className="flex-content">span:6</div>
+              <View className="flex-content">span:6</View>
             </Col>
             <Col span="6">
-              <div className="flex-content flex-content-light">span:6</div>
+              <View className="flex-content flex-content-light">span:6</View>
             </Col>
             <Col span="6">
-              <div className="flex-content">span:6</div>
+              <View className="flex-content">span:6</View>
             </Col>
           </Row>
-        </div>
-      </div>
+        </View>
+      </View>
     </>
   )
 }
