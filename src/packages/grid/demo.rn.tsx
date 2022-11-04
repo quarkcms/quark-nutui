@@ -2,6 +2,7 @@ import React from 'react'
 import Taro from '@tarojs/taro'
 import { useTranslate } from '@/sites/assets/locale/taro'
 import { Avatar, Grid, GridItem } from '@/packages/nutui.react.rn'
+import { View, Text } from '@tarojs/components'
 
 interface T {
   basic: string
@@ -52,13 +53,12 @@ const GridDemo = () => {
   })
 
   const handleClick = () => {
-    // Toast.text('点击了第几个')
     Taro.showToast({ title: '点击了第几个' })
   }
   return (
     <>
-      <div className="demo">
-        <h2>{translated.basic}</h2>
+      <View className="demo">
+        <Text className="demo-h2-bm10">{translated.basic}</Text>
         <Grid>
           <GridItem icon="dongdong" text={translated.text} />
           <GridItem icon="dongdong" text={translated.text} />
@@ -70,7 +70,7 @@ const GridDemo = () => {
           <GridItem icon="dongdong" text={translated.text} />
         </Grid>
 
-        <h2>{translated.columnNum}</h2>
+        <Text className="demo-h2-bm10">{translated.columnNum}</Text>
         <Grid columnNum={3}>
           <GridItem icon="dongdong" text={translated.text} />
           <GridItem icon="dongdong" text={translated.text} />
@@ -80,14 +80,14 @@ const GridDemo = () => {
           <GridItem icon="dongdong" text={translated.text} />
         </Grid>
 
-        <h2>{translated.square}</h2>
+        <Text className="demo-h2-bm10">{translated.square}</Text>
         <Grid columnNum={3} square>
           <GridItem icon="dongdong" text={translated.text} />
           <GridItem icon="dongdong" text={translated.text} />
           <GridItem icon="dongdong" text={translated.text} />
         </Grid>
 
-        <h2>{translated.gutter}</h2>
+        <Text className="demo-h2-bm10">{translated.gutter}</Text>
         <Grid gutter={3}>
           <GridItem icon="dongdong" text={translated.text} />
           <GridItem icon="dongdong" text={translated.text} />
@@ -99,7 +99,7 @@ const GridDemo = () => {
           <GridItem icon="dongdong" text={translated.text} />
         </Grid>
 
-        <h2>{translated.reverse}</h2>
+        <Text className="demo-h2-bm10">{translated.reverse}</Text>
         <Grid reverse>
           <GridItem icon="dongdong" text={translated.text} />
           <GridItem icon="dongdong" text={translated.text} />
@@ -107,7 +107,7 @@ const GridDemo = () => {
           <GridItem icon="dongdong" text={translated.text} />
         </Grid>
 
-        <h2>{translated.horizontal}</h2>
+        <Text className="demo-h2-bm10">{translated.horizontal}</Text>
         <Grid direction="horizontal">
           <GridItem icon="dongdong" text={translated.text} />
           <GridItem icon="dongdong" text={translated.text} />
@@ -115,19 +115,19 @@ const GridDemo = () => {
           <GridItem icon="dongdong" text={translated.text} />
         </Grid>
 
-        <h2>{translated.iconStyle}</h2>
+        <Text className="demo-h2-bm10">{translated.iconStyle}</Text>
         <Grid columnNum="3" iconColor="#fa2c19">
-          <GridItem icon="dongdong" text={translated.text} />
+          <GridItem icon="dongdong" text={translated.text} iconSize="40" />
           <GridItem
             icon="dongdong"
             text={translated.text}
             iconColor="#478EF2"
             iconSize="40"
           />
-          <GridItem icon="dongdong" text={translated.text} />
+          <GridItem icon="dongdong" text={translated.text} iconSize="40" />
         </Grid>
 
-        <h2>{translated.customContent}</h2>
+        {/* <Text className="demo-h2-bm10">{translated.customContent}</Text>
         <Grid border={false}>
           <GridItem icon="dongdong" text={<span>More</span>} />
           <GridItem
@@ -157,8 +157,8 @@ const GridDemo = () => {
               icon="https://img12.360buyimg.com/imagetools/jfs/t1/143702/31/16654/116794/5fc6f541Edebf8a57/4138097748889987.png"
             />
           </GridItem>
-        </Grid>
-      </div>
+        </Grid> */}
+      </View>
     </>
   )
 }

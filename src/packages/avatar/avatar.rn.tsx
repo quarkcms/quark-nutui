@@ -4,13 +4,13 @@ import React, {
   useRef,
   FunctionComponent,
   useContext,
-  MouseEventHandler,
 } from 'react'
 import classNames from 'classnames'
 import { AvatarContext } from '@/packages/avatargroup/AvatarContext'
 import bem from '@/utils/bem'
-import Icon from '@/packages/icon/index.taro'
-
+import Icon from '@/packages/icon/index.rn'
+import { View, Text } from '@tarojs/components'
+import '@/packages/avatar/avatar.rn.scss'
 import { IComponent, ComponentDefaults } from '@/utils/typings'
 
 export interface AvatarProps extends IComponent {
@@ -80,20 +80,33 @@ export const Avatar: FunctionComponent<
   })
   const cls = classNames(b(''), classes, className)
   const sizeValue = ['large', 'normal', 'small']
-  const styles: React.CSSProperties = {
-    width: sizeValue.indexOf(size) > -1 ? '' : `${size}px`,
-    height: sizeValue.indexOf(size) > -1 ? '' : `${size}px`,
+  const pxCheck = (value: string | number): number => {
+    let getValue: any = value
+    if (Number.isNaN(Number(value)) || typeof value === 'string') {
+      getValue = parseInt(String(value))
+    }
+    if (!getValue || getValue == '') {
+      getValue = 'auto'
+    }
+    return getValue
+  }
+  let styles: React.CSSProperties = {
     backgroundColor: `${bgColor}`,
     color: `${color}`,
     marginLeft:
       avatarIndex !== 1 && parent?.propAvatarGroup?.span
-        ? `${parent?.propAvatarGroup?.span}px`
-        : '',
+        ? parent?.propAvatarGroup?.span
+        : 'auto',
     zIndex:
       parent?.propAvatarGroup?.zIndex === 'right'
-        ? `${Math.abs(maxSum - avatarIndex)}`
-        : '',
+        ? Math.abs(maxSum - avatarIndex)
+        : 0,
     ...style,
+  }
+
+  if (size != '' && size) {
+    styles['width'] = sizeValue.indexOf(size) > -1 ? 'auto' : pxCheck(size)
+    styles['height'] = sizeValue.indexOf(size) > -1 ? 'auto' : pxCheck(size)
   }
 
   const maxStyles: React.CSSProperties = {
@@ -140,25 +153,21 @@ export const Avatar: FunctionComponent<
     }
   }
 
-  const clickAvatar: MouseEventHandler<HTMLDivElement> = (e: any) => {
+  const clickAvatar: any = (e: any) => {
     activeAvatar && activeAvatar(e)
     onActiveAvatar && onActiveAvatar(e)
   }
 
-  console.log(
-    '!parent?.propAvatarGroup?.maxCount',
-    !parent?.propAvatarGroup?.maxCount,
-    showMax
-  )
+  console.log(styles)
+  console.log(cls)
 
   return (
     <>
       {(showMax ||
         !parent?.propAvatarGroup?.maxCount ||
         avatarIndex <= parent?.propAvatarGroup?.maxCount) && (
-        <div
+        <View
           className={cls}
-          {...rest}
           style={!showMax ? styles : maxStyles}
           onClick={clickAvatar}
           ref={avatarRef}
@@ -171,6 +180,7 @@ export const Avatar: FunctionComponent<
                 <Icon
                   classPrefix={iconClassPrefix}
                   fontClassName={iconFontClassName}
+                  color={!showMax ? styles?.color : maxStyles?.color}
                   className="icon"
                   name={iconStyles}
                 />
@@ -178,15 +188,14 @@ export const Avatar: FunctionComponent<
               {children && <span className="text">{children}</span>}
             </>
           )}
-          {/* 折叠头像 */}
           {showMax && (
-            <div className="text">
+            <View className="text">
               {parent?.propAvatarGroup?.maxContent
                 ? parent?.propAvatarGroup?.maxContent
                 : `+ ${avatarIndex - parent?.propAvatarGroup?.maxCount}`}
-            </div>
+            </View>
           )}
-        </div>
+        </View>
       )}
     </>
   )

@@ -1,6 +1,7 @@
 .nut-grid {
   display: flex;
   flex-wrap: wrap;
+  flex-direction: row;
   border: 0 solid $grid-border-color;
 
   &__border {

@@ -1,7 +1,9 @@
 import React, { CSSProperties, FunctionComponent, ReactNode } from 'react'
 import { useConfig } from '@/packages/configprovider/configprovider.taro'
 import bem from '@/utils/bem'
-import Icon from '@/packages/icon/index.taro'
+import Icon from '@/packages/icon/index.rn'
+import { View } from '@tarojs/components'
+import '@/packages/griditem/griditem.rn.scss'
 
 import { IComponent, ComponentDefaults } from '@/utils/typings'
 
@@ -71,8 +73,16 @@ export const GridItem: FunctionComponent<
   }
   const b = bem('grid-item')
 
-  const pxCheck = (value: string | number): string => {
-    return Number.isNaN(Number(value)) ? String(value) : `${value}px`
+  const pxCheck = (value: string | number): number => {
+    let getValue: any = value
+    if (Number.isNaN(Number(value)) || typeof value === 'string') {
+      getValue = parseInt(String(value))
+    }
+    if (!getValue || getValue == '') {
+      getValue = 20
+    }
+
+    return getValue
   }
 
   const rootStyle = () => {
@@ -101,28 +111,42 @@ export const GridItem: FunctionComponent<
       `
   }
 
+  const contentTextClass = () => {
+    return `${reverse && b('content--reverse__text')} ${
+      !!direction && b(`content--${direction}__text`)
+    }`
+  }
+
   const isIconName = () => {
     return typeof icon === 'string'
   }
 
   return (
-    <div className={b()} style={rootStyle()} {...rest}>
-      <div className={contentClass()}>
+    <View className={b()} style={rootStyle()}>
+      <View className={contentClass()}>
         {icon && isIconName() ? (
           <Icon
             classPrefix={iconClassPrefix}
             fontClassName={iconFontClassName}
             name={icon as string}
             size={iconSize || parentIconSize}
-            color={iconColor || parentIconColor}
+            color={
+              iconColor || parentIconColor
+                ? iconColor || parentIconColor
+                : undefined
+            }
           />
-        ) : (
-          <>{icon}</>
+        ) : icon && icon != '' ? (
+          <View className={'nut-grid-item__text'}>{icon}</View>
+        ) : null}
+        {text && (
+          <View className={'nut-grid-item__text ' + contentTextClass()}>
+            {text}
+          </View>
         )}
-        {text && <div className="nut-grid-item__text">{text}</div>}
         {children && <>{children}</>}
-      </div>
-    </div>
+      </View>
+    </View>
   )
 }
 

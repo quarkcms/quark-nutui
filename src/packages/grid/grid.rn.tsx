@@ -1,5 +1,7 @@
 import React, { CSSProperties, FunctionComponent } from 'react'
+import { View, Text } from '@tarojs/components'
 import { useConfig } from '@/packages/configprovider/configprovider.taro'
+import '@/packages/grid/grid.rn.scss'
 import bem from '@/utils/bem'
 
 export type GridDirection = 'horizontal' | 'vertical'
@@ -51,8 +53,16 @@ export const Grid: FunctionComponent<
   } = { ...defaultProps, ...props }
   const childrenDom = React.Children.toArray(children)
 
-  const pxCheck = (value: string | number): string => {
-    return Number.isNaN(Number(value)) ? String(value) : `${value}px`
+  const pxCheck = (value: string | number): number => {
+    let getValue: any = value
+    if (Number.isNaN(Number(value)) || typeof value === 'string') {
+      getValue = parseInt(String(value))
+    }
+    if (!getValue || getValue == '') {
+      getValue = 0
+    }
+
+    return getValue
   }
 
   const b = bem('grid')
@@ -77,7 +87,7 @@ export const Grid: FunctionComponent<
   }
 
   return (
-    <div className={rootClass()} style={rootStyle()} {...rest}>
+    <View className={rootClass()} style={rootStyle()}>
       {childrenDom.map((item: any, idex: number) => {
         return React.cloneElement(item, {
           index: idex,
@@ -92,7 +102,7 @@ export const Grid: FunctionComponent<
           parentIconColor: iconColor,
         })
       })}
-    </div>
+    </View>
   )
 }
 
