@@ -162,12 +162,13 @@ export const Button: FunctionComponent<Partial<ButtonProps>> = (props) => {
 
   const component = (
     <View className={`nut-button__warp`}>
-      <Text className={`${btnFontName}`} style={btnStyle}>
+      <View className={`${btnFontName}`}>
         {loading && (
           <Icon
             classPrefix={iconClassPrefix}
             fontClassName={iconFontClassName}
             name="loading"
+            size="18"
             color={iconFontColor}
           />
         )}
@@ -176,13 +177,19 @@ export const Button: FunctionComponent<Partial<ButtonProps>> = (props) => {
             classPrefix={iconClassPrefix}
             fontClassName={iconFontClassName}
             name={icon}
+            size="18"
             color={iconFontColor}
           />
-        ) : (
-          ''
-        )}
-        {children}
-      </Text>
+        ) : null}
+        {children ? (
+          <View
+            className={`${btnFontName}`}
+            style={{ ...btnStyle, marginLeft: loading || icon ? 5 : 0 }}
+          >
+            {children}
+          </View>
+        ) : null}
+      </View>
     </View>
   )
 
