@@ -123,7 +123,7 @@ export const Cell: FunctionComponent<Partial<CellProps>> = (props) => {
           classPrefix={iconClassPrefix}
           fontClassName={iconFontClassName}
           name={icon}
-          className="icon"
+          className="nut-cell__icon"
         />
       ) : null}
       {title || subTitle ? (

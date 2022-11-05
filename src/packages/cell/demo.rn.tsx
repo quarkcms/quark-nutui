@@ -164,8 +164,8 @@ const CellDemo = () => {
               <Image
                 style={{
                   position: 'relative',
-                  width: 25,
-                  height: 25,
+                  width: 20,
+                  height: 20,
                   lineHeight: 20,
                   textAlign: 'right',
                 }}
