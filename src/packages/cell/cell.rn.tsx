@@ -104,7 +104,7 @@ export const Cell: FunctionComponent<Partial<CellProps>> = (props) => {
   }
 
   const baseStyle = {
-    borderRadius: parseInt(String(roundRadius)),
+    borderRadius: cellGroup ? 0 : parseInt(String(roundRadius)),
   }
 
   const styles =

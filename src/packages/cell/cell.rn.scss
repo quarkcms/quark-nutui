@@ -78,7 +78,7 @@
     margin: 0;
     box-shadow: none;
     border-radius: 0;
-    border-bottom: $cell-after-border-bottom;
+    border-bottom: 1px solid #f5f6f7;
   }
 
   &--isLast {
