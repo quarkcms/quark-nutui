@@ -11,9 +11,11 @@
   &__center,
   &__left,
   &__right {
+    top: -15;
     font-size: $divider-text-font-size;
     color: $divider-text-color;
-    height: $divider-text-font-size * 3;
+    height: $divider-text-font-size * 1.5;
+    line-height: $divider-text-font-size * 1.5;
     transform: scaleY(2);
     background-color: #fff;
     padding-right: $divider-before-margin-right;
