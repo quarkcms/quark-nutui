@@ -100,7 +100,6 @@ export function Icon<T>(props: Partial<IconProps> & T): ReactElement {
         }
         style={{
           color,
-          fontSize: pxCheck(size),
           width: pxCheck(size),
           height: pxCheck(size),
           ...style,
