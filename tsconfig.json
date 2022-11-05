@@ -31,5 +31,13 @@
     }
   },
   "include": ["src/**/*.ts", "src/**/*.d.ts", "src/**/*.tsx"],
-  "exclude": ["./node_modules/*", "src/sites/*", "src/**/*.taro.tsx"]
+  "exclude": [
+    "./node_modules/*",
+    "src/sites/*",
+    "src/**/*.taro.tsx",
+    "src/**/*.rn.tsx",
+    "src/**/iconfont.tsx",
+    "src/**/*.rn.ts",
+    "src/**/nutui.rn.react.build.ts"
+  ]
 }
