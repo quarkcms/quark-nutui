@@ -158,10 +158,8 @@ export const Popup: FunctionComponent<
     if (innerVisible) {
       setInnerVisible(false)
       if (destroyOnClose) {
-        setTimeout(() => {
-          setShowChildren(false)
-          onClose && onClose()
-        }, Number(duration) * 1000)
+        setShowChildren(false)
+        onClose && onClose()
       }
     }
   }
@@ -193,7 +191,6 @@ export const Popup: FunctionComponent<
       const container = resolveContainer(getContainer)
       return createPortal(node, container) as ReactPortal
     }
-
     return node
   }
 
@@ -208,7 +205,6 @@ export const Popup: FunctionComponent<
 
   const getStyles = () => {
     let styles: any = {}
-
     switch (position) {
       case 'top':
         styles = {
@@ -310,7 +306,7 @@ export const Popup: FunctionComponent<
                 overlayClass={overlayClass}
                 visible={innerVisible}
                 closeOnClickOverlay={closeOnClickOverlay}
-                zIndex={zIndex}
+                zIndex={index}
                 lockScroll={lockScroll}
                 duration={duration}
               />
