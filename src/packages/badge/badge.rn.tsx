@@ -1,6 +1,8 @@
 import React, { CSSProperties, FunctionComponent, ReactNode } from 'react'
 
-import Icon from '@/packages/icon/index.taro'
+import Icon from '@/packages/icon/index.rn'
+import { View, Text } from '@tarojs/components'
+import '@/packages/badge/badge.rn.scss'
 
 import { IComponent, ComponentDefaults } from '@/utils/typings'
 
@@ -55,16 +57,31 @@ export const Badge: FunctionComponent<Partial<BadgeProps>> = (props) => {
   }
   const getStyle = () => {
     const style: CSSProperties = {}
-    style.top = `${Number(top) || parseFloat(top) || 0}px`
-    style.right = `${Number(right) || parseFloat(right) || 0}px`
-    style.zIndex = zIndex
-    style.backgroundColor = color
+    style.top = Number(top) || parseFloat(top) || 0
+    style.right = Number(right) || parseFloat(right) || 0
+    style.zIndex = Number(zIndex) || parseFloat(zIndex) || 0
+    if (color) {
+      style.backgroundColor = color
+    }
+
+    const getContent = content() // todo:精度有待处理
+    if (getContent) {
+      let translate: any = [
+        { translateY: -12 },
+        { translateX: 10 * getContent.length + 10 },
+      ]
+      style.transform = translate
+    } else {
+      let translate: any = [{ translateY: -5 }, { translateX: 8 }]
+      style.transform = translate
+    }
     return style
   }
+
   return (
-    <div className="nut-badge">
+    <View className="nut-badge">
       {icons !== '' && (
-        <div className="slot-icons">
+        <View className="slot-icons">
           <Icon
             classPrefix={iconClassPrefix}
             fontClassName={iconFontClassName}
@@ -73,16 +90,16 @@ export const Badge: FunctionComponent<Partial<BadgeProps>> = (props) => {
             color="#ffffff"
             size="12"
           />
-        </div>
+        </View>
       )}
-      <div>{children}</div>
-      <div
-        className={`${dot ? 'is-dot' : ''} nut-badge__content sup`}
+      <View>{children}</View>
+      <View
+        className={`nut-badge__content sup ${dot ? 'is-dot' : ''}`}
         style={getStyle()}
       >
         {content()}
-      </div>
-    </div>
+      </View>
+    </View>
   )
 }
 

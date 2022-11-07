@@ -36,3 +36,8 @@
 .nut-avatar-square {
   border-radius: $avatar-square;
 }
+.nut-avatar-group-item {
+  flex: 0 0 auto; // 防止被压缩
+  border: 1px solid #fff;
+  margin-left: -8px;
+}

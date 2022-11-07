@@ -103,7 +103,7 @@ export const Avatar: FunctionComponent<
   if (avatarIndex !== 1 && parent?.propAvatarGroup?.span) {
     styles['marginLeft'] =
       avatarIndex !== 1 && parent?.propAvatarGroup?.span
-        ? parent?.propAvatarGroup?.span
+        ? parseInt(parent?.propAvatarGroup?.span)
         : 'auto'
   }
 
@@ -120,12 +120,13 @@ export const Avatar: FunctionComponent<
   const iconStyles = icon || ''
 
   useEffect(() => {
-    const avatarChildren = parent?.avatarGroupRef?.current.children
+    const avatarChildren = parent?.avatarGroupRef?.current.props.children
     if (avatarChildren) {
       avatarLength(avatarChildren)
     }
   }, [])
 
+  // todo
   const avatarLength = (children: any) => {
     for (let i = 0; i < children.length; i++) {
       if (
@@ -134,11 +135,17 @@ export const Avatar: FunctionComponent<
         (children[i].classList[0] === 'nut-avatar' ||
           children[i].classList.values().next().value === 'nut-avatar')
       ) {
-        children[i].setAttribute('data-index', i + 1)
+        children[i].setAttribute('dataIndex', i + 1)
       }
     }
-    const index = avatarRef?.current?.dataset?.index
+    const index = avatarRef?.current?.dataIndex
     const maxCount = parent?.propAvatarGroup?.maxCount
+
+    console.log('xxxxx')
+    console.log(index)
+    console.log(children.length)
+    console.log(maxCount)
+
     setMaxSum(children.length)
     setAvatarIndex(index)
     if (
@@ -161,8 +168,7 @@ export const Avatar: FunctionComponent<
     onActiveAvatar && onActiveAvatar(e)
   }
 
-  console.log(styles)
-  console.log(cls)
+  console.log(showMax)
 
   return (
     <>
@@ -170,7 +176,9 @@ export const Avatar: FunctionComponent<
         !parent?.propAvatarGroup?.maxCount ||
         avatarIndex <= parent?.propAvatarGroup?.maxCount) && (
         <View
-          className={cls}
+          className={`${cls} ${
+            parent?.propAvatarGroup ? 'nut-avatar-group-item' : ''
+          }`}
           style={!showMax ? styles : maxStyles}
           onClick={clickAvatar}
           ref={avatarRef}
@@ -178,24 +186,23 @@ export const Avatar: FunctionComponent<
           {(!parent?.propAvatarGroup?.maxCount ||
             avatarIndex <= parent?.propAvatarGroup?.maxCount) && (
             <>
-              {url && (
-                <Image
-                  className={cls}
-                  style={!showMax ? styles : maxStyles}
-                  src={url}
-                  onError={errorEvent}
-                />
-              )}
+              {url && <Image className={cls} src={url} onError={errorEvent} />}
               {icon && (
                 <Icon
                   classPrefix={iconClassPrefix}
                   fontClassName={iconFontClassName}
                   color={!showMax ? styles?.color : maxStyles?.color}
-                  className={cls}
                   name={iconStyles}
                 />
               )}
-              {children && <Text className="text">{children}</Text>}
+              {children && (
+                <Text
+                  style={{ color: !showMax ? styles?.color : maxStyles?.color }}
+                  className="text"
+                >
+                  {children}
+                </Text>
+              )}
             </>
           )}
           {showMax && (

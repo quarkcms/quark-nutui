@@ -117,14 +117,14 @@ const GridDemo = () => {
 
         <Text className="demo-h2-bm10">{translated.iconStyle}</Text>
         <Grid columnNum="3" iconColor="#fa2c19">
-          <GridItem icon="dongdong" text={translated.text} iconSize="40" />
+          <GridItem icon="dongdong" text={translated.text} />
           <GridItem
             icon="dongdong"
             text={translated.text}
             iconColor="#478EF2"
             iconSize="40"
           />
-          <GridItem icon="dongdong" text={translated.text} iconSize="40" />
+          <GridItem icon="dongdong" text={translated.text} />
         </Grid>
 
         <Text className="demo-h2-bm10">{translated.customContent}</Text>

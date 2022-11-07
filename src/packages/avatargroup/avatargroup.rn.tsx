@@ -1,8 +1,11 @@
 import React, { FunctionComponent, useRef } from 'react'
 import classNames from 'classnames'
 import { AvatarContext } from './AvatarContext'
+import { View } from '@tarojs/components'
 import bem from '@/utils/bem'
 import { useConfig } from '@/packages/configprovider'
+
+import '@/packages/avatargroup/avatargroup.rn.scss'
 
 export interface AvatarGroupProps {
   maxContent: string
@@ -44,9 +47,9 @@ export const AvatarGroup: FunctionComponent<
   }
   return (
     <AvatarContext.Provider value={parentAvatar}>
-      <div className={cls} style={style} ref={avatarGroupRef}>
+      <View className={cls} style={style} ref={avatarGroupRef}>
         {children}
-      </div>
+      </View>
     </AvatarContext.Provider>
   )
 }
