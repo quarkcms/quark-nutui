@@ -22,6 +22,7 @@
 
   &__content {
     display: flex;
+    flex: 1;
     flex-direction: column;
     padding: $grid-item-content-padding;
     background: $grid-item-content-bg-color;

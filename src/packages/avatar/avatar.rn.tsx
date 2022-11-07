@@ -9,7 +9,7 @@ import classNames from 'classnames'
 import { AvatarContext } from '@/packages/avatargroup/AvatarContext'
 import bem from '@/utils/bem'
 import Icon from '@/packages/icon/index.rn'
-import { View, Text } from '@tarojs/components'
+import { View, Text, Image } from '@tarojs/components'
 import '@/packages/avatar/avatar.rn.scss'
 import { IComponent, ComponentDefaults } from '@/utils/typings'
 
@@ -93,15 +93,18 @@ export const Avatar: FunctionComponent<
   let styles: React.CSSProperties = {
     backgroundColor: `${bgColor}`,
     color: `${color}`,
-    marginLeft:
-      avatarIndex !== 1 && parent?.propAvatarGroup?.span
-        ? parent?.propAvatarGroup?.span
-        : 'auto',
     zIndex:
       parent?.propAvatarGroup?.zIndex === 'right'
         ? Math.abs(maxSum - avatarIndex)
         : 0,
     ...style,
+  }
+
+  if (avatarIndex !== 1 && parent?.propAvatarGroup?.span) {
+    styles['marginLeft'] =
+      avatarIndex !== 1 && parent?.propAvatarGroup?.span
+        ? parent?.propAvatarGroup?.span
+        : 'auto'
   }
 
   if (size != '' && size) {
@@ -175,17 +178,24 @@ export const Avatar: FunctionComponent<
           {(!parent?.propAvatarGroup?.maxCount ||
             avatarIndex <= parent?.propAvatarGroup?.maxCount) && (
             <>
-              {url && <img src={url} alt={alt} onError={errorEvent} />}
+              {url && (
+                <Image
+                  className={cls}
+                  style={!showMax ? styles : maxStyles}
+                  src={url}
+                  onError={errorEvent}
+                />
+              )}
               {icon && (
                 <Icon
                   classPrefix={iconClassPrefix}
                   fontClassName={iconFontClassName}
                   color={!showMax ? styles?.color : maxStyles?.color}
-                  className="icon"
+                  className={cls}
                   name={iconStyles}
                 />
               )}
-              {children && <span className="text">{children}</span>}
+              {children && <Text className="text">{children}</Text>}
             </>
           )}
           {showMax && (

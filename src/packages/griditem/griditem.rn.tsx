@@ -139,11 +139,11 @@ export const GridItem: FunctionComponent<
         ) : icon && icon != '' ? (
           <View className={'nut-grid-item__text'}>{icon}</View>
         ) : null}
-        {text && (
+        {text && text != '' ? (
           <View className={'nut-grid-item__text ' + contentTextClass()}>
             {text}
           </View>
-        )}
+        ) : null}
         {children && <>{children}</>}
       </View>
     </View>

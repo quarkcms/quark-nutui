@@ -1,12 +1,15 @@
-.avatar-demo {
-  .nut-cell {
-    align-items: flex-end;
-    border-radius: 0;
-    & > div {
-      margin-right: 30px;
-    }
-  }
+.nut-cell {
+  flex-direction: row;
+  align-items: flex-end;
+  width: 100%;
+  padding: $cell-padding;
+  background: $cell-background;
+  border-radius: $cell-border-radius;
+  box-shadow: 0px 1px 7px 0px rgba(237, 238, 241, 1);
+  color: $cell-color;
+  margin: 10px 0px 0px 0px;
 }
+
 .demo-avatar {
-  color: #fff;
+  margin-right: 30px;
 }

@@ -127,9 +127,9 @@ const GridDemo = () => {
           <GridItem icon="dongdong" text={translated.text} iconSize="40" />
         </Grid>
 
-        {/* <Text className="demo-h2-bm10">{translated.customContent}</Text>
+        <Text className="demo-h2-bm10">{translated.customContent}</Text>
         <Grid border={false}>
-          <GridItem icon="dongdong" text={<span>More</span>} />
+          <GridItem icon="dongdong" text={<Text>More</Text>} />
           <GridItem
             text={
               <Avatar
@@ -157,7 +157,7 @@ const GridDemo = () => {
               icon="https://img12.360buyimg.com/imagetools/jfs/t1/143702/31/16654/116794/5fc6f541Edebf8a57/4138097748889987.png"
             />
           </GridItem>
-        </Grid> */}
+        </Grid>
       </View>
     </>
   )
