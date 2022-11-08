@@ -48,7 +48,7 @@ const DividerDemo = () => {
         <Cell>
           <Divider>{translated.text}</Divider>
         </Cell>
-        <Text className="demo-h2">{translated.withText}</Text>
+        <Text className="demo-h2">{translated.contentPosition}</Text>
         <Cell>
           <Divider contentPosition="left">{translated.text}</Divider>
         </Cell>

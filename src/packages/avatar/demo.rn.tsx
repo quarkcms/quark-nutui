@@ -1,8 +1,9 @@
 import React from 'react'
 import { useTranslate } from '@/sites/assets/locale/taro'
 import { Cell, Badge, Avatar, AvatarGroup } from '@/packages/nutui.react.rn'
+import { View, Text } from '@tarojs/components'
 
-//import '@/packages/avatar/demo.scss'
+import '@/packages/avatar/demo.rn.scss'
 
 interface T {
   b040e71e: string
@@ -58,35 +59,41 @@ const AvatarDemo = () => {
   }
   return (
     <>
-      <div className="demo full avatar-demo">
-        <h2>{translated['67f78db5']}</h2>
-        <Cell>
+      <View className="demo full avatar-demo">
+        <Text className="demo-h2">{translated['67f78db5']}</Text>
+        <Cell className="nut-cell">
           <Avatar
+            className="demo-avatar"
             size="large"
             url="https://img12.360buyimg.com/imagetools/jfs/t1/143702/31/16654/116794/5fc6f541Edebf8a57/4138097748889987.png"
           />
           <Avatar
+            className="demo-avatar"
             size="normal"
             url="https://img12.360buyimg.com/imagetools/jfs/t1/143702/31/16654/116794/5fc6f541Edebf8a57/4138097748889987.png"
           />
           <Avatar
+            className="demo-avatar"
             size="small"
             url="https://img12.360buyimg.com/imagetools/jfs/t1/143702/31/16654/116794/5fc6f541Edebf8a57/4138097748889987.png"
           />
         </Cell>
-        <h2>{translated['3928b17e']}</h2>
-        <Cell>
-          <Avatar icon="my" shape="square" />
-          <Avatar icon="my" shape="round" />
+        <Text className="demo-h2">{translated['3928b17e']}</Text>
+        <Cell className="nut-cell">
+          <Avatar className="demo-avatar" icon="my" shape="square" />
+          <Avatar className="demo-avatar" icon="my" shape="round" />
         </Cell>
-        <h2>{translated['049b6a97']}</h2>
-        <Cell>
-          <Avatar url="https://img12.360buyimg.com/imagetools/jfs/t1/143702/31/16654/116794/5fc6f541Edebf8a57/4138097748889987.png" />
-          <Avatar icon="my" />
-          <Avatar>N</Avatar>
+        <Text className="demo-h2">{translated['049b6a97']}</Text>
+        <Cell className="nut-cell">
+          <Avatar
+            className="demo-avatar"
+            url="https://img12.360buyimg.com/imagetools/jfs/t1/143702/31/16654/116794/5fc6f541Edebf8a57/4138097748889987.png"
+          />
+          <Avatar className="demo-avatar" icon="my" />
+          <Avatar className="demo-avatar">N</Avatar>
         </Cell>
-        <h2>{translated.a304dabf}</h2>
-        <Cell>
+        <Text className="demo-h2">{translated['a304dabf']}</Text>
+        <Cell className="nut-cell">
           <Avatar
             className="demo-avatar"
             color="#fff"
@@ -97,8 +104,8 @@ const AvatarDemo = () => {
             U
           </Avatar>
         </Cell>
-        <h2>{translated['89bca4e7']}</h2>
-        <Cell>
+        <Text className="demo-h2">{translated['89bca4e7']}</Text>
+        <Cell className="nut-cell">
           <Badge value="8">
             <Avatar icon="my" shape="square" />
           </Badge>
@@ -106,8 +113,8 @@ const AvatarDemo = () => {
             <Avatar icon="my" shape="square" />
           </Badge>
         </Cell>
-        <h2>{translated.e981579e}</h2>
-        <Cell>
+        <Text className="demo-h2">{translated['e981579e']}</Text>
+        <Cell className="nut-cell">
           <AvatarGroup span="-4">
             <Avatar url="https://img12.360buyimg.com/imagetools/jfs/t1/196430/38/8105/14329/60c806a4Ed506298a/e6de9fb7b8490f38.png" />
             <Avatar icon="my" />
@@ -117,7 +124,7 @@ const AvatarDemo = () => {
           </AvatarGroup>
         </Cell>
 
-        <Cell>
+        <Cell className="nut-cell">
           <AvatarGroup maxCount="3" maxColor="#fff" maxBgColor="#498ff2">
             <Avatar url="https://img12.360buyimg.com/imagetools/jfs/t1/196430/38/8105/14329/60c806a4Ed506298a/e6de9fb7b8490f38.png" />
             <Avatar icon="my" />
@@ -127,8 +134,8 @@ const AvatarDemo = () => {
             <Avatar icon="my" />
           </AvatarGroup>
         </Cell>
-        <h2>{translated.f645fc65}</h2>
-        <Cell>
+        <Text className="demo-h2">{translated['f645fc65']}</Text>
+        <Cell className="nut-cell">
           <AvatarGroup maxCount="3" zIndex="right" maxContent="...">
             <Avatar url="https://img12.360buyimg.com/imagetools/jfs/t1/196430/38/8105/14329/60c806a4Ed506298a/e6de9fb7b8490f38.png" />
             <Avatar icon="my" />
@@ -138,11 +145,11 @@ const AvatarDemo = () => {
             <Avatar icon="my" />
           </AvatarGroup>
         </Cell>
-        <h2>{translated['43f00872']}</h2>
-        <Cell>
+        <Text className="demo-h2">{translated['43f00872']}</Text>
+        <Cell className="nut-cell">
           <Avatar icon="my" onActiveAvatar={activeAvatar} />
         </Cell>
-      </div>
+      </View>
     </>
   )
 }

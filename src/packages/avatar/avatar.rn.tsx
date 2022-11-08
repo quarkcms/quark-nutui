@@ -120,7 +120,8 @@ export const Avatar: FunctionComponent<
   const iconStyles = icon || ''
 
   useEffect(() => {
-    const avatarChildren = parent?.avatarGroupRef?.current.props.children
+    const avatarChildren = parent?.avatarGroupRef?.current.children
+    // console.log(parent?.avatarGroupRef?.current["$ref"].current['_children'])
     if (avatarChildren) {
       avatarLength(avatarChildren)
     }
@@ -140,11 +141,6 @@ export const Avatar: FunctionComponent<
     }
     const index = avatarRef?.current?.dataIndex
     const maxCount = parent?.propAvatarGroup?.maxCount
-
-    console.log('xxxxx')
-    console.log(index)
-    console.log(children.length)
-    console.log(maxCount)
 
     setMaxSum(children.length)
     setAvatarIndex(index)
@@ -168,8 +164,6 @@ export const Avatar: FunctionComponent<
     onActiveAvatar && onActiveAvatar(e)
   }
 
-  console.log(showMax)
-
   return (
     <>
       {(showMax ||
@@ -189,6 +183,7 @@ export const Avatar: FunctionComponent<
               {url && <Image className={cls} src={url} onError={errorEvent} />}
               {icon && (
                 <Icon
+                  className={cls}
                   classPrefix={iconClassPrefix}
                   fontClassName={iconFontClassName}
                   color={!showMax ? styles?.color : maxStyles?.color}
