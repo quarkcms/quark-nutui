@@ -155,8 +155,6 @@ export const Avatar: FunctionComponent<
     onActiveAvatar && onActiveAvatar(e)
   }
 
-  console.log(maxStyles)
-
   return (
     <>
       {(showMax ||
