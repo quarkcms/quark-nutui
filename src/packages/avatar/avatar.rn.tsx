@@ -23,6 +23,7 @@ export interface AvatarProps extends IComponent {
   url: string
   className: string
   alt: string
+  dataIndex: number
   style: React.CSSProperties
   activeAvatar: (e: MouseEvent) => void
   onActiveAvatar: (e: MouseEvent) => void
@@ -40,6 +41,7 @@ const defaultProps = {
   prefixCls: 'nut-avatar',
   url: '',
   alt: '',
+  dataIndex: 0,
 } as AvatarProps
 export const Avatar: FunctionComponent<
   Partial<AvatarProps> & React.HTMLAttributes<HTMLDivElement>
@@ -53,6 +55,7 @@ export const Avatar: FunctionComponent<
     color,
     url,
     alt,
+    dataIndex,
     icon,
     className,
     style,
@@ -120,33 +123,21 @@ export const Avatar: FunctionComponent<
   const iconStyles = icon || ''
 
   useEffect(() => {
-    const avatarChildren = parent?.avatarGroupRef?.current.children
-    // console.log(parent?.avatarGroupRef?.current["$ref"].current['_children'])
+    const avatarChildren = parent?.propAvatarGroup?.children
     if (avatarChildren) {
+      parent?.updateChildren?.()
       avatarLength(avatarChildren)
     }
   }, [])
 
-  // todo
   const avatarLength = (children: any) => {
-    for (let i = 0; i < children.length; i++) {
-      if (
-        children[i] &&
-        children[i].classList &&
-        (children[i].classList[0] === 'nut-avatar' ||
-          children[i].classList.values().next().value === 'nut-avatar')
-      ) {
-        children[i].setAttribute('dataIndex', i + 1)
-      }
-    }
-    const index = avatarRef?.current?.dataIndex
     const maxCount = parent?.propAvatarGroup?.maxCount
 
     setMaxSum(children.length)
-    setAvatarIndex(index)
+    setAvatarIndex(dataIndex)
     if (
-      index === children.length &&
-      index !== maxCount &&
+      dataIndex === children.length &&
+      dataIndex !== maxCount &&
       children.length > maxCount
     ) {
       setShowMax(true)
@@ -163,6 +154,8 @@ export const Avatar: FunctionComponent<
     activeAvatar && activeAvatar(e)
     onActiveAvatar && onActiveAvatar(e)
   }
+
+  console.log(maxStyles)
 
   return (
     <>
@@ -192,21 +185,24 @@ export const Avatar: FunctionComponent<
               )}
               {children && (
                 <Text
-                  style={{ color: !showMax ? styles?.color : maxStyles?.color }}
                   className="text"
+                  style={{ color: !showMax ? styles?.color : maxStyles?.color }}
                 >
                   {children}
                 </Text>
               )}
             </>
           )}
-          {showMax && (
-            <View className="text">
+          {showMax && parent?.propAvatarGroup?.maxCount ? (
+            <View
+              className="text"
+              style={{ color: !showMax ? styles?.color : maxStyles?.color }}
+            >
               {parent?.propAvatarGroup?.maxContent
                 ? parent?.propAvatarGroup?.maxContent
                 : `+ ${avatarIndex - parent?.propAvatarGroup?.maxCount}`}
             </View>
-          )}
+          ) : null}
         </View>
       )}
     </>
