@@ -1,6 +1,5 @@
 import React, { useRef } from 'react'
-import { Sticky } from './sticky.rn'
-import { Cell, Button } from '@/packages/nutui.react.rn'
+import { Cell, Button, Sticky } from '@/packages/nutui.react.rn'
 import { View, Text } from '@tarojs/components'
 
 const StickyDemo = () => {
