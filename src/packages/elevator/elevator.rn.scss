@@ -1,21 +1,16 @@
 .nut-elevator {
   width: 100%;
-  display: block;
   position: relative;
   overflow: hidden;
   &__list {
-    display: block;
     position: relative;
     top: 1px;
     overflow: hidden;
     &__inner {
       height: 100%;
       width: 100%;
-      display: block;
-      overflow: auto;
     }
     &__item {
-      display: block;
       font-size: $elevator-list-item-font-size;
       color: $elevator-list-item-font-color;
       &__code {
@@ -27,16 +22,6 @@
         color: $elevator-list-item-code-font-color;
         padding: $elevator-list-item-code-padding;
         font-weight: $elevator-list-item-code-font-weight;
-        box-sizing: border-box;
-        &::after {
-          content: ' ';
-          width: $elevator-list-item-code-after-width;
-          height: $elevator-list-item-code-after-height;
-          position: absolute;
-          left: 0;
-          bottom: 0;
-          background-color: $elevator-list-item-code-after-bg-color;
-        }
       }
       &__name {
         display: flex;
@@ -62,7 +47,6 @@
       color: $elevator-list-fixed-color;
       font-weight: $elevator-list-item-code-font-weight;
       background-color: $elevator-list-fixed-bg-color;
-      box-sizing: border-box;
       box-shadow: $elevator-list-fixed-box-shadow;
     }
   }
@@ -70,7 +54,6 @@
     position: $elevator-list-item-code-current-position;
     right: $elevator-list-item-code-current-right;
     top: $elevator-list-item-code-current-top;
-    transform: $elevator-list-item-code-current-transform;
     width: $elevator-list-item-code-current-width;
     height: $elevator-list-item-code-current-height;
     line-height: $elevator-list-item-code-current-line-height;
@@ -82,8 +65,7 @@
   &__bars {
     position: $elevator-list-item-bars-position;
     right: $elevator-list-item-bars-right;
-    top: $elevator-list-item-bars-top;
-    transform: $elevator-list-item-bars-transform;
+
     padding: $elevator-list-item-bars-padding;
     background-color: $elevator-list-item-bars-background-color;
     border-radius: $elevator-list-item-bars-border-radius;
@@ -91,13 +73,11 @@
     z-index: $elevator-list-item-bars-z-index;
     &__inner {
       &__item {
-        display: block;
         padding: $elevator-list-item-bars-inner-item-padding;
         font-size: $elevator-list-item-bars-inner-item-font-size;
         &--active {
           color: $elevator-list-item-bars-inner-item-active-color;
         }
-        cursor: pointer;
       }
     }
   }

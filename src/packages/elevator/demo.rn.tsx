@@ -1,7 +1,8 @@
 import React, { createContext } from 'react'
 import { useTranslate } from '@/sites/assets/locale/taro'
 import { Elevator } from '@/packages/nutui.react.rn'
-//import '@/packages/elevator/demo.scss'
+import { View, Text } from '@tarojs/components'
+import '@/packages/elevator/demo.rn.scss'
 
 export const elevatorContext = createContext({} as ElevatorData)
 
@@ -473,18 +474,18 @@ const ElevatorDemo = () => {
   }
   return (
     <>
-      <div className="demo">
-        <h2>{translated.basic}</h2>
-        <div className="demo-component">
+      <View className="demo">
+        <Text className="demo-h2">{translated.basic}</Text>
+        <View className="demo-component">
           <Elevator
             indexList={dataList}
             height="260"
             onClickItem={(key: string, item: any) => onClickItem(key, item)}
             onClickIndex={(key: string) => onClickIndex(key)}
           />
-        </div>
-        <h2>{translated.customIndex}</h2>
-        <div className="demo-component">
+        </View>
+        <Text className="demo-h2">{translated.customIndex}</Text>
+        <View className="demo-component">
           <Elevator
             className="test-elevator1"
             indexList={dataList2}
@@ -493,9 +494,9 @@ const ElevatorDemo = () => {
             onClickItem={(key: string, item: any) => onClickItem(key, item)}
             onClickIndex={(key: string) => onClickIndex(key)}
           />
-        </div>
-        <h2>{translated.sticky}</h2>
-        <div className="demo-component">
+        </View>
+        <Text className="demo-h2">{translated.sticky}</Text>
+        <View className="demo-component">
           <Elevator
             className="test-elevator2"
             indexList={dataList3}
@@ -504,29 +505,8 @@ const ElevatorDemo = () => {
             onClickItem={(key: string, item: any) => onClickItem(key, item)}
             onClickIndex={(key: string) => onClickIndex(key)}
           />
-        </div>
-        <h2>{translated.customContent}</h2>
-        <div className="demo-component">
-          {/* <Elevator
-          className="test-elevator3"
-          indexList={dataList}
-          height="260"
-          onClickItem={(key: string, item: any) => onClickItem(key, item)}
-          onClickIndex={(key: string) => onClickIndex(key)}
-        >
-          <elevatorContext.Consumer>
-            {(value) => {
-              return (
-                <>
-                  <Icon name="JD" size="12" />
-                  <span style={{ marginLeft: '15px' }}>{value?.name}</span>
-                </>
-              )
-            }}
-          </elevatorContext.Consumer>
-        </Elevator> */}
-        </div>
-      </div>
+        </View>
+      </View>
     </>
   )
 }
