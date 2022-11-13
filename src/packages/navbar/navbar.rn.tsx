@@ -1,8 +1,9 @@
 import React, { FunctionComponent } from 'react'
 import classNames from 'classnames'
-import Icon from '@/packages/icon/index.taro'
+import Icon from '@/packages/icon/index.rn'
 import bem from '@/utils/bem'
-
+import { View, Text } from '@tarojs/components'
+import '@/packages/navbar/navbar.rn.scss'
 import { IComponent, ComponentDefaults } from '@/utils/typings'
 
 export interface NavBarProps extends IComponent {
@@ -85,9 +86,11 @@ export const NavBar: FunctionComponent<Partial<NavBarProps>> = (props) => {
     }
   }
 
+  console.log(`${b('text')}`)
+
   const renderLeft = () => {
     return (
-      <div className={`${b('left')}`} onClick={(e) => onClickBack(e)}>
+      <View className={`${b('left')}`} onClick={(e) => onClickBack(e)}>
         {leftShow && (
           <Icon
             classPrefix={iconClassPrefix}
@@ -96,50 +99,50 @@ export const NavBar: FunctionComponent<Partial<NavBarProps>> = (props) => {
             color="#979797"
           />
         )}
-        {leftText && <div className={`${b('text')}`}>{leftText}</div>}
+        {leftText && <View className={`${b('text')}`}>{leftText}</View>}
         {slot.left}
-      </div>
+      </View>
     )
   }
 
   const renderContent = () => {
     return (
-      <div className={`${b('title')}`}>
+      <View className={`${b('title')}`}>
         {title && (
-          <div className="title" onClick={(e) => onClickTitle(e)}>
+          <View className="title" onClick={(e) => onClickTitle(e)}>
             {title}
-          </div>
+          </View>
         )}
         {titIcon && (
-          <div onClick={(e) => onClickIcon(e)}>
+          <View onClick={(e) => onClickIcon(e)}>
             <Icon
               classPrefix={iconClassPrefix}
               fontClassName={iconFontClassName}
               name={titIcon}
             />
-          </div>
+          </View>
         )}
         {slot.content}
-      </div>
+      </View>
     )
   }
 
   const renderRight = () => {
     return (
-      <div className={`${b('right')}`} onClick={(e) => onClickRight(e)}>
-        {desc && <div className={`${b('text')}`}>{desc}</div>}
+      <View className={`${b('right')}`} onClick={(e) => onClickRight(e)}>
+        {desc && <View className={`${b('text')}`}>{desc}</View>}
         {slot.right}
-      </div>
+      </View>
     )
   }
 
   const renderWrapper = () => {
     return (
-      <div className={cls} style={styles()}>
+      <View className={cls} style={styles()}>
         {renderLeft()}
         {renderContent()}
         {renderRight()}
-      </div>
+      </View>
     )
   }
 
@@ -154,7 +157,7 @@ export const NavBar: FunctionComponent<Partial<NavBarProps>> = (props) => {
   return (
     <>
       {fixed && placeholder ? (
-        <div className={`${b('')}--placeholder`}>{renderWrapper()}</div>
+        <View className={`${b('')}--placeholder`}>{renderWrapper()}</View>
       ) : (
         renderWrapper()
       )}
